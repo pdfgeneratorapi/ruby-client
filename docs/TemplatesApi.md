@@ -336,7 +336,7 @@ This endpoint does not need any parameter.
 
 ## merge_template
 
-> InlineResponse2004 merge_template(template_id, body, opts)
+> InlineResponse2004 merge_template(template_id, data, opts)
 
 Merge template
 
@@ -355,7 +355,7 @@ end
 
 api_instance = PDFGeneratorAPI::TemplatesApi.new
 template_id = 19375 # Integer | Template unique identifier
-body = nil # Object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+data = PDFGeneratorAPI::Data.new # Data | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 opts = {
   name: 'My document', # String | Document name, returned in the meta data.
   format: 'pdf', # String | Document format. The zip option will return a ZIP file with PDF files.
@@ -364,7 +364,7 @@ opts = {
 
 begin
   #Merge template
-  result = api_instance.merge_template(template_id, body, opts)
+  result = api_instance.merge_template(template_id, data, opts)
   p result
 rescue PDFGeneratorAPI::ApiError => e
   puts "Exception when calling TemplatesApi->merge_template: #{e}"
@@ -377,7 +377,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template_id** | **Integer**| Template unique identifier | 
- **body** | **Object**| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. | 
+ **data** | [**Data**](Data.md)| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. | 
  **name** | **String**| Document name, returned in the meta data. | [optional] 
  **format** | **String**| Document format. The zip option will return a ZIP file with PDF files. | [optional] [default to &#39;pdf&#39;]
  **output** | **String**| Response format. | [optional] [default to &#39;base64&#39;]

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cls** | **String** | Defines component class/type | [optional] 
+**id** | **String** | Component id | [optional] 
 **width** | **Float** | Width in units | [optional] 
 **height** | **Float** | Height in units | [optional] 
 **top** | **Float** | Position from the page top in units | [optional] 
@@ -18,7 +19,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'PDFGeneratorAPI'
 
-instance = PDFGeneratorAPI::Component.new(cls: numberComponent,
+instance = PDFGeneratorAPI::Component.new(cls: labelComponent,
+                                 id: component-12313,
                                  width: 3.5,
                                  height: 1,
                                  top: 4.2,

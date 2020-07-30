@@ -13,48 +13,24 @@ OpenAPI Generator version: 4.3.0
 require 'date'
 
 module PDFGeneratorAPI
-  class InlineResponse404
-    # Error description
-    attr_accessor :error
+  class Data
+    attr_accessor :id
 
-    # HTTP Error code
-    attr_accessor :status
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'error' => :'error',
-        :'status' => :'status'
+        :'id' => :'id',
+        :'name' => :'name'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'error' => :'String',
-        :'status' => :'Integer'
+        :'id' => :'Integer',
+        :'name' => :'String'
       }
     end
 
@@ -68,23 +44,23 @@ module PDFGeneratorAPI
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PDFGeneratorAPI::InlineResponse404` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PDFGeneratorAPI::Data` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PDFGeneratorAPI::InlineResponse404`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PDFGeneratorAPI::Data`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'error')
-        self.error = attributes[:'error']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -98,19 +74,7 @@ module PDFGeneratorAPI
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      error_validator = EnumAttributeValidator.new('String', ["Entity not found", "Resource not found"])
-      return false unless error_validator.valid?(@error)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] error Object to be assigned
-    def error=(error)
-      validator = EnumAttributeValidator.new('String', ["Entity not found", "Resource not found"])
-      unless validator.valid?(error)
-        fail ArgumentError, "invalid value for \"error\", must be one of #{validator.allowable_values}."
-      end
-      @error = error
     end
 
     # Checks equality by comparing each attribute.
@@ -118,8 +82,8 @@ module PDFGeneratorAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          error == o.error &&
-          status == o.status
+          id == o.id &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -131,7 +95,7 @@ module PDFGeneratorAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [error, status].hash
+      [id, name].hash
     end
 
     # Builds the object from hash
