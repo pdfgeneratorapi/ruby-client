@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**right** | **Float** | Page or label margin from right | [optional] 
-**bottom** | **Float** | Page or label margin from bottom | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **right** | **Float** | Page or label margin from right | [optional] |
+| **bottom** | **Float** | Page or label margin from bottom | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'PDFGeneratorAPI'
+require 'pdf_generator_api_client'
 
-instance = PDFGeneratorAPI::TemplateDefinitionNewMargins.new(right: 0.5,
-                                 bottom: 0.5)
+instance = PDFGeneratorAPI::TemplateDefinitionNewMargins.new(
+  right: 0.5,
+  bottom: 0.5
+)
 ```
-
 

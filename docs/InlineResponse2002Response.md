@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**success** | **Boolean** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **success** | **Boolean** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'PDFGeneratorAPI'
+require 'pdf_generator_api_client'
 
-instance = PDFGeneratorAPI::InlineResponse2002Response.new(success: true)
+instance = PDFGeneratorAPI::InlineResponse2002Response.new(
+  success: true
+)
 ```
-
 

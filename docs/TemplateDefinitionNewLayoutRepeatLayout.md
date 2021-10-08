@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**format** | **String** | Defines template page size | [optional] 
-**width** | **Float** | Page width in units | [optional] 
-**height** | **Float** | Page height in units | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **format** | **String** | Defines template page size | [optional] |
+| **width** | **Float** | Page width in units | [optional] |
+| **height** | **Float** | Page height in units | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'PDFGeneratorAPI'
+require 'pdf_generator_api_client'
 
-instance = PDFGeneratorAPI::TemplateDefinitionNewLayoutRepeatLayout.new(format: A4,
-                                 width: 21,
-                                 height: 29.7)
+instance = PDFGeneratorAPI::TemplateDefinitionNewLayoutRepeatLayout.new(
+  format: A4,
+  width: 21,
+  height: 29.7
+)
 ```
-
 

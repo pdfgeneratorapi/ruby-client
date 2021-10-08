@@ -10,209 +10,183 @@ OpenAPI Generator version: 5.2.1
 
 =end
 
-require 'date'
-require 'time'
+require 'cgi'
 
 module PDFGeneratorAPI
-  class InlineResponse2002Response
-    attr_accessor :success
+  class DocumentsApi
+    attr_accessor :api_client
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'success' => :'success'
-      }
+    def initialize(api_client = ApiClient.default)
+      @api_client = api_client
+    end
+    # Generate document
+    # Merges template with data and returns base64 encoded document or a public URL to a document. You can send json encoded data in request body or a public URL to your json file as the data parameter. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+    # @param template_id [Integer] Template unique identifier
+    # @param data [Data] Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :name Document name, returned in the meta data.
+    # @option opts [String] :format Document format. The zip option will return a ZIP file with PDF files. (default to 'pdf')
+    # @option opts [String] :output Response format. With the url option, the document is stored for 30 days and automatically deleted. (default to 'base64')
+    # @return [InlineResponse2004]
+    def merge_template(template_id, data, opts = {})
+      data, _status_code, _headers = merge_template_with_http_info(template_id, data, opts)
+      data
     end
 
-    # Returns all the JSON keys this model knows about
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
-    # Attribute type mapping.
-    def self.openapi_types
-      {
-        :'success' => :'Boolean'
-      }
-    end
-
-    # List of attributes with nullable: true
-    def self.openapi_nullable
-      Set.new([
-      ])
-    end
-
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PDFGeneratorAPI::InlineResponse2002Response` initialize method"
+    # Generate document
+    # Merges template with data and returns base64 encoded document or a public URL to a document. You can send json encoded data in request body or a public URL to your json file as the data parameter. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+    # @param template_id [Integer] Template unique identifier
+    # @param data [Data] Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :name Document name, returned in the meta data.
+    # @option opts [String] :format Document format. The zip option will return a ZIP file with PDF files.
+    # @option opts [String] :output Response format. With the url option, the document is stored for 30 days and automatically deleted.
+    # @return [Array<(InlineResponse2004, Integer, Hash)>] InlineResponse2004 data, response status code and response headers
+    def merge_template_with_http_info(template_id, data, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.merge_template ...'
       end
-
-      # check to see if the attribute exists and convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h|
-        if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PDFGeneratorAPI::InlineResponse2002Response`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
-        end
-        h[k.to_sym] = v
-      }
-
-      if attributes.key?(:'success')
-        self.success = attributes[:'success']
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling DocumentsApi.merge_template"
       end
-    end
-
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      invalid_properties
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      true
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          success == o.success
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Integer] Hash code
-    def hash
-      [success].hash
-    end
-
-    # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
-    # @return [Object] Returns the model itself
-    def self.build_from_hash(attributes)
-      new.build_from_hash(attributes)
-    end
-
-    # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
-    # @return [Object] Returns the model itself
-    def build_from_hash(attributes)
-      return nil unless attributes.is_a?(Hash)
-      self.class.openapi_types.each_pair do |key, type|
-        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
-          self.send("#{key}=", nil)
-        elsif type =~ /\AArray<(.*)>/i
-          # check to ensure the input is an array given that the attribute
-          # is documented as an array but the input is not
-          if attributes[self.class.attribute_map[key]].is_a?(Array)
-            self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
-          end
-        elsif !attributes[self.class.attribute_map[key]].nil?
-          self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
-        end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling DocumentsApi.merge_template"
       end
-
-      self
-    end
-
-    # Deserializes the data based on type
-    # @param string type Data type
-    # @param string value Value to be deserialized
-    # @return [Object] Deserialized data
-    def _deserialize(type, value)
-      case type.to_sym
-      when :Time
-        Time.parse(value)
-      when :Date
-        Date.parse(value)
-      when :String
-        value.to_s
-      when :Integer
-        value.to_i
-      when :Float
-        value.to_f
-      when :Boolean
-        if value.to_s =~ /\A(true|t|yes|y|1)\z/i
-          true
-        else
-          false
-        end
-      when :Object
-        # generic object (usually a Hash), return directly
-        value
-      when /\AArray<(?<inner_type>.+)>\z/
-        inner_type = Regexp.last_match[:inner_type]
-        value.map { |v| _deserialize(inner_type, v) }
-      when /\AHash<(?<k_type>.+?), (?<v_type>.+)>\z/
-        k_type = Regexp.last_match[:k_type]
-        v_type = Regexp.last_match[:v_type]
-        {}.tap do |hash|
-          value.each do |k, v|
-            hash[_deserialize(k_type, k)] = _deserialize(v_type, v)
-          end
-        end
-      else # model
-        # models (e.g. Pet) or oneOf
-        klass = PDFGeneratorAPI.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+      allowable_values = ["pdf", "html", "zip", "xlsx"]
+      if @api_client.config.client_side_validation && opts[:'format'] && !allowable_values.include?(opts[:'format'])
+        fail ArgumentError, "invalid value for \"format\", must be one of #{allowable_values}"
       end
-    end
-
-    # Returns the string representation of the object
-    # @return [String] String presentation of the object
-    def to_s
-      to_hash.to_s
-    end
-
-    # to_body is an alias to to_hash (backward compatibility)
-    # @return [Hash] Returns the object in the form of hash
-    def to_body
-      to_hash
-    end
-
-    # Returns the object in the form of hash
-    # @return [Hash] Returns the object in the form of hash
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
+      allowable_values = ["base64", "url", "I"]
+      if @api_client.config.client_side_validation && opts[:'output'] && !allowable_values.include?(opts[:'output'])
+        fail ArgumentError, "invalid value for \"output\", must be one of #{allowable_values}"
       end
-      hash
-    end
+      # resource path
+      local_var_path = '/templates/templateId/output'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
 
-    # Outputs non-array value in the form of hash
-    # For object, use to_hash. Otherwise, just return the value
-    # @param [Object] value Any valid value
-    # @return [Hash] Returns the value in the form of hash
-    def _to_hash(value)
-      if value.is_a?(Array)
-        value.compact.map { |v| _to_hash(v) }
-      elsif value.is_a?(Hash)
-        {}.tap do |hash|
-          value.each { |k, v| hash[k] = _to_hash(v) }
-        end
-      elsif value.respond_to? :to_hash
-        value.to_hash
-      else
-        value
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'format'] = opts[:'format'] if !opts[:'format'].nil?
+      query_params[:'output'] = opts[:'output'] if !opts[:'output'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InlineResponse2004'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['JSONWebTokenAuth']
+
+      new_options = opts.merge(
+        :operation => :"DocumentsApi.merge_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DocumentsApi#merge_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
+      return data, status_code, headers
     end
 
+    # Generate document (multiple templates)
+    # Allows to merge multiples template with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+    # @param request_body [Array<Object>] Data used to specify templates and data objects which are used to merge the template
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :name Document name, returned in the meta data.
+    # @option opts [String] :format Document format. The zip option will return a ZIP file with PDF files. (default to 'pdf')
+    # @option opts [String] :output Response format. With the url option, the document is stored for 30 days and automatically deleted. (default to 'base64')
+    # @return [InlineResponse2004]
+    def merge_templates(request_body, opts = {})
+      data, _status_code, _headers = merge_templates_with_http_info(request_body, opts)
+      data
+    end
+
+    # Generate document (multiple templates)
+    # Allows to merge multiples template with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+    # @param request_body [Array<Object>] Data used to specify templates and data objects which are used to merge the template
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :name Document name, returned in the meta data.
+    # @option opts [String] :format Document format. The zip option will return a ZIP file with PDF files.
+    # @option opts [String] :output Response format. With the url option, the document is stored for 30 days and automatically deleted.
+    # @return [Array<(InlineResponse2004, Integer, Hash)>] InlineResponse2004 data, response status code and response headers
+    def merge_templates_with_http_info(request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.merge_templates ...'
+      end
+      # verify the required parameter 'request_body' is set
+      if @api_client.config.client_side_validation && request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'request_body' when calling DocumentsApi.merge_templates"
+      end
+      allowable_values = ["pdf", "html", "zip", "xlsx"]
+      if @api_client.config.client_side_validation && opts[:'format'] && !allowable_values.include?(opts[:'format'])
+        fail ArgumentError, "invalid value for \"format\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["base64", "url", "I"]
+      if @api_client.config.client_side_validation && opts[:'output'] && !allowable_values.include?(opts[:'output'])
+        fail ArgumentError, "invalid value for \"output\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/templates/output'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'format'] = opts[:'format'] if !opts[:'format'].nil?
+      query_params[:'output'] = opts[:'output'] if !opts[:'output'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InlineResponse2004'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['JSONWebTokenAuth']
+
+      new_options = opts.merge(
+        :operation => :"DocumentsApi.merge_templates",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DocumentsApi#merge_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
-
 end

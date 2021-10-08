@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**sort_by** | **Array&lt;Object&gt;** |  | [optional] 
-**filter_by** | **Array&lt;Object&gt;** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **sort_by** | **Array&lt;Object&gt;** |  | [optional] |
+| **filter_by** | **Array&lt;Object&gt;** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'PDFGeneratorAPI'
+require 'pdf_generator_api_client'
 
-instance = PDFGeneratorAPI::TemplateDefinitionDataSettings.new(sort_by: null,
-                                 filter_by: null)
+instance = PDFGeneratorAPI::TemplateDefinitionDataSettings.new(
+  sort_by: null,
+  filter_by: null
+)
 ```
-
 

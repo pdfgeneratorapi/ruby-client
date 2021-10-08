@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**error** | **String** | Error description | [optional] 
-**status** | **Integer** | HTTP Error code | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **error** | **String** | Error description | [optional] |
+| **status** | **Integer** | HTTP Error code | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'PDFGeneratorAPI'
+require 'pdf_generator_api_client'
 
-instance = PDFGeneratorAPI::InlineResponse403.new(error: Access not granted,
-                                 status: 403)
+instance = PDFGeneratorAPI::InlineResponse403.new(
+  error: Access not granted,
+  status: 403
+)
 ```
-
 

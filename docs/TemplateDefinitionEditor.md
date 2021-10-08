@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**height_multiplier** | **Float** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **height_multiplier** | **Float** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'PDFGeneratorAPI'
+require 'pdf_generator_api_client'
 
-instance = PDFGeneratorAPI::TemplateDefinitionEditor.new(height_multiplier: 2)
+instance = PDFGeneratorAPI::TemplateDefinitionEditor.new(
+  height_multiplier: 2
+)
 ```
-
 

@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **Integer** |  | [optional] 
-**name** | **String** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  | [optional] |
+| **name** | **String** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'PDFGeneratorAPI'
+require 'pdf_generator_api_client'
 
-instance = PDFGeneratorAPI::Data.new(id: 12312,
-                                 name: Sample Data)
+instance = PDFGeneratorAPI::Data.new(
+  id: 12312,
+  name: Sample Data
+)
 ```
-
 
