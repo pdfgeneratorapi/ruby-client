@@ -43,7 +43,7 @@ module PDFGeneratorAPI
         fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.delete_workspace"
       end
       # resource path
-      local_var_path = '/workspaces/workspaceId'.sub('{' + 'workspaceId' + '}', CGI.escape(workspace_id.to_s))
+      local_var_path = '/workspaces/{workspaceId}'.sub('{' + 'workspaceId' + '}', CGI.escape(workspace_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -106,7 +106,7 @@ module PDFGeneratorAPI
         fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.get_workspace"
       end
       # resource path
-      local_var_path = '/workspaces/workspaceId'.sub('{' + 'workspaceId' + '}', CGI.escape(workspace_id.to_s))
+      local_var_path = '/workspaces/{workspaceId}'.sub('{' + 'workspaceId' + '}', CGI.escape(workspace_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

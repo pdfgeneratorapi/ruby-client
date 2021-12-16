@@ -104,7 +104,7 @@ module PDFGeneratorAPI
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      error_validator = EnumAttributeValidator.new('String', ["Authentication failed: request expired", "Authentication failed: signature or secret missing", "Authentication failed: workspace missing", "Authentication failed: key missing", "Authentication failed: property 'iss' (issuer) missing in JWT", "Authentication failed: property 'sub' (subject) missing in JWT", "Authentication failed: property 'exp' (expiration time) missing in JWT", "Authentication failed: invalid 'iss' (issuer)", "Authentication failed: incorrect signature", "Authentication failed"])
+      error_validator = EnumAttributeValidator.new('String', ["Authentication failed: request expired", "Authentication failed: signature or secret missing", "Authentication failed: workspace missing", "Authentication failed: key missing", "Authentication failed: property iss (issuer) missing in JWT", "Authentication failed: property sub (subject) missing in JWT", "Authentication failed: property exp (expiration time) missing in JWT", "Authentication failed: invalid iss (issuer)", "Authentication failed: incorrect signature", "Authentication failed"])
       return false unless error_validator.valid?(@error)
       true
     end
@@ -112,7 +112,7 @@ module PDFGeneratorAPI
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] error Object to be assigned
     def error=(error)
-      validator = EnumAttributeValidator.new('String', ["Authentication failed: request expired", "Authentication failed: signature or secret missing", "Authentication failed: workspace missing", "Authentication failed: key missing", "Authentication failed: property 'iss' (issuer) missing in JWT", "Authentication failed: property 'sub' (subject) missing in JWT", "Authentication failed: property 'exp' (expiration time) missing in JWT", "Authentication failed: invalid 'iss' (issuer)", "Authentication failed: incorrect signature", "Authentication failed"])
+      validator = EnumAttributeValidator.new('String', ["Authentication failed: request expired", "Authentication failed: signature or secret missing", "Authentication failed: workspace missing", "Authentication failed: key missing", "Authentication failed: property iss (issuer) missing in JWT", "Authentication failed: property sub (subject) missing in JWT", "Authentication failed: property exp (expiration time) missing in JWT", "Authentication failed: invalid iss (issuer)", "Authentication failed: incorrect signature", "Authentication failed"])
       unless validator.valid?(error)
         fail ArgumentError, "invalid value for \"error\", must be one of #{validator.allowable_values}."
       end

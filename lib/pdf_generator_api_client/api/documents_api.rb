@@ -63,7 +63,7 @@ module PDFGeneratorAPI
         fail ArgumentError, "invalid value for \"output\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/templates/templateId/output'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
+      local_var_path = '/templates/{templateId}/output'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -108,7 +108,7 @@ module PDFGeneratorAPI
     end
 
     # Generate document (multiple templates)
-    # Allows to merge multiples template with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+    # Allows to merge multiple templated with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
     # @param request_body [Array<Object>] Data used to specify templates and data objects which are used to merge the template
     # @param [Hash] opts the optional parameters
     # @option opts [String] :name Document name, returned in the meta data.
@@ -121,7 +121,7 @@ module PDFGeneratorAPI
     end
 
     # Generate document (multiple templates)
-    # Allows to merge multiples template with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+    # Allows to merge multiple templated with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
     # @param request_body [Array<Object>] Data used to specify templates and data objects which are used to merge the template
     # @param [Hash] opts the optional parameters
     # @option opts [String] :name Document name, returned in the meta data.

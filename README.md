@@ -274,17 +274,17 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PDFGeneratorAPI::DocumentsApi* | [**merge_template**](docs/DocumentsApi.md#merge_template) | **POST** /templates/templateId/output | Generate document
+*PDFGeneratorAPI::DocumentsApi* | [**merge_template**](docs/DocumentsApi.md#merge_template) | **POST** /templates/{templateId}/output | Generate document
 *PDFGeneratorAPI::DocumentsApi* | [**merge_templates**](docs/DocumentsApi.md#merge_templates) | **POST** /templates/output | Generate document (multiple templates)
-*PDFGeneratorAPI::TemplatesApi* | [**copy_template**](docs/TemplatesApi.md#copy_template) | **POST** /templates/templateId/copy | Copy template
+*PDFGeneratorAPI::TemplatesApi* | [**copy_template**](docs/TemplatesApi.md#copy_template) | **POST** /templates/{templateId}/copy | Copy template
 *PDFGeneratorAPI::TemplatesApi* | [**create_template**](docs/TemplatesApi.md#create_template) | **POST** /templates | Create template
-*PDFGeneratorAPI::TemplatesApi* | [**delete_template**](docs/TemplatesApi.md#delete_template) | **DELETE** /templates/templateId | Delete template
-*PDFGeneratorAPI::TemplatesApi* | [**get_editor_url**](docs/TemplatesApi.md#get_editor_url) | **POST** /templates/templateId/editor | Open editor
-*PDFGeneratorAPI::TemplatesApi* | [**get_template**](docs/TemplatesApi.md#get_template) | **GET** /templates/templateId | Get template
+*PDFGeneratorAPI::TemplatesApi* | [**delete_template**](docs/TemplatesApi.md#delete_template) | **DELETE** /templates/{templateId} | Delete template
+*PDFGeneratorAPI::TemplatesApi* | [**get_editor_url**](docs/TemplatesApi.md#get_editor_url) | **POST** /templates/{templateId}/editor | Open editor
+*PDFGeneratorAPI::TemplatesApi* | [**get_template**](docs/TemplatesApi.md#get_template) | **GET** /templates/{templateId} | Get template
 *PDFGeneratorAPI::TemplatesApi* | [**get_templates**](docs/TemplatesApi.md#get_templates) | **GET** /templates | Get templates
-*PDFGeneratorAPI::TemplatesApi* | [**update_template**](docs/TemplatesApi.md#update_template) | **PUT** /templates/templateId | Update template
-*PDFGeneratorAPI::WorkspacesApi* | [**delete_workspace**](docs/WorkspacesApi.md#delete_workspace) | **DELETE** /workspaces/workspaceId | Delete workspace
-*PDFGeneratorAPI::WorkspacesApi* | [**get_workspace**](docs/WorkspacesApi.md#get_workspace) | **GET** /workspaces/workspaceId | Get workspace
+*PDFGeneratorAPI::TemplatesApi* | [**update_template**](docs/TemplatesApi.md#update_template) | **PUT** /templates/{templateId} | Update template
+*PDFGeneratorAPI::WorkspacesApi* | [**delete_workspace**](docs/WorkspacesApi.md#delete_workspace) | **DELETE** /workspaces/{workspaceId} | Delete workspace
+*PDFGeneratorAPI::WorkspacesApi* | [**get_workspace**](docs/WorkspacesApi.md#get_workspace) | **GET** /workspaces/{workspaceId} | Get workspace
 
 
 ## Documentation for Models

@@ -45,7 +45,7 @@ module PDFGeneratorAPI
         fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.copy_template"
       end
       # resource path
-      local_var_path = '/templates/templateId/copy'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
+      local_var_path = '/templates/{templateId}/copy'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -174,7 +174,7 @@ module PDFGeneratorAPI
         fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.delete_template"
       end
       # resource path
-      local_var_path = '/templates/templateId'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
+      local_var_path = '/templates/{templateId}'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -249,7 +249,7 @@ module PDFGeneratorAPI
         fail ArgumentError, "invalid value for \"language\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/templates/templateId/editor'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
+      local_var_path = '/templates/{templateId}/editor'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -315,7 +315,7 @@ module PDFGeneratorAPI
         fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.get_template"
       end
       # resource path
-      local_var_path = '/templates/templateId'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
+      local_var_path = '/templates/{templateId}'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -441,7 +441,7 @@ module PDFGeneratorAPI
         fail ArgumentError, "Missing the required parameter 'template_definition_new' when calling TemplatesApi.update_template"
       end
       # resource path
-      local_var_path = '/templates/templateId'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
+      local_var_path = '/templates/{templateId}'.sub('{' + 'templateId' + '}', CGI.escape(template_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
