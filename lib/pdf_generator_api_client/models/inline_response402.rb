@@ -14,26 +14,40 @@ require 'date'
 require 'time'
 
 module PDFGeneratorAPI
-  class InlineResponse2004Meta
-    # Document name. This value is automatically generated if name attribute is not defined in request.
-    attr_accessor :name
+  class InlineResponse402
+    # Error description
+    attr_accessor :error
 
-    # Document name without the file extension.
-    attr_accessor :display_name
+    # HTTP Error code
+    attr_accessor :status
 
-    # Document encoding
-    attr_accessor :encoding
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
 
-    # Document content type.
-    attr_accessor :content_type
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'display_name' => :'display_name',
-        :'encoding' => :'encoding',
-        :'content_type' => :'content-type'
+        :'error' => :'error',
+        :'status' => :'status'
       }
     end
 
@@ -45,10 +59,8 @@ module PDFGeneratorAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'display_name' => :'String',
-        :'encoding' => :'String',
-        :'content_type' => :'String'
+        :'error' => :'String',
+        :'status' => :'Integer'
       }
     end
 
@@ -62,31 +74,23 @@ module PDFGeneratorAPI
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PDFGeneratorAPI::InlineResponse2004Meta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PDFGeneratorAPI::InlineResponse402` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PDFGeneratorAPI::InlineResponse2004Meta`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PDFGeneratorAPI::InlineResponse402`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
       end
 
-      if attributes.key?(:'display_name')
-        self.display_name = attributes[:'display_name']
-      end
-
-      if attributes.key?(:'encoding')
-        self.encoding = attributes[:'encoding']
-      end
-
-      if attributes.key?(:'content_type')
-        self.content_type = attributes[:'content_type']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
     end
 
@@ -100,7 +104,19 @@ module PDFGeneratorAPI
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      error_validator = EnumAttributeValidator.new('String', ["Your account is suspended, please upgrade your account or contact support@pdfgeneratorapi.com"])
+      return false unless error_validator.valid?(@error)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] error Object to be assigned
+    def error=(error)
+      validator = EnumAttributeValidator.new('String', ["Your account is suspended, please upgrade your account or contact support@pdfgeneratorapi.com"])
+      unless validator.valid?(error)
+        fail ArgumentError, "invalid value for \"error\", must be one of #{validator.allowable_values}."
+      end
+      @error = error
     end
 
     # Checks equality by comparing each attribute.
@@ -108,10 +124,8 @@ module PDFGeneratorAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          display_name == o.display_name &&
-          encoding == o.encoding &&
-          content_type == o.content_type
+          error == o.error &&
+          status == o.status
     end
 
     # @see the `==` method
@@ -123,7 +137,7 @@ module PDFGeneratorAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, display_name, encoding, content_type].hash
+      [error, status].hash
     end
 
     # Builds the object from hash

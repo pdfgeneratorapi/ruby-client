@@ -10,7 +10,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
 
 ## merge_template
 
-> <InlineResponse2004> merge_template(template_id, data, opts)
+> <InlineResponse2004> merge_template(template_id, body, opts)
 
 Generate document
 
@@ -29,16 +29,16 @@ end
 
 api_instance = PDFGeneratorAPI::DocumentsApi.new
 template_id = 19375 # Integer | Template unique identifier
-data = PDFGeneratorAPI::Data.new # Data | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+body = Object # Object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 opts = {
   name: 'My document', # String | Document name, returned in the meta data.
   format: 'pdf', # String | Document format. The zip option will return a ZIP file with PDF files.
-  output: 'base64' # String | Response format. With the url option, the document is stored for 30 days and automatically deleted.
+  output: 'base64' # String | Response format. \"I\" is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted.
 }
 
 begin
   # Generate document
-  result = api_instance.merge_template(template_id, data, opts)
+  result = api_instance.merge_template(template_id, body, opts)
   p result
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->merge_template: #{e}"
@@ -49,12 +49,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2004>, Integer, Hash)> merge_template_with_http_info(template_id, data, opts)
+> <Array(<InlineResponse2004>, Integer, Hash)> merge_template_with_http_info(template_id, body, opts)
 
 ```ruby
 begin
   # Generate document
-  data, status_code, headers = api_instance.merge_template_with_http_info(template_id, data, opts)
+  data, status_code, headers = api_instance.merge_template_with_http_info(template_id, body, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <InlineResponse2004>
@@ -68,10 +68,10 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **template_id** | **Integer** | Template unique identifier |  |
-| **data** | [**Data**](Data.md) | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. |  |
+| **body** | **Object** | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. |  |
 | **name** | **String** | Document name, returned in the meta data. | [optional] |
 | **format** | **String** | Document format. The zip option will return a ZIP file with PDF files. | [optional][default to &#39;pdf&#39;] |
-| **output** | **String** | Response format. With the url option, the document is stored for 30 days and automatically deleted. | [optional][default to &#39;base64&#39;] |
+| **output** | **String** | Response format. \&quot;I\&quot; is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. | [optional][default to &#39;base64&#39;] |
 
 ### Return type
 
@@ -93,7 +93,7 @@ end
 
 Generate document (multiple templates)
 
-Allows to merge multiple templated with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+Allows to merge multiple templates with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
 
 ### Examples
 
@@ -111,7 +111,7 @@ request_body = [3.56] # Array<Object> | Data used to specify templates and data 
 opts = {
   name: 'My document', # String | Document name, returned in the meta data.
   format: 'pdf', # String | Document format. The zip option will return a ZIP file with PDF files.
-  output: 'base64' # String | Response format. With the url option, the document is stored for 30 days and automatically deleted.
+  output: 'base64' # String | Response format. \"I\" is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted.
 }
 
 begin
@@ -148,7 +148,7 @@ end
 | **request_body** | [**Array&lt;Object&gt;**](Object.md) | Data used to specify templates and data objects which are used to merge the template |  |
 | **name** | **String** | Document name, returned in the meta data. | [optional] |
 | **format** | **String** | Document format. The zip option will return a ZIP file with PDF files. | [optional][default to &#39;pdf&#39;] |
-| **output** | **String** | Response format. With the url option, the document is stored for 30 days and automatically deleted. | [optional][default to &#39;base64&#39;] |
+| **output** | **String** | Response format. \&quot;I\&quot; is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. | [optional][default to &#39;base64&#39;] |
 
 ### Return type
 
