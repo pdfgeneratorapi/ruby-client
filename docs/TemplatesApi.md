@@ -1,15 +1,16 @@
 # PDFGeneratorAPI::TemplatesApi
 
-All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
+All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**copy_template**](TemplatesApi.md#copy_template) | **POST** /templates/{templateId}/copy | Copy template |
 | [**create_template**](TemplatesApi.md#create_template) | **POST** /templates | Create template |
 | [**delete_template**](TemplatesApi.md#delete_template) | **DELETE** /templates/{templateId} | Delete template |
-| [**get_editor_url**](TemplatesApi.md#get_editor_url) | **POST** /templates/{templateId}/editor | Open editor |
 | [**get_template**](TemplatesApi.md#get_template) | **GET** /templates/{templateId} | Get template |
+| [**get_template_data**](TemplatesApi.md#get_template_data) | **GET** /templates/{templateId}/data | Get template data fields |
 | [**get_templates**](TemplatesApi.md#get_templates) | **GET** /templates | Get templates |
+| [**open_editor**](TemplatesApi.md#open_editor) | **POST** /templates/{templateId}/editor | Open editor |
 | [**update_template**](TemplatesApi.md#update_template) | **PUT** /templates/{templateId} | Update template |
 
 
@@ -35,7 +36,7 @@ end
 api_instance = PDFGeneratorAPI::TemplatesApi.new
 template_id = 19375 # Integer | Template unique identifier
 opts = {
-  name: 'My copied template' # String | Name for the copied template. If name is not specified then the original name is used.
+  copy_template_request: PDFGeneratorAPI::CopyTemplateRequest.new # CopyTemplateRequest | 
 }
 
 begin
@@ -70,7 +71,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **template_id** | **Integer** | Template unique identifier |  |
-| **name** | **String** | Name for the copied template. If name is not specified then the original name is used. | [optional] |
+| **copy_template_request** | [**CopyTemplateRequest**](CopyTemplateRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -82,7 +83,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -157,7 +158,7 @@ end
 
 ## delete_template
 
-> <DeleteTemplate200Response> delete_template(template_id)
+> <DeleteTemplate204Response> delete_template(template_id)
 
 Delete template
 
@@ -190,7 +191,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DeleteTemplate200Response>, Integer, Hash)> delete_template_with_http_info(template_id)
+> <Array(<DeleteTemplate204Response>, Integer, Hash)> delete_template_with_http_info(template_id)
 
 ```ruby
 begin
@@ -198,7 +199,7 @@ begin
   data, status_code, headers = api_instance.delete_template_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DeleteTemplate200Response>
+  p data # => <DeleteTemplate204Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->delete_template_with_http_info: #{e}"
 end
@@ -212,7 +213,7 @@ end
 
 ### Return type
 
-[**DeleteTemplate200Response**](DeleteTemplate200Response.md)
+[**DeleteTemplate204Response**](DeleteTemplate204Response.md)
 
 ### Authorization
 
@@ -221,81 +222,6 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_editor_url
-
-> <GetEditorUrl200Response> get_editor_url(template_id, body, opts)
-
-Open editor
-
-Returns an unique URL which you can use to redirect your user to the editor from your application or use the generated URL as iframe source to show the editor within your application. When using iframe, make sure that your browser allows third-party cookies. 
-
-### Examples
-
-```ruby
-require 'time'
-require 'pdf_generator_api_client'
-# setup authorization
-PDFGeneratorAPI.configure do |config|
-  # Configure Bearer authorization (JWT): JSONWebTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = PDFGeneratorAPI::TemplatesApi.new
-template_id = 19375 # Integer | Template unique identifier
-body = { ... } # Object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
-opts = {
-  language: 'en' # String | Specify the editor UI language. Defaults to organization editor language.
-}
-
-begin
-  # Open editor
-  result = api_instance.get_editor_url(template_id, body, opts)
-  p result
-rescue PDFGeneratorAPI::ApiError => e
-  puts "Error when calling TemplatesApi->get_editor_url: #{e}"
-end
-```
-
-#### Using the get_editor_url_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<GetEditorUrl200Response>, Integer, Hash)> get_editor_url_with_http_info(template_id, body, opts)
-
-```ruby
-begin
-  # Open editor
-  data, status_code, headers = api_instance.get_editor_url_with_http_info(template_id, body, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <GetEditorUrl200Response>
-rescue PDFGeneratorAPI::ApiError => e
-  puts "Error when calling TemplatesApi->get_editor_url_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **template_id** | **Integer** | Template unique identifier |  |
-| **body** | **Object** | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. |  |
-| **language** | **String** | Specify the editor UI language. Defaults to organization editor language. | [optional] |
-
-### Return type
-
-[**GetEditorUrl200Response**](GetEditorUrl200Response.md)
-
-### Authorization
-
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -368,9 +294,78 @@ end
 - **Accept**: application/json
 
 
+## get_template_data
+
+> <GetTemplateData200Response> get_template_data(template_id)
+
+Get template data fields
+
+Returns all data fields used in the template. Returns structured JSON data that can be used to check which data fields are used in template or autogenerate sample data. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'pdf_generator_api_client'
+# setup authorization
+PDFGeneratorAPI.configure do |config|
+  # Configure Bearer authorization (JWT): JSONWebTokenAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PDFGeneratorAPI::TemplatesApi.new
+template_id = 19375 # Integer | Template unique identifier
+
+begin
+  # Get template data fields
+  result = api_instance.get_template_data(template_id)
+  p result
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling TemplatesApi->get_template_data: #{e}"
+end
+```
+
+#### Using the get_template_data_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetTemplateData200Response>, Integer, Hash)> get_template_data_with_http_info(template_id)
+
+```ruby
+begin
+  # Get template data fields
+  data, status_code, headers = api_instance.get_template_data_with_http_info(template_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetTemplateData200Response>
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling TemplatesApi->get_template_data_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **template_id** | **Integer** | Template unique identifier |  |
+
+### Return type
+
+[**GetTemplateData200Response**](GetTemplateData200Response.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_templates
 
-> <GetTemplates200Response> get_templates
+> <GetTemplates200Response> get_templates(opts)
 
 Get templates
 
@@ -388,10 +383,15 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::TemplatesApi.new
+opts = {
+  name: 'name_example', # String | Filter template by name
+  tags: 'tags_example', # String | Filter template by tags
+  access: 'private' # String | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates.
+}
 
 begin
   # Get templates
-  result = api_instance.get_templates
+  result = api_instance.get_templates(opts)
   p result
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->get_templates: #{e}"
@@ -402,12 +402,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetTemplates200Response>, Integer, Hash)> get_templates_with_http_info
+> <Array(<GetTemplates200Response>, Integer, Hash)> get_templates_with_http_info(opts)
 
 ```ruby
 begin
   # Get templates
-  data, status_code, headers = api_instance.get_templates_with_http_info
+  data, status_code, headers = api_instance.get_templates_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <GetTemplates200Response>
@@ -418,7 +418,11 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **name** | **String** | Filter template by name | [optional] |
+| **tags** | **String** | Filter template by tags | [optional] |
+| **access** | **String** | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates. | [optional][default to &#39;&#39;] |
 
 ### Return type
 
@@ -431,6 +435,77 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## open_editor
+
+> <OpenEditor200Response> open_editor(template_id, open_editor_request)
+
+Open editor
+
+Returns an unique URL which you can use to redirect your user to the editor from your application or use the generated URL as iframe source to show the editor within your application. When using iframe, make sure that your browser allows third-party cookies. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'pdf_generator_api_client'
+# setup authorization
+PDFGeneratorAPI.configure do |config|
+  # Configure Bearer authorization (JWT): JSONWebTokenAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PDFGeneratorAPI::TemplatesApi.new
+template_id = 19375 # Integer | Template unique identifier
+open_editor_request = PDFGeneratorAPI::OpenEditorRequest.new # OpenEditorRequest | 
+
+begin
+  # Open editor
+  result = api_instance.open_editor(template_id, open_editor_request)
+  p result
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling TemplatesApi->open_editor: #{e}"
+end
+```
+
+#### Using the open_editor_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<OpenEditor200Response>, Integer, Hash)> open_editor_with_http_info(template_id, open_editor_request)
+
+```ruby
+begin
+  # Open editor
+  data, status_code, headers = api_instance.open_editor_with_http_info(template_id, open_editor_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <OpenEditor200Response>
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling TemplatesApi->open_editor_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **template_id** | **Integer** | Template unique identifier |  |
+| **open_editor_request** | [**OpenEditorRequest**](OpenEditorRequest.md) |  |  |
+
+### Return type
+
+[**OpenEditor200Response**](OpenEditor200Response.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
