@@ -10,7 +10,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
 
 ## merge_template
 
-> <InlineResponse2004> merge_template(template_id, body, opts)
+> <MergeTemplate200Response> merge_template(template_id, body, opts)
 
 Generate document
 
@@ -29,7 +29,7 @@ end
 
 api_instance = PDFGeneratorAPI::DocumentsApi.new
 template_id = 19375 # Integer | Template unique identifier
-body = Object # Object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+body = { ... } # Object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 opts = {
   name: 'My document', # String | Document name, returned in the meta data.
   format: 'pdf', # String | Document format. The zip option will return a ZIP file with PDF files.
@@ -49,7 +49,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2004>, Integer, Hash)> merge_template_with_http_info(template_id, body, opts)
+> <Array(<MergeTemplate200Response>, Integer, Hash)> merge_template_with_http_info(template_id, body, opts)
 
 ```ruby
 begin
@@ -57,7 +57,7 @@ begin
   data, status_code, headers = api_instance.merge_template_with_http_info(template_id, body, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse2004>
+  p data # => <MergeTemplate200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->merge_template_with_http_info: #{e}"
 end
@@ -70,12 +70,12 @@ end
 | **template_id** | **Integer** | Template unique identifier |  |
 | **body** | **Object** | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. |  |
 | **name** | **String** | Document name, returned in the meta data. | [optional] |
-| **format** | **String** | Document format. The zip option will return a ZIP file with PDF files. | [optional][default to &#39;pdf&#39;] |
-| **output** | **String** | Response format. \&quot;I\&quot; is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. | [optional][default to &#39;base64&#39;] |
+| **format** | **String** | Document format. The zip option will return a ZIP file with PDF files. | [optional] |
+| **output** | **String** | Response format. \&quot;I\&quot; is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. | [optional] |
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**MergeTemplate200Response**](MergeTemplate200Response.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ end
 
 ## merge_templates
 
-> <InlineResponse2004> merge_templates(request_body, opts)
+> <MergeTemplate200Response> merge_templates(batch_data_inner, opts)
 
 Generate document (multiple templates)
 
@@ -107,7 +107,7 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::DocumentsApi.new
-request_body = [3.56] # Array<Object> | Data used to specify templates and data objects which are used to merge the template
+batch_data_inner = [PDFGeneratorAPI::BatchDataInner.new] # Array<BatchDataInner> | Data used to specify templates and data objects which are used to merge the template
 opts = {
   name: 'My document', # String | Document name, returned in the meta data.
   format: 'pdf', # String | Document format. The zip option will return a ZIP file with PDF files.
@@ -116,7 +116,7 @@ opts = {
 
 begin
   # Generate document (multiple templates)
-  result = api_instance.merge_templates(request_body, opts)
+  result = api_instance.merge_templates(batch_data_inner, opts)
   p result
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->merge_templates: #{e}"
@@ -127,15 +127,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2004>, Integer, Hash)> merge_templates_with_http_info(request_body, opts)
+> <Array(<MergeTemplate200Response>, Integer, Hash)> merge_templates_with_http_info(batch_data_inner, opts)
 
 ```ruby
 begin
   # Generate document (multiple templates)
-  data, status_code, headers = api_instance.merge_templates_with_http_info(request_body, opts)
+  data, status_code, headers = api_instance.merge_templates_with_http_info(batch_data_inner, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse2004>
+  p data # => <MergeTemplate200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->merge_templates_with_http_info: #{e}"
 end
@@ -145,14 +145,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **request_body** | [**Array&lt;Object&gt;**](Object.md) | Data used to specify templates and data objects which are used to merge the template |  |
+| **batch_data_inner** | [**Array&lt;BatchDataInner&gt;**](BatchDataInner.md) | Data used to specify templates and data objects which are used to merge the template |  |
 | **name** | **String** | Document name, returned in the meta data. | [optional] |
-| **format** | **String** | Document format. The zip option will return a ZIP file with PDF files. | [optional][default to &#39;pdf&#39;] |
-| **output** | **String** | Response format. \&quot;I\&quot; is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. | [optional][default to &#39;base64&#39;] |
+| **format** | **String** | Document format. The zip option will return a ZIP file with PDF files. | [optional] |
+| **output** | **String** | Response format. \&quot;I\&quot; is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. | [optional] |
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**MergeTemplate200Response**](MergeTemplate200Response.md)
 
 ### Authorization
 

@@ -8,8 +8,8 @@
 | **name** | **String** | Template name | [optional] |
 | **tags** | **Array&lt;String&gt;** | A list of tags assigned to a template | [optional] |
 | **is_draft** | **Boolean** | Indicates if the template is a draft or published. | [optional] |
-| **layout** | [**TemplateDefinitionLayout**](TemplateDefinitionLayout.md) |  | [optional] |
-| **pages** | [**Array&lt;TemplateDefinitionNewPages&gt;**](TemplateDefinitionNewPages.md) | Defines page or label size, margins and components on page or label | [optional] |
+| **layout** | [**TemplateDefinitionNewLayout**](TemplateDefinitionNewLayout.md) |  | [optional] |
+| **pages** | [**Array&lt;TemplateDefinitionNewPagesInner&gt;**](TemplateDefinitionNewPagesInner.md) | Defines page or label size, margins and components on page or label | [optional] |
 | **data_settings** | [**TemplateDefinitionDataSettings**](TemplateDefinitionDataSettings.md) |  | [optional] |
 | **editor** | [**TemplateDefinitionEditor**](TemplateDefinitionEditor.md) |  | [optional] |
 

@@ -15,7 +15,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
 
 ## copy_template
 
-> <InlineResponse2001> copy_template(template_id, opts)
+> <CreateTemplate200Response> copy_template(template_id, opts)
 
 Copy template
 
@@ -51,7 +51,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2001>, Integer, Hash)> copy_template_with_http_info(template_id, opts)
+> <Array(<CreateTemplate200Response>, Integer, Hash)> copy_template_with_http_info(template_id, opts)
 
 ```ruby
 begin
@@ -59,7 +59,7 @@ begin
   data, status_code, headers = api_instance.copy_template_with_http_info(template_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse2001>
+  p data # => <CreateTemplate200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->copy_template_with_http_info: #{e}"
 end
@@ -74,7 +74,7 @@ end
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**CreateTemplate200Response**](CreateTemplate200Response.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ end
 
 ## create_template
 
-> <InlineResponse2001> create_template(template_definition_new)
+> <CreateTemplate200Response> create_template(template_definition_new)
 
 Create template
 
@@ -121,7 +121,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2001>, Integer, Hash)> create_template_with_http_info(template_definition_new)
+> <Array(<CreateTemplate200Response>, Integer, Hash)> create_template_with_http_info(template_definition_new)
 
 ```ruby
 begin
@@ -129,7 +129,7 @@ begin
   data, status_code, headers = api_instance.create_template_with_http_info(template_definition_new)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse2001>
+  p data # => <CreateTemplate200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->create_template_with_http_info: #{e}"
 end
@@ -143,7 +143,7 @@ end
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**CreateTemplate200Response**](CreateTemplate200Response.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ end
 
 ## delete_template
 
-> <InlineResponse2002> delete_template(template_id)
+> <DeleteTemplate200Response> delete_template(template_id)
 
 Delete template
 
@@ -190,7 +190,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2002>, Integer, Hash)> delete_template_with_http_info(template_id)
+> <Array(<DeleteTemplate200Response>, Integer, Hash)> delete_template_with_http_info(template_id)
 
 ```ruby
 begin
@@ -198,7 +198,7 @@ begin
   data, status_code, headers = api_instance.delete_template_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse2002>
+  p data # => <DeleteTemplate200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->delete_template_with_http_info: #{e}"
 end
@@ -212,7 +212,7 @@ end
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**DeleteTemplate200Response**](DeleteTemplate200Response.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ end
 
 ## get_editor_url
 
-> <InlineResponse2003> get_editor_url(template_id, body, opts)
+> <GetEditorUrl200Response> get_editor_url(template_id, body, opts)
 
 Open editor
 
@@ -245,7 +245,7 @@ end
 
 api_instance = PDFGeneratorAPI::TemplatesApi.new
 template_id = 19375 # Integer | Template unique identifier
-body = Object # Object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+body = { ... } # Object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 opts = {
   language: 'en' # String | Specify the editor UI language. Defaults to organization editor language.
 }
@@ -263,7 +263,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2003>, Integer, Hash)> get_editor_url_with_http_info(template_id, body, opts)
+> <Array(<GetEditorUrl200Response>, Integer, Hash)> get_editor_url_with_http_info(template_id, body, opts)
 
 ```ruby
 begin
@@ -271,7 +271,7 @@ begin
   data, status_code, headers = api_instance.get_editor_url_with_http_info(template_id, body, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse2003>
+  p data # => <GetEditorUrl200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->get_editor_url_with_http_info: #{e}"
 end
@@ -287,7 +287,7 @@ end
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**GetEditorUrl200Response**](GetEditorUrl200Response.md)
 
 ### Authorization
 
@@ -301,7 +301,7 @@ end
 
 ## get_template
 
-> <InlineResponse2001> get_template(template_id)
+> <CreateTemplate200Response> get_template(template_id)
 
 Get template
 
@@ -334,7 +334,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2001>, Integer, Hash)> get_template_with_http_info(template_id)
+> <Array(<CreateTemplate200Response>, Integer, Hash)> get_template_with_http_info(template_id)
 
 ```ruby
 begin
@@ -342,7 +342,7 @@ begin
   data, status_code, headers = api_instance.get_template_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse2001>
+  p data # => <CreateTemplate200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->get_template_with_http_info: #{e}"
 end
@@ -356,7 +356,7 @@ end
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**CreateTemplate200Response**](CreateTemplate200Response.md)
 
 ### Authorization
 
@@ -370,7 +370,7 @@ end
 
 ## get_templates
 
-> <InlineResponse200> get_templates
+> <GetTemplates200Response> get_templates
 
 Get templates
 
@@ -402,7 +402,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse200>, Integer, Hash)> get_templates_with_http_info
+> <Array(<GetTemplates200Response>, Integer, Hash)> get_templates_with_http_info
 
 ```ruby
 begin
@@ -410,7 +410,7 @@ begin
   data, status_code, headers = api_instance.get_templates_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse200>
+  p data # => <GetTemplates200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->get_templates_with_http_info: #{e}"
 end
@@ -422,7 +422,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**GetTemplates200Response**](GetTemplates200Response.md)
 
 ### Authorization
 
@@ -436,7 +436,7 @@ This endpoint does not need any parameter.
 
 ## update_template
 
-> <InlineResponse2001> update_template(template_id, template_definition_new)
+> <CreateTemplate200Response> update_template(template_id, template_definition_new)
 
 Update template
 
@@ -470,7 +470,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2001>, Integer, Hash)> update_template_with_http_info(template_id, template_definition_new)
+> <Array(<CreateTemplate200Response>, Integer, Hash)> update_template_with_http_info(template_id, template_definition_new)
 
 ```ruby
 begin
@@ -478,7 +478,7 @@ begin
   data, status_code, headers = api_instance.update_template_with_http_info(template_id, template_definition_new)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse2001>
+  p data # => <CreateTemplate200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->update_template_with_http_info: #{e}"
 end
@@ -493,7 +493,7 @@ end
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**CreateTemplate200Response**](CreateTemplate200Response.md)
 
 ### Authorization
 

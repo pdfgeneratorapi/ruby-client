@@ -10,7 +10,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
 
 ## delete_workspace
 
-> <InlineResponse2002> delete_workspace(workspace_id)
+> <DeleteTemplate200Response> delete_workspace(workspace_id)
 
 Delete workspace
 
@@ -43,7 +43,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2002>, Integer, Hash)> delete_workspace_with_http_info(workspace_id)
+> <Array(<DeleteTemplate200Response>, Integer, Hash)> delete_workspace_with_http_info(workspace_id)
 
 ```ruby
 begin
@@ -51,7 +51,7 @@ begin
   data, status_code, headers = api_instance.delete_workspace_with_http_info(workspace_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse2002>
+  p data # => <DeleteTemplate200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->delete_workspace_with_http_info: #{e}"
 end
@@ -65,7 +65,7 @@ end
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**DeleteTemplate200Response**](DeleteTemplate200Response.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ end
 
 ## get_workspace
 
-> <InlineResponse2005> get_workspace(workspace_id)
+> <GetWorkspace200Response> get_workspace(workspace_id)
 
 Get workspace
 
@@ -112,7 +112,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse2005>, Integer, Hash)> get_workspace_with_http_info(workspace_id)
+> <Array(<GetWorkspace200Response>, Integer, Hash)> get_workspace_with_http_info(workspace_id)
 
 ```ruby
 begin
@@ -120,7 +120,7 @@ begin
   data, status_code, headers = api_instance.get_workspace_with_http_info(workspace_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse2005>
+  p data # => <GetWorkspace200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->get_workspace_with_http_info: #{e}"
 end
@@ -134,7 +134,7 @@ end
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**GetWorkspace200Response**](GetWorkspace200Response.md)
 
 ### Authorization
 
