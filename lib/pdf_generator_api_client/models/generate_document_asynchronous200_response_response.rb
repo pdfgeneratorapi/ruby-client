@@ -14,13 +14,14 @@ require 'date'
 require 'time'
 
 module PDFGeneratorAPI
-  class DeleteTemplate204Response
-    attr_accessor :response
+  class GenerateDocumentAsynchronous200ResponseResponse
+    # Unique job id which is also added to the callback request as header PDF-API-Job-Id
+    attr_accessor :job_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'response' => :'response'
+        :'job_id' => :'job_id'
       }
     end
 
@@ -32,7 +33,7 @@ module PDFGeneratorAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'response' => :'DeleteTemplate204ResponseResponse'
+        :'job_id' => :'String'
       }
     end
 
@@ -46,19 +47,19 @@ module PDFGeneratorAPI
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PDFGeneratorAPI::DeleteTemplate204Response` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PDFGeneratorAPI::GenerateDocumentAsynchronous200ResponseResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PDFGeneratorAPI::DeleteTemplate204Response`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PDFGeneratorAPI::GenerateDocumentAsynchronous200ResponseResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'response')
-        self.response = attributes[:'response']
+      if attributes.key?(:'job_id')
+        self.job_id = attributes[:'job_id']
       end
     end
 
@@ -80,7 +81,7 @@ module PDFGeneratorAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          response == o.response
+          job_id == o.job_id
     end
 
     # @see the `==` method
@@ -92,7 +93,7 @@ module PDFGeneratorAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [response].hash
+      [job_id].hash
     end
 
     # Builds the object from hash

@@ -386,7 +386,9 @@ api_instance = PDFGeneratorAPI::TemplatesApi.new
 opts = {
   name: 'name_example', # String | Filter template by name
   tags: 'tags_example', # String | Filter template by tags
-  access: 'private' # String | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates.
+  access: 'private', # String | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates.
+  page: 1, # Integer | Pagination: page to return
+  per_page: 20 # Integer | Pagination: How many records to return per page
 }
 
 begin
@@ -423,6 +425,8 @@ end
 | **name** | **String** | Filter template by name | [optional] |
 | **tags** | **String** | Filter template by tags | [optional] |
 | **access** | **String** | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates. | [optional][default to &#39;&#39;] |
+| **page** | **Integer** | Pagination: page to return | [optional][default to 1] |
+| **per_page** | **Integer** | Pagination: How many records to return per page | [optional][default to 15] |
 
 ### Return type
 

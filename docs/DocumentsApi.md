@@ -5,9 +5,9 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**generate_document**](DocumentsApi.md#generate_document) | **POST** /documents/generate | Generate document |
-| [**generate_document_async**](DocumentsApi.md#generate_document_async) | **POST** /documents/generate/async | Generate document (async) |
+| [**generate_document_asynchronous**](DocumentsApi.md#generate_document_asynchronous) | **POST** /documents/generate/async | Generate document (async) |
 | [**generate_document_batch**](DocumentsApi.md#generate_document_batch) | **POST** /documents/generate/batch | Generate document (batch) |
-| [**generate_document_batch_async**](DocumentsApi.md#generate_document_batch_async) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
+| [**generate_document_batch_asynchronous**](DocumentsApi.md#generate_document_batch_asynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
 | [**get_documents**](DocumentsApi.md#get_documents) | **GET** /documents | Get documents |
 
 
@@ -80,9 +80,9 @@ end
 - **Accept**: application/json
 
 
-## generate_document_async
+## generate_document_asynchronous
 
-> <GenerateDocumentAsync200Response> generate_document_async(generate_document_async_request)
+> <GenerateDocumentAsynchronous200Response> generate_document_asynchronous(generate_document_asynchronous_request)
 
 Generate document (async)
 
@@ -100,32 +100,32 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::DocumentsApi.new
-generate_document_async_request = PDFGeneratorAPI::GenerateDocumentAsyncRequest.new # GenerateDocumentAsyncRequest | Request parameters, including template id, data and formats.
+generate_document_asynchronous_request = PDFGeneratorAPI::GenerateDocumentAsynchronousRequest.new # GenerateDocumentAsynchronousRequest | Request parameters, including template id, data and formats.
 
 begin
   # Generate document (async)
-  result = api_instance.generate_document_async(generate_document_async_request)
+  result = api_instance.generate_document_asynchronous(generate_document_asynchronous_request)
   p result
 rescue PDFGeneratorAPI::ApiError => e
-  puts "Error when calling DocumentsApi->generate_document_async: #{e}"
+  puts "Error when calling DocumentsApi->generate_document_asynchronous: #{e}"
 end
 ```
 
-#### Using the generate_document_async_with_http_info variant
+#### Using the generate_document_asynchronous_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateDocumentAsync200Response>, Integer, Hash)> generate_document_async_with_http_info(generate_document_async_request)
+> <Array(<GenerateDocumentAsynchronous200Response>, Integer, Hash)> generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
 
 ```ruby
 begin
   # Generate document (async)
-  data, status_code, headers = api_instance.generate_document_async_with_http_info(generate_document_async_request)
+  data, status_code, headers = api_instance.generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateDocumentAsync200Response>
+  p data # => <GenerateDocumentAsynchronous200Response>
 rescue PDFGeneratorAPI::ApiError => e
-  puts "Error when calling DocumentsApi->generate_document_async_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->generate_document_asynchronous_with_http_info: #{e}"
 end
 ```
 
@@ -133,11 +133,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **generate_document_async_request** | [**GenerateDocumentAsyncRequest**](GenerateDocumentAsyncRequest.md) | Request parameters, including template id, data and formats. |  |
+| **generate_document_asynchronous_request** | [**GenerateDocumentAsynchronousRequest**](GenerateDocumentAsynchronousRequest.md) | Request parameters, including template id, data and formats. |  |
 
 ### Return type
 
-[**GenerateDocumentAsync200Response**](GenerateDocumentAsync200Response.md)
+[**GenerateDocumentAsynchronous200Response**](GenerateDocumentAsynchronous200Response.md)
 
 ### Authorization
 
@@ -218,9 +218,9 @@ end
 - **Accept**: application/json
 
 
-## generate_document_batch_async
+## generate_document_batch_asynchronous
 
-> <GenerateDocumentAsync200Response> generate_document_batch_async(generate_document_batch_async_request)
+> <GenerateDocumentAsynchronous200Response> generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
 
 Generate document (batch + async)
 
@@ -238,32 +238,32 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::DocumentsApi.new
-generate_document_batch_async_request = PDFGeneratorAPI::GenerateDocumentBatchAsyncRequest.new # GenerateDocumentBatchAsyncRequest | Request parameters, including template id, data and formats.
+generate_document_batch_asynchronous_request = PDFGeneratorAPI::GenerateDocumentBatchAsynchronousRequest.new # GenerateDocumentBatchAsynchronousRequest | Request parameters, including template id, data and formats.
 
 begin
   # Generate document (batch + async)
-  result = api_instance.generate_document_batch_async(generate_document_batch_async_request)
+  result = api_instance.generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
   p result
 rescue PDFGeneratorAPI::ApiError => e
-  puts "Error when calling DocumentsApi->generate_document_batch_async: #{e}"
+  puts "Error when calling DocumentsApi->generate_document_batch_asynchronous: #{e}"
 end
 ```
 
-#### Using the generate_document_batch_async_with_http_info variant
+#### Using the generate_document_batch_asynchronous_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateDocumentAsync200Response>, Integer, Hash)> generate_document_batch_async_with_http_info(generate_document_batch_async_request)
+> <Array(<GenerateDocumentAsynchronous200Response>, Integer, Hash)> generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
 
 ```ruby
 begin
   # Generate document (batch + async)
-  data, status_code, headers = api_instance.generate_document_batch_async_with_http_info(generate_document_batch_async_request)
+  data, status_code, headers = api_instance.generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateDocumentAsync200Response>
+  p data # => <GenerateDocumentAsynchronous200Response>
 rescue PDFGeneratorAPI::ApiError => e
-  puts "Error when calling DocumentsApi->generate_document_batch_async_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->generate_document_batch_asynchronous_with_http_info: #{e}"
 end
 ```
 
@@ -271,11 +271,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **generate_document_batch_async_request** | [**GenerateDocumentBatchAsyncRequest**](GenerateDocumentBatchAsyncRequest.md) | Request parameters, including template id, data and formats. |  |
+| **generate_document_batch_asynchronous_request** | [**GenerateDocumentBatchAsynchronousRequest**](GenerateDocumentBatchAsynchronousRequest.md) | Request parameters, including template id, data and formats. |  |
 
 ### Return type
 
-[**GenerateDocumentAsync200Response**](GenerateDocumentAsync200Response.md)
+[**GenerateDocumentAsynchronous200Response**](GenerateDocumentAsynchronous200Response.md)
 
 ### Authorization
 
@@ -309,7 +309,9 @@ end
 api_instance = PDFGeneratorAPI::DocumentsApi.new
 opts = {
   start_date: '2022-08-01 12:00:00', # String | Start date. Format: Y-m-d H:i:s
-  end_date: '2022-08-05 12:00:00' # String | End date. Format: Y-m-d H:i:s. Defaults to current timestamp
+  end_date: '2022-08-05 12:00:00', # String | End date. Format: Y-m-d H:i:s. Defaults to current timestamp
+  page: 1, # Integer | Pagination: page to return
+  per_page: 20 # Integer | Pagination: How many records to return per page
 }
 
 begin
@@ -345,6 +347,8 @@ end
 | ---- | ---- | ----------- | ----- |
 | **start_date** | **String** | Start date. Format: Y-m-d H:i:s | [optional] |
 | **end_date** | **String** | End date. Format: Y-m-d H:i:s. Defaults to current timestamp | [optional] |
+| **page** | **Integer** | Pagination: page to return | [optional][default to 1] |
+| **per_page** | **Integer** | Pagination: How many records to return per page | [optional][default to 15] |
 
 ### Return type
 

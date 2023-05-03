@@ -9,7 +9,7 @@
 | **height** | **Float** | Page height in units | [optional] |
 | **unit** | **String** | Measure unit | [optional] |
 | **orientation** | **String** | Page orientation | [optional] |
-| **rotaion** | **Integer** | Page rotation in degrees | [optional] |
+| **rotation** | **Integer** | Page rotation in degrees | [optional] |
 | **margins** | [**TemplateDefinitionNewLayoutMargins**](TemplateDefinitionNewLayoutMargins.md) |  | [optional] |
 | **repeat_layout** | [**TemplateDefinitionNewLayoutRepeatLayout**](TemplateDefinitionNewLayoutRepeatLayout.md) |  | [optional] |
 | **empty_labels** | **Integer** | Defines how many pages or labels should be empty | [optional] |
@@ -25,7 +25,7 @@ instance = PDFGeneratorAPI::TemplateDefinitionNewLayout.new(
   height: 29.7,
   unit: cm,
   orientation: portrait,
-  rotaion: 0,
+  rotation: 0,
   margins: null,
   repeat_layout: null,
   empty_labels: 0

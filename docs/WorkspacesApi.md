@@ -221,7 +221,7 @@ end
 
 ## get_workspaces
 
-> <GetWorkspaces200Response> get_workspaces
+> <GetWorkspaces200Response> get_workspaces(opts)
 
 Get workspaces
 
@@ -239,10 +239,14 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::WorkspacesApi.new
+opts = {
+  page: 1, # Integer | Pagination: page to return
+  per_page: 20 # Integer | Pagination: How many records to return per page
+}
 
 begin
   # Get workspaces
-  result = api_instance.get_workspaces
+  result = api_instance.get_workspaces(opts)
   p result
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->get_workspaces: #{e}"
@@ -253,12 +257,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetWorkspaces200Response>, Integer, Hash)> get_workspaces_with_http_info
+> <Array(<GetWorkspaces200Response>, Integer, Hash)> get_workspaces_with_http_info(opts)
 
 ```ruby
 begin
   # Get workspaces
-  data, status_code, headers = api_instance.get_workspaces_with_http_info
+  data, status_code, headers = api_instance.get_workspaces_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <GetWorkspaces200Response>
@@ -269,7 +273,10 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **page** | **Integer** | Pagination: page to return | [optional][default to 1] |
+| **per_page** | **Integer** | Pagination: How many records to return per page | [optional][default to 15] |
 
 ### Return type
 

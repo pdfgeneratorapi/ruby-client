@@ -14,13 +14,48 @@ require 'date'
 require 'time'
 
 module PDFGeneratorAPI
-  class DeleteTemplate204Response
-    attr_accessor :response
+  class GenerateDocumentBatchAsynchronousRequest
+    attr_accessor :template
+
+    attr_accessor :callback
+
+    attr_accessor :format
+
+    attr_accessor :output
+
+    # Generated document name (optional)
+    attr_accessor :name
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'response' => :'response'
+        :'template' => :'template',
+        :'callback' => :'callback',
+        :'format' => :'format',
+        :'output' => :'output',
+        :'name' => :'name'
       }
     end
 
@@ -32,7 +67,11 @@ module PDFGeneratorAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'response' => :'DeleteTemplate204ResponseResponse'
+        :'template' => :'Array<TemplateParam>',
+        :'callback' => :'CallbackParam',
+        :'format' => :'FormatParam',
+        :'output' => :'AsyncOutputParam',
+        :'name' => :'String'
       }
     end
 
@@ -46,19 +85,43 @@ module PDFGeneratorAPI
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PDFGeneratorAPI::DeleteTemplate204Response` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PDFGeneratorAPI::GenerateDocumentBatchAsynchronousRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PDFGeneratorAPI::DeleteTemplate204Response`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PDFGeneratorAPI::GenerateDocumentBatchAsynchronousRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'response')
-        self.response = attributes[:'response']
+      if attributes.key?(:'template')
+        if (value = attributes[:'template']).is_a?(Array)
+          self.template = value
+        end
+      end
+
+      if attributes.key?(:'callback')
+        self.callback = attributes[:'callback']
+      end
+
+      if attributes.key?(:'format')
+        self.format = attributes[:'format']
+      else
+        self.format = 'pdf'
+      end
+
+      if attributes.key?(:'output')
+        self.output = attributes[:'output']
+      else
+        self.output = 'base64'
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      else
+        self.name = ''
       end
     end
 
@@ -80,7 +143,11 @@ module PDFGeneratorAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          response == o.response
+          template == o.template &&
+          callback == o.callback &&
+          format == o.format &&
+          output == o.output &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -92,7 +159,7 @@ module PDFGeneratorAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [response].hash
+      [template, callback, format, output, name].hash
     end
 
     # Builds the object from hash
