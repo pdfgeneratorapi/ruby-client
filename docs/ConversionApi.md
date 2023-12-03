@@ -10,7 +10,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## convert_html2_pdf
 
-> <GenerateDocument200Response> convert_html2_pdf(convert_html2_pdf_request)
+> <GenerateDocument201Response> convert_html2_pdf(convert_html2_pdf_request)
 
 HTML to PDF
 
@@ -43,7 +43,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateDocument200Response>, Integer, Hash)> convert_html2_pdf_with_http_info(convert_html2_pdf_request)
+> <Array(<GenerateDocument201Response>, Integer, Hash)> convert_html2_pdf_with_http_info(convert_html2_pdf_request)
 
 ```ruby
 begin
@@ -51,7 +51,7 @@ begin
   data, status_code, headers = api_instance.convert_html2_pdf_with_http_info(convert_html2_pdf_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateDocument200Response>
+  p data # => <GenerateDocument201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ConversionApi->convert_html2_pdf_with_http_info: #{e}"
 end
@@ -65,7 +65,7 @@ end
 
 ### Return type
 
-[**GenerateDocument200Response**](GenerateDocument200Response.md)
+[**GenerateDocument201Response**](GenerateDocument201Response.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ end
 
 ## convert_url2_pdf
 
-> <GenerateDocument200Response> convert_url2_pdf(convert_url2_pdf_request)
+> <GenerateDocument201Response> convert_url2_pdf(convert_url2_pdf_request)
 
 URL to PDF
 
@@ -112,7 +112,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateDocument200Response>, Integer, Hash)> convert_url2_pdf_with_http_info(convert_url2_pdf_request)
+> <Array(<GenerateDocument201Response>, Integer, Hash)> convert_url2_pdf_with_http_info(convert_url2_pdf_request)
 
 ```ruby
 begin
@@ -120,7 +120,7 @@ begin
   data, status_code, headers = api_instance.convert_url2_pdf_with_http_info(convert_url2_pdf_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateDocument200Response>
+  p data # => <GenerateDocument201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ConversionApi->convert_url2_pdf_with_http_info: #{e}"
 end
@@ -134,7 +134,7 @@ end
 
 ### Return type
 
-[**GenerateDocument200Response**](GenerateDocument200Response.md)
+[**GenerateDocument201Response**](GenerateDocument201Response.md)
 
 ### Authorization
 

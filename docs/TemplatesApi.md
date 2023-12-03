@@ -16,7 +16,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## copy_template
 
-> <CreateTemplate200Response> copy_template(template_id, opts)
+> <CreateTemplate201Response> copy_template(template_id, opts)
 
 Copy template
 
@@ -52,7 +52,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateTemplate200Response>, Integer, Hash)> copy_template_with_http_info(template_id, opts)
+> <Array(<CreateTemplate201Response>, Integer, Hash)> copy_template_with_http_info(template_id, opts)
 
 ```ruby
 begin
@@ -60,7 +60,7 @@ begin
   data, status_code, headers = api_instance.copy_template_with_http_info(template_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CreateTemplate200Response>
+  p data # => <CreateTemplate201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->copy_template_with_http_info: #{e}"
 end
@@ -75,7 +75,7 @@ end
 
 ### Return type
 
-[**CreateTemplate200Response**](CreateTemplate200Response.md)
+[**CreateTemplate201Response**](CreateTemplate201Response.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ end
 
 ## create_template
 
-> <CreateTemplate200Response> create_template(template_definition_new)
+> <CreateTemplate201Response> create_template(template_definition_new)
 
 Create template
 
@@ -122,7 +122,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateTemplate200Response>, Integer, Hash)> create_template_with_http_info(template_definition_new)
+> <Array(<CreateTemplate201Response>, Integer, Hash)> create_template_with_http_info(template_definition_new)
 
 ```ruby
 begin
@@ -130,7 +130,7 @@ begin
   data, status_code, headers = api_instance.create_template_with_http_info(template_definition_new)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CreateTemplate200Response>
+  p data # => <CreateTemplate201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->create_template_with_http_info: #{e}"
 end
@@ -144,7 +144,7 @@ end
 
 ### Return type
 
-[**CreateTemplate200Response**](CreateTemplate200Response.md)
+[**CreateTemplate201Response**](CreateTemplate201Response.md)
 
 ### Authorization
 
@@ -227,7 +227,7 @@ end
 
 ## get_template
 
-> <CreateTemplate200Response> get_template(template_id)
+> <CreateTemplate201Response> get_template(template_id)
 
 Get template
 
@@ -260,7 +260,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateTemplate200Response>, Integer, Hash)> get_template_with_http_info(template_id)
+> <Array(<CreateTemplate201Response>, Integer, Hash)> get_template_with_http_info(template_id)
 
 ```ruby
 begin
@@ -268,7 +268,7 @@ begin
   data, status_code, headers = api_instance.get_template_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CreateTemplate200Response>
+  p data # => <CreateTemplate201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->get_template_with_http_info: #{e}"
 end
@@ -282,7 +282,7 @@ end
 
 ### Return type
 
-[**CreateTemplate200Response**](CreateTemplate200Response.md)
+[**CreateTemplate201Response**](CreateTemplate201Response.md)
 
 ### Authorization
 
@@ -515,7 +515,7 @@ end
 
 ## update_template
 
-> <CreateTemplate200Response> update_template(template_id, template_definition_new)
+> <CreateTemplate201Response> update_template(template_id, template_definition_new)
 
 Update template
 
@@ -549,7 +549,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateTemplate200Response>, Integer, Hash)> update_template_with_http_info(template_id, template_definition_new)
+> <Array(<CreateTemplate201Response>, Integer, Hash)> update_template_with_http_info(template_id, template_definition_new)
 
 ```ruby
 begin
@@ -557,7 +557,7 @@ begin
   data, status_code, headers = api_instance.update_template_with_http_info(template_id, template_definition_new)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CreateTemplate200Response>
+  p data # => <CreateTemplate201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->update_template_with_http_info: #{e}"
 end
@@ -572,7 +572,7 @@ end
 
 ### Return type
 
-[**CreateTemplate200Response**](CreateTemplate200Response.md)
+[**CreateTemplate201Response**](CreateTemplate201Response.md)
 
 ### Authorization
 

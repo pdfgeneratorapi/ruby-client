@@ -13,7 +13,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## generate_document
 
-> <GenerateDocument200Response> generate_document(generate_document_request)
+> <GenerateDocument201Response> generate_document(generate_document_request)
 
 Generate document
 
@@ -46,7 +46,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateDocument200Response>, Integer, Hash)> generate_document_with_http_info(generate_document_request)
+> <Array(<GenerateDocument201Response>, Integer, Hash)> generate_document_with_http_info(generate_document_request)
 
 ```ruby
 begin
@@ -54,7 +54,7 @@ begin
   data, status_code, headers = api_instance.generate_document_with_http_info(generate_document_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateDocument200Response>
+  p data # => <GenerateDocument201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->generate_document_with_http_info: #{e}"
 end
@@ -68,7 +68,7 @@ end
 
 ### Return type
 
-[**GenerateDocument200Response**](GenerateDocument200Response.md)
+[**GenerateDocument201Response**](GenerateDocument201Response.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ end
 
 ## generate_document_asynchronous
 
-> <GenerateDocumentAsynchronous200Response> generate_document_asynchronous(generate_document_asynchronous_request)
+> <GenerateDocumentAsynchronous201Response> generate_document_asynchronous(generate_document_asynchronous_request)
 
 Generate document (async)
 
@@ -115,7 +115,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateDocumentAsynchronous200Response>, Integer, Hash)> generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
+> <Array(<GenerateDocumentAsynchronous201Response>, Integer, Hash)> generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
 
 ```ruby
 begin
@@ -123,7 +123,7 @@ begin
   data, status_code, headers = api_instance.generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateDocumentAsynchronous200Response>
+  p data # => <GenerateDocumentAsynchronous201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->generate_document_asynchronous_with_http_info: #{e}"
 end
@@ -137,7 +137,7 @@ end
 
 ### Return type
 
-[**GenerateDocumentAsynchronous200Response**](GenerateDocumentAsynchronous200Response.md)
+[**GenerateDocumentAsynchronous201Response**](GenerateDocumentAsynchronous201Response.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ end
 
 ## generate_document_batch
 
-> <GenerateDocument200Response> generate_document_batch(generate_document_batch_request)
+> <GenerateDocument201Response> generate_document_batch(generate_document_batch_request)
 
 Generate document (batch)
 
@@ -184,7 +184,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateDocument200Response>, Integer, Hash)> generate_document_batch_with_http_info(generate_document_batch_request)
+> <Array(<GenerateDocument201Response>, Integer, Hash)> generate_document_batch_with_http_info(generate_document_batch_request)
 
 ```ruby
 begin
@@ -192,7 +192,7 @@ begin
   data, status_code, headers = api_instance.generate_document_batch_with_http_info(generate_document_batch_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateDocument200Response>
+  p data # => <GenerateDocument201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->generate_document_batch_with_http_info: #{e}"
 end
@@ -206,7 +206,7 @@ end
 
 ### Return type
 
-[**GenerateDocument200Response**](GenerateDocument200Response.md)
+[**GenerateDocument201Response**](GenerateDocument201Response.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ end
 
 ## generate_document_batch_asynchronous
 
-> <GenerateDocumentAsynchronous200Response> generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
+> <GenerateDocumentAsynchronous201Response> generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
 
 Generate document (batch + async)
 
@@ -253,7 +253,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateDocumentAsynchronous200Response>, Integer, Hash)> generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
+> <Array(<GenerateDocumentAsynchronous201Response>, Integer, Hash)> generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
 
 ```ruby
 begin
@@ -261,7 +261,7 @@ begin
   data, status_code, headers = api_instance.generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateDocumentAsynchronous200Response>
+  p data # => <GenerateDocumentAsynchronous201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->generate_document_batch_asynchronous_with_http_info: #{e}"
 end
@@ -275,7 +275,7 @@ end
 
 ### Return type
 
-[**GenerateDocumentAsynchronous200Response**](GenerateDocumentAsynchronous200Response.md)
+[**GenerateDocumentAsynchronous201Response**](GenerateDocumentAsynchronous201Response.md)
 
 ### Authorization
 

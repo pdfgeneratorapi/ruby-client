@@ -12,7 +12,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## create_workspace
 
-> <CreateWorkspace200Response> create_workspace(opts)
+> <CreateWorkspace201Response> create_workspace(opts)
 
 Create workspace
 
@@ -47,7 +47,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateWorkspace200Response>, Integer, Hash)> create_workspace_with_http_info(opts)
+> <Array(<CreateWorkspace201Response>, Integer, Hash)> create_workspace_with_http_info(opts)
 
 ```ruby
 begin
@@ -55,7 +55,7 @@ begin
   data, status_code, headers = api_instance.create_workspace_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CreateWorkspace200Response>
+  p data # => <CreateWorkspace201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->create_workspace_with_http_info: #{e}"
 end
@@ -69,7 +69,7 @@ end
 
 ### Return type
 
-[**CreateWorkspace200Response**](CreateWorkspace200Response.md)
+[**CreateWorkspace201Response**](CreateWorkspace201Response.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ end
 
 ## get_workspace
 
-> <CreateWorkspace200Response> get_workspace(workspace_identifier)
+> <CreateWorkspace201Response> get_workspace(workspace_identifier)
 
 Get workspace
 
@@ -185,7 +185,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateWorkspace200Response>, Integer, Hash)> get_workspace_with_http_info(workspace_identifier)
+> <Array(<CreateWorkspace201Response>, Integer, Hash)> get_workspace_with_http_info(workspace_identifier)
 
 ```ruby
 begin
@@ -193,7 +193,7 @@ begin
   data, status_code, headers = api_instance.get_workspace_with_http_info(workspace_identifier)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CreateWorkspace200Response>
+  p data # => <CreateWorkspace201Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->get_workspace_with_http_info: #{e}"
 end
@@ -207,7 +207,7 @@ end
 
 ### Return type
 
-[**CreateWorkspace200Response**](CreateWorkspace200Response.md)
+[**CreateWorkspace201Response**](CreateWorkspace201Response.md)
 
 ### Authorization
 
