@@ -7,7 +7,7 @@
 | **width** | **Float** | Page width in units | [optional] |
 | **height** | **Float** | Page height in units | [optional] |
 | **margins** | [**TemplateDefinitionNewPagesInnerMargins**](TemplateDefinitionNewPagesInnerMargins.md) |  | [optional] |
-| **components** | [**Array&lt;Component&gt;**](Component.md) |  | [optional] |
+| **components** | **Array&lt;Object&gt;** |  | [optional] |
 
 ## Example
 

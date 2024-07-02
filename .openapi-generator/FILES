@@ -17,8 +17,8 @@ docs/CreateTemplate201Response.md
 docs/CreateWorkspace201Response.md
 docs/CreateWorkspaceRequest.md
 docs/DataBatchInner.md
-docs/DeleteTemplate204Response.md
-docs/DeleteTemplate204ResponseResponse.md
+docs/DeleteWorkspace204Response.md
+docs/DeleteWorkspace204ResponseResponse.md
 docs/Document.md
 docs/DocumentsApi.md
 docs/FormatParam.md
@@ -48,9 +48,9 @@ docs/OutputParam.md
 docs/PaginationMeta.md
 docs/Template.md
 docs/TemplateDefinition.md
-docs/TemplateDefinitionDataSettings.md
-docs/TemplateDefinitionEditor.md
 docs/TemplateDefinitionNew.md
+docs/TemplateDefinitionNewDataSettings.md
+docs/TemplateDefinitionNewEditor.md
 docs/TemplateDefinitionNewLayout.md
 docs/TemplateDefinitionNewLayoutMargins.md
 docs/TemplateDefinitionNewLayoutRepeatLayout.md
@@ -80,8 +80,8 @@ lib/pdf_generator_api_client/models/create_template201_response.rb
 lib/pdf_generator_api_client/models/create_workspace201_response.rb
 lib/pdf_generator_api_client/models/create_workspace_request.rb
 lib/pdf_generator_api_client/models/data_batch_inner.rb
-lib/pdf_generator_api_client/models/delete_template204_response.rb
-lib/pdf_generator_api_client/models/delete_template204_response_response.rb
+lib/pdf_generator_api_client/models/delete_workspace204_response.rb
+lib/pdf_generator_api_client/models/delete_workspace204_response_response.rb
 lib/pdf_generator_api_client/models/document.rb
 lib/pdf_generator_api_client/models/format_param.rb
 lib/pdf_generator_api_client/models/generate_document201_response.rb
@@ -110,9 +110,9 @@ lib/pdf_generator_api_client/models/output_param.rb
 lib/pdf_generator_api_client/models/pagination_meta.rb
 lib/pdf_generator_api_client/models/template.rb
 lib/pdf_generator_api_client/models/template_definition.rb
-lib/pdf_generator_api_client/models/template_definition_data_settings.rb
-lib/pdf_generator_api_client/models/template_definition_editor.rb
 lib/pdf_generator_api_client/models/template_definition_new.rb
+lib/pdf_generator_api_client/models/template_definition_new_data_settings.rb
+lib/pdf_generator_api_client/models/template_definition_new_editor.rb
 lib/pdf_generator_api_client/models/template_definition_new_layout.rb
 lib/pdf_generator_api_client/models/template_definition_new_layout_margins.rb
 lib/pdf_generator_api_client/models/template_definition_new_layout_repeat_layout.rb

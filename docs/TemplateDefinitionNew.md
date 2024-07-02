@@ -9,6 +9,8 @@
 | **is_draft** | **Boolean** | Indicates if the template is a draft or published. | [optional] |
 | **layout** | [**TemplateDefinitionNewLayout**](TemplateDefinitionNewLayout.md) |  | [optional] |
 | **pages** | [**Array&lt;TemplateDefinitionNewPagesInner&gt;**](TemplateDefinitionNewPagesInner.md) | Defines page or label size, margins and components on page or label | [optional] |
+| **data_settings** | [**TemplateDefinitionNewDataSettings**](TemplateDefinitionNewDataSettings.md) |  | [optional] |
+| **editor** | [**TemplateDefinitionNewEditor**](TemplateDefinitionNewEditor.md) |  | [optional] |
 
 ## Example
 
@@ -20,7 +22,9 @@ instance = PDFGeneratorAPI::TemplateDefinitionNew.new(
   tags: [&quot;invoice&quot;,&quot;orders&quot;],
   is_draft: true,
   layout: null,
-  pages: null
+  pages: null,
+  data_settings: null,
+  editor: null
 )
 ```
 

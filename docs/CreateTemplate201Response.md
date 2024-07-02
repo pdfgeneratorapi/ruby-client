@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **response** | [**TemplateDefinition**](TemplateDefinition.md) |  | [optional] |
+| **meta** | **Object** |  | [optional] |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::CreateTemplate201Response.new(
-  response: null
+  response: null,
+  meta: null
 )
 ```
 

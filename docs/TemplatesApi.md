@@ -107,7 +107,7 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::TemplatesApi.new
-template_definition_new = PDFGeneratorAPI::TemplateDefinitionNew.new({name: 'Invoice template'}) # TemplateDefinitionNew | Template configuration as JSON string
+template_definition_new = PDFGeneratorAPI::TemplateDefinitionNew.new({name: 'Invoice template'}) # TemplateDefinitionNew | Template configuration
 
 begin
   # Create template
@@ -140,7 +140,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **template_definition_new** | [**TemplateDefinitionNew**](TemplateDefinitionNew.md) | Template configuration as JSON string |  |
+| **template_definition_new** | [**TemplateDefinitionNew**](TemplateDefinitionNew.md) | Template configuration |  |
 
 ### Return type
 
@@ -158,7 +158,7 @@ end
 
 ## delete_template
 
-> <DeleteTemplate204Response> delete_template(template_id)
+> delete_template(template_id)
 
 Delete template
 
@@ -180,8 +180,7 @@ template_id = 19375 # Integer | Template unique identifier
 
 begin
   # Delete template
-  result = api_instance.delete_template(template_id)
-  p result
+  api_instance.delete_template(template_id)
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->delete_template: #{e}"
 end
@@ -189,9 +188,9 @@ end
 
 #### Using the delete_template_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(<DeleteTemplate204Response>, Integer, Hash)> delete_template_with_http_info(template_id)
+> <Array(nil, Integer, Hash)> delete_template_with_http_info(template_id)
 
 ```ruby
 begin
@@ -199,7 +198,7 @@ begin
   data, status_code, headers = api_instance.delete_template_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DeleteTemplate204Response>
+  p data # => nil
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->delete_template_with_http_info: #{e}"
 end
@@ -213,7 +212,7 @@ end
 
 ### Return type
 
-[**DeleteTemplate204Response**](DeleteTemplate204Response.md)
+nil (empty response body)
 
 ### Authorization
 
@@ -534,7 +533,7 @@ end
 
 api_instance = PDFGeneratorAPI::TemplatesApi.new
 template_id = 19375 # Integer | Template unique identifier
-template_definition_new = PDFGeneratorAPI::TemplateDefinitionNew.new({name: 'Invoice template'}) # TemplateDefinitionNew | Template configuration as JSON string
+template_definition_new = PDFGeneratorAPI::TemplateDefinitionNew.new({name: 'Invoice template'}) # TemplateDefinitionNew | Template configuration
 
 begin
   # Update template
@@ -568,7 +567,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **template_id** | **Integer** | Template unique identifier |  |
-| **template_definition_new** | [**TemplateDefinitionNew**](TemplateDefinitionNew.md) | Template configuration as JSON string |  |
+| **template_definition_new** | [**TemplateDefinitionNew**](TemplateDefinitionNew.md) | Template configuration |  |
 
 ### Return type
 
