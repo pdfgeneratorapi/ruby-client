@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **sort_by** | **Array&lt;Object&gt;** |  | [optional] |
 | **filter_by** | **Array&lt;Object&gt;** |  | [optional] |
+| **transform** | **Array&lt;Object&gt;** |  | [optional] |
 
 ## Example
 
@@ -13,8 +14,9 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::TemplateDefinitionNewDataSettings.new(
-  sort_by: null,
-  filter_by: null
+  sort_by: [],
+  filter_by: [],
+  transform: []
 )
 ```
 

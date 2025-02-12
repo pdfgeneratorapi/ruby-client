@@ -83,7 +83,7 @@ end
 
 ## delete_workspace
 
-> <DeleteWorkspace204Response> delete_workspace(workspace_identifier)
+> delete_workspace(workspace_identifier)
 
 Delete workspace
 
@@ -105,8 +105,7 @@ workspace_identifier = 'demo.example@actualreports.com' # String | Workspace ide
 
 begin
   # Delete workspace
-  result = api_instance.delete_workspace(workspace_identifier)
-  p result
+  api_instance.delete_workspace(workspace_identifier)
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->delete_workspace: #{e}"
 end
@@ -114,9 +113,9 @@ end
 
 #### Using the delete_workspace_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(<DeleteWorkspace204Response>, Integer, Hash)> delete_workspace_with_http_info(workspace_identifier)
+> <Array(nil, Integer, Hash)> delete_workspace_with_http_info(workspace_identifier)
 
 ```ruby
 begin
@@ -124,7 +123,7 @@ begin
   data, status_code, headers = api_instance.delete_workspace_with_http_info(workspace_identifier)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DeleteWorkspace204Response>
+  p data # => nil
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->delete_workspace_with_http_info: #{e}"
 end
@@ -138,7 +137,7 @@ end
 
 ### Return type
 
-[**DeleteWorkspace204Response**](DeleteWorkspace204Response.md)
+nil (empty response body)
 
 ### Authorization
 

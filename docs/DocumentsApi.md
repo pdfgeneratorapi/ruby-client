@@ -4,11 +4,81 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /documents/{publicId} | Delete document |
 | [**generate_document**](DocumentsApi.md#generate_document) | **POST** /documents/generate | Generate document |
 | [**generate_document_asynchronous**](DocumentsApi.md#generate_document_asynchronous) | **POST** /documents/generate/async | Generate document (async) |
 | [**generate_document_batch**](DocumentsApi.md#generate_document_batch) | **POST** /documents/generate/batch | Generate document (batch) |
 | [**generate_document_batch_asynchronous**](DocumentsApi.md#generate_document_batch_asynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
+| [**get_document**](DocumentsApi.md#get_document) | **GET** /documents/{publicId} | Get document |
 | [**get_documents**](DocumentsApi.md#get_documents) | **GET** /documents | Get documents |
+
+
+## delete_document
+
+> delete_document(public_id)
+
+Delete document
+
+Delete document from the Document Storage
+
+### Examples
+
+```ruby
+require 'time'
+require 'pdf_generator_api_client'
+# setup authorization
+PDFGeneratorAPI.configure do |config|
+  # Configure Bearer authorization (JWT): JSONWebTokenAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PDFGeneratorAPI::DocumentsApi.new
+public_id = 'bac8381bce1982e5f6957a0f52371336' # String | Resource public id
+
+begin
+  # Delete document
+  api_instance.delete_document(public_id)
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->delete_document: #{e}"
+end
+```
+
+#### Using the delete_document_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_document_with_http_info(public_id)
+
+```ruby
+begin
+  # Delete document
+  data, status_code, headers = api_instance.delete_document_with_http_info(public_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->delete_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | Resource public id |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## generate_document
@@ -287,6 +357,75 @@ end
 - **Accept**: application/json
 
 
+## get_document
+
+> <GetDocument200Response> get_document(public_id)
+
+Get document
+
+Returns document stored in the Document Storage
+
+### Examples
+
+```ruby
+require 'time'
+require 'pdf_generator_api_client'
+# setup authorization
+PDFGeneratorAPI.configure do |config|
+  # Configure Bearer authorization (JWT): JSONWebTokenAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PDFGeneratorAPI::DocumentsApi.new
+public_id = 'bac8381bce1982e5f6957a0f52371336' # String | Resource public id
+
+begin
+  # Get document
+  result = api_instance.get_document(public_id)
+  p result
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->get_document: #{e}"
+end
+```
+
+#### Using the get_document_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetDocument200Response>, Integer, Hash)> get_document_with_http_info(public_id)
+
+```ruby
+begin
+  # Get document
+  data, status_code, headers = api_instance.get_document_with_http_info(public_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetDocument200Response>
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->get_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | Resource public id |  |
+
+### Return type
+
+[**GetDocument200Response**](GetDocument200Response.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_documents
 
 > <GetDocuments200Response> get_documents(opts)
@@ -308,6 +447,7 @@ end
 
 api_instance = PDFGeneratorAPI::DocumentsApi.new
 opts = {
+  template_id: 19375, # Integer | Template unique identifier
   start_date: '2022-08-01 12:00:00', # String | Start date. Format: Y-m-d H:i:s
   end_date: '2022-08-05 12:00:00', # String | End date. Format: Y-m-d H:i:s. Defaults to current timestamp
   page: 1, # Integer | Pagination: page to return
@@ -345,6 +485,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **template_id** | **Integer** | Template unique identifier | [optional] |
 | **start_date** | **String** | Start date. Format: Y-m-d H:i:s | [optional] |
 | **end_date** | **String** | End date. Format: Y-m-d H:i:s. Defaults to current timestamp | [optional] |
 | **page** | **Integer** | Pagination: page to return | [optional][default to 1] |

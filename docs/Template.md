@@ -17,7 +17,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::Template.new(
-  id: 24382,
+  id: 19375,
   name: Invoice template,
   owner: true,
   created_at: 2022-01-21 11:49:28,
