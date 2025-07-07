@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **message** | **String** | Error description | [optional] |
+| **error** | **String** | Error description | [optional] |
+| **status** | **Integer** | HTTP Error code | [optional] |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::GetTemplates429Response.new(
-  message: You can make up to 2 requests per second and 60 requests per minute.
+  error: You can make up to 5 requests per second and 120 requests per minute.,
+  status: 429
 )
 ```
 

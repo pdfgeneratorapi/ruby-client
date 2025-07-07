@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **message** | **String** | Error description | [optional] |
+| **error** | **String** | Error description | [optional] |
+| **status** | **Integer** | HTTP Error code | [optional] |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::GetTemplates403Response.new(
-  message: Access not granted
+  error: Access not granted,
+  status: 403
 )
 ```
 

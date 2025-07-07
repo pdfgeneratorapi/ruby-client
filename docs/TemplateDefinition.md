@@ -9,7 +9,7 @@
 | **tags** | **Array&lt;String&gt;** | A list of tags assigned to a template | [optional] |
 | **is_draft** | **Boolean** | Indicates if the template is a draft or published. | [optional] |
 | **layout** | [**TemplateDefinitionNewLayout**](TemplateDefinitionNewLayout.md) |  | [optional] |
-| **pages** | [**Array&lt;TemplateDefinitionPagesInner&gt;**](TemplateDefinitionPagesInner.md) | Defines page or label size, margins and components on page or label | [optional] |
+| **pages** | [**Array&lt;TemplateDefinitionNewPagesInner&gt;**](TemplateDefinitionNewPagesInner.md) | Defines page or label size, margins and components on page or label | [optional] |
 | **data_settings** | [**TemplateDefinitionDataSettings**](TemplateDefinitionDataSettings.md) |  | [optional] |
 | **editor** | [**TemplateDefinitionEditor**](TemplateDefinitionEditor.md) |  | [optional] |
 
@@ -19,7 +19,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::TemplateDefinition.new(
-  id: 19375,
+  id: 24382,
   name: Invoice template,
   tags: [&quot;invoice&quot;,&quot;orders&quot;],
   is_draft: true,

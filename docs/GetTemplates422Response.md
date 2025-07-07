@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **message** | **String** | Error description | [optional] |
-| **errors** | **Object** | Details about validation errors | [optional] |
+| **error** | **String** | Error description | [optional] |
+| **status** | **Integer** | HTTP Error code | [optional] |
 
 ## Example
 
@@ -13,8 +13,8 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::GetTemplates422Response.new(
-  message: Incorrect parameter value,
-  errors: null
+  error: Incorrect parameter value,
+  status: 422
 )
 ```
 

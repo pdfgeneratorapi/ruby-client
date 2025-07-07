@@ -1,93 +1,20 @@
 # PDFGeneratorAPI::WorkspacesApi
 
-All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
+All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_workspace**](WorkspacesApi.md#create_workspace) | **POST** /workspaces | Create workspace |
-| [**delete_workspace**](WorkspacesApi.md#delete_workspace) | **DELETE** /workspaces/{workspaceIdentifier} | Delete workspace |
-| [**get_workspace**](WorkspacesApi.md#get_workspace) | **GET** /workspaces/{workspaceIdentifier} | Get workspace |
-| [**get_workspaces**](WorkspacesApi.md#get_workspaces) | **GET** /workspaces | Get workspaces |
-
-
-## create_workspace
-
-> <CreateWorkspace201Response> create_workspace(opts)
-
-Create workspace
-
-Creates a regular workspace with identifier specified in the request.
-
-### Examples
-
-```ruby
-require 'time'
-require 'pdf_generator_api_client'
-# setup authorization
-PDFGeneratorAPI.configure do |config|
-  # Configure Bearer authorization (JWT): JSONWebTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = PDFGeneratorAPI::WorkspacesApi.new
-opts = {
-  create_workspace_request: PDFGeneratorAPI::CreateWorkspaceRequest.new # CreateWorkspaceRequest | 
-}
-
-begin
-  # Create workspace
-  result = api_instance.create_workspace(opts)
-  p result
-rescue PDFGeneratorAPI::ApiError => e
-  puts "Error when calling WorkspacesApi->create_workspace: #{e}"
-end
-```
-
-#### Using the create_workspace_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<CreateWorkspace201Response>, Integer, Hash)> create_workspace_with_http_info(opts)
-
-```ruby
-begin
-  # Create workspace
-  data, status_code, headers = api_instance.create_workspace_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <CreateWorkspace201Response>
-rescue PDFGeneratorAPI::ApiError => e
-  puts "Error when calling WorkspacesApi->create_workspace_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **create_workspace_request** | [**CreateWorkspaceRequest**](CreateWorkspaceRequest.md) |  | [optional] |
-
-### Return type
-
-[**CreateWorkspace201Response**](CreateWorkspace201Response.md)
-
-### Authorization
-
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
+| [**delete_workspace**](WorkspacesApi.md#delete_workspace) | **DELETE** /workspaces/{workspaceId} | Delete workspace |
+| [**get_workspace**](WorkspacesApi.md#get_workspace) | **GET** /workspaces/{workspaceId} | Get workspace |
 
 
 ## delete_workspace
 
-> delete_workspace(workspace_identifier)
+> <DeleteTemplate200Response> delete_workspace(workspace_id)
 
 Delete workspace
 
-Delete workspace. Only regular workspaces can be deleted.
+Deletes the workspace
 
 ### Examples
 
@@ -101,11 +28,12 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::WorkspacesApi.new
-workspace_identifier = 'demo.example@actualreports.com' # String | Workspace identifier
+workspace_id = 'demo.example@actualreports.com' # String | Workspace identifier
 
 begin
   # Delete workspace
-  api_instance.delete_workspace(workspace_identifier)
+  result = api_instance.delete_workspace(workspace_id)
+  p result
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->delete_workspace: #{e}"
 end
@@ -113,17 +41,17 @@ end
 
 #### Using the delete_workspace_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> delete_workspace_with_http_info(workspace_identifier)
+> <Array(<DeleteTemplate200Response>, Integer, Hash)> delete_workspace_with_http_info(workspace_id)
 
 ```ruby
 begin
   # Delete workspace
-  data, status_code, headers = api_instance.delete_workspace_with_http_info(workspace_identifier)
+  data, status_code, headers = api_instance.delete_workspace_with_http_info(workspace_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <DeleteTemplate200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->delete_workspace_with_http_info: #{e}"
 end
@@ -133,11 +61,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **workspace_identifier** | **String** | Workspace identifier |  |
+| **workspace_id** | **String** | Workspace identifier |  |
 
 ### Return type
 
-nil (empty response body)
+[**DeleteTemplate200Response**](DeleteTemplate200Response.md)
 
 ### Authorization
 
@@ -151,11 +79,11 @@ nil (empty response body)
 
 ## get_workspace
 
-> <CreateWorkspace201Response> get_workspace(workspace_identifier)
+> <GetWorkspace200Response> get_workspace(workspace_id)
 
 Get workspace
 
-Returns workspace information for the workspace identifier specified in the request.
+Returns workspace information
 
 ### Examples
 
@@ -169,11 +97,11 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::WorkspacesApi.new
-workspace_identifier = 'demo.example@actualreports.com' # String | Workspace identifier
+workspace_id = 'demo.example@actualreports.com' # String | Workspace identifier
 
 begin
   # Get workspace
-  result = api_instance.get_workspace(workspace_identifier)
+  result = api_instance.get_workspace(workspace_id)
   p result
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->get_workspace: #{e}"
@@ -184,15 +112,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateWorkspace201Response>, Integer, Hash)> get_workspace_with_http_info(workspace_identifier)
+> <Array(<GetWorkspace200Response>, Integer, Hash)> get_workspace_with_http_info(workspace_id)
 
 ```ruby
 begin
   # Get workspace
-  data, status_code, headers = api_instance.get_workspace_with_http_info(workspace_identifier)
+  data, status_code, headers = api_instance.get_workspace_with_http_info(workspace_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CreateWorkspace201Response>
+  p data # => <GetWorkspace200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->get_workspace_with_http_info: #{e}"
 end
@@ -202,84 +130,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **workspace_identifier** | **String** | Workspace identifier |  |
+| **workspace_id** | **String** | Workspace identifier |  |
 
 ### Return type
 
-[**CreateWorkspace201Response**](CreateWorkspace201Response.md)
-
-### Authorization
-
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_workspaces
-
-> <GetWorkspaces200Response> get_workspaces(opts)
-
-Get workspaces
-
-Returns all workspaces in the organization
-
-### Examples
-
-```ruby
-require 'time'
-require 'pdf_generator_api_client'
-# setup authorization
-PDFGeneratorAPI.configure do |config|
-  # Configure Bearer authorization (JWT): JSONWebTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = PDFGeneratorAPI::WorkspacesApi.new
-opts = {
-  page: 1, # Integer | Pagination: page to return
-  per_page: 20 # Integer | Pagination: How many records to return per page
-}
-
-begin
-  # Get workspaces
-  result = api_instance.get_workspaces(opts)
-  p result
-rescue PDFGeneratorAPI::ApiError => e
-  puts "Error when calling WorkspacesApi->get_workspaces: #{e}"
-end
-```
-
-#### Using the get_workspaces_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<GetWorkspaces200Response>, Integer, Hash)> get_workspaces_with_http_info(opts)
-
-```ruby
-begin
-  # Get workspaces
-  data, status_code, headers = api_instance.get_workspaces_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <GetWorkspaces200Response>
-rescue PDFGeneratorAPI::ApiError => e
-  puts "Error when calling WorkspacesApi->get_workspaces_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page** | **Integer** | Pagination: page to return | [optional][default to 1] |
-| **per_page** | **Integer** | Pagination: How many records to return per page | [optional][default to 15] |
-
-### Return type
-
-[**GetWorkspaces200Response**](GetWorkspaces200Response.md)
+[**GetWorkspace200Response**](GetWorkspace200Response.md)
 
 ### Authorization
 
