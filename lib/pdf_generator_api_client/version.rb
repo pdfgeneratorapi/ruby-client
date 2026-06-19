@@ -11,5 +11,5 @@ Generator version: 7.14.0
 =end
 
 module PDFGeneratorAPI
-  VERSION = '4.0.25'
+  VERSION = '8.0.25'
 end
