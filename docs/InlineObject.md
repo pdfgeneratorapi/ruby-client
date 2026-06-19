@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **response** | [**InlineObjectResponse**](InlineObjectResponse.md) |  | [optional] |
+| **response** | **String** | Base64 encoded XML document if the output&#x3D;base64 is used. | [optional] |
+| **meta** | [**InlineObjectMeta**](InlineObjectMeta.md) |  | [optional] |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject.new(
-  response: null
+  response: JVBERi0xLjcKJeLjz9MKNyAwIG9iago8PCAvVHlwZSA...,
+  meta: null
 )
 ```
 

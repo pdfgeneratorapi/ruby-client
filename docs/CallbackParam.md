@@ -14,7 +14,7 @@ require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::CallbackParam.new(
   url: https://example.org/document-callback,
-  headers: {&quot;Content-type&quot;:&quot;application/pdf&quot;,&quot;Authorization&quot;:&quot;Bearer ABCDE12345678&quot;}
+  headers: {&quot;Content-type&quot;:&quot;application/json&quot;,&quot;Custom-header&quot;:&quot;ABCDE12345678&quot;}
 )
 ```
 

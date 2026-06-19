@@ -1,12 +1,12 @@
 =begin
 #PDF Generator API
 
-## Introduction [PDF Generator API](https://pdfgeneratorapi.com) allows you easily generate transactional PDF documents and reduce the development and support costs by enabling your users to create and manage their document templates using a browser-based drag-and-drop document editor.  The PDF Generator API features a web API architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.  ## Base URL The base URL for all the API endpoints is `https://us1.pdfgeneratorapi.com/api/v4`  For example * `https://us1.pdfgeneratorapi.com/api/v4/templates` * `https://us1.pdfgeneratorapi.com/api/v4/workspaces` * `https://us1.pdfgeneratorapi.com/api/v4/templates/123123`  ## Editor PDF Generator API comes with a powerful drag & drop editor that allows to create any kind of document templates, from barcode labels to invoices, quotes and reports. You can find tutorials and videos from our [Support Portal](https://support.pdfgeneratorapi.com). * [Component specification](https://support.pdfgeneratorapi.com/en/category/components-1ffseaj/) * [Expression Language documentation](https://support.pdfgeneratorapi.com/en/category/expression-language-q203pa/) * [Frequently asked questions and answers](https://support.pdfgeneratorapi.com/en/category/qanda-1ov519d/)  ## Definitions  ### Organization Organization is a group of workspaces owned by your account.  ### Workspace Workspace contains templates. Each workspace has access to their own templates and organization default templates.  ### Master Workspace Master Workspace is the main/default workspace of your Organization. The Master Workspace identifier is the email you signed up with.  ### Default Template Default template is a template that is available for all workspaces by default. You can set the template access type under Page Setup. If template has \"Organization\" access then your users can use them from the \"New\" menu in the Editor.  ### Data Field Data Field is a placeholder for the specific data in your JSON data set. In this example JSON you can access the buyer name using Data Field `{paymentDetails::buyerName}`. The separator between depth levels is :: (two colons). When designing the template you don’t have to know every Data Field, our editor automatically extracts all the available fields from your data set and provides an easy way to insert them into the template. ``` {     \"documentNumber\": 1,     \"paymentDetails\": {         \"method\": \"Credit Card\",         \"buyerName\": \"John Smith\"     },     \"items\": [         {             \"id\": 1,             \"name\": \"Item one\"         }     ] } ```  ## Rate limiting Our API endpoints use IP-based rate limiting and allow you to make up to 2 requests per second and 60 requests per minute. If you make more requests, you will receive a response with HTTP code 429.  Response headers contain additional values:  | Header   | Description                    | |--------|--------------------------------| | X-RateLimit-Limit    | Maximum requests per minute                   | | X-RateLimit-Remaining    | The requests remaining in the current minute               | | Retry-After     | How many seconds you need to wait until you are allowed to make requests |  *  *  *  *  *  # Libraries and SDKs ## Postman Collection We have created a [Postman Collection](https://www.postman.com/pdfgeneratorapi/workspace/pdf-generator-api-public-workspace/overview) so you can easily test all the API endpoints without developing and code. You can download the collection [here](https://www.postman.com/pdfgeneratorapi/workspace/pdf-generator-api-public-workspace/collection/11578263-42fed446-af7e-4266-84e1-69e8c1752e93).  ## Client Libraries All our Client Libraries are auto-generated using [OpenAPI Generator](https://openapi-generator.tech/) which uses the OpenAPI v3 specification to automatically generate a client library in specific programming language.  * [PHP Client](https://github.com/pdfgeneratorapi/php-client) * [Java Client](https://github.com/pdfgeneratorapi/java-client) * [Ruby Client](https://github.com/pdfgeneratorapi/ruby-client) * [Python Client](https://github.com/pdfgeneratorapi/python-client) * [Javascript Client](https://github.com/pdfgeneratorapi/javascript-client)  We have validated the generated libraries, but let us know if you find any anomalies in the client code. *  *  *  *  *  # Authentication The PDF Generator API uses __JSON Web Tokens (JWT)__ to authenticate all API requests. These tokens offer a method to establish secure server-to-server authentication by transferring a compact JSON object with a signed payload of your account’s API Key and Secret. When authenticating to the PDF Generator API, a JWT should be generated uniquely by a __server-side application__ and included as a __Bearer Token__ in the header of each request.   <SecurityDefinitions />  ## Accessing your API Key and Secret You can find your __API Key__ and __API Secret__ from the __Account Settings__ page after you login to PDF Generator API [here](https://pdfgeneratorapi.com/login).  ## Creating a JWT JSON Web Tokens are composed of three sections: a header, a payload (containing a claim set), and a signature. The header and payload are JSON objects, which are serialized to UTF-8 bytes, then encoded using base64url encoding.  The JWT's header, payload, and signature are concatenated with periods (.). As a result, a JWT typically takes the following form: ``` {Base64url encoded header}.{Base64url encoded payload}.{Base64url encoded signature} ```  We recommend and support libraries provided on [jwt.io](https://jwt.io/). While other libraries can create JWT, these recommended libraries are the most robust.  ### Header Property `alg` defines which signing algorithm is being used. PDF Generator API users HS256. Property `typ` defines the type of token and it is always JWT. ``` {   \"alg\": \"HS256\",   \"typ\": \"JWT\" } ```  ### Payload The second part of the token is the payload, which contains the claims  or the pieces of information being passed about the user and any metadata required. It is mandatory to specify the following claims: * issuer (`iss`): Your API key * subject (`sub`): Workspace identifier * expiration time (`exp`): Timestamp (unix epoch time) until the token is valid. It is highly recommended to set the exp timestamp for a short period, i.e. a matter of seconds. This way, if a token is intercepted or shared, the token will only be valid for a short period of time.  ``` {   \"iss\": \"ad54aaff89ffdfeff178bb8a8f359b29fcb20edb56250b9f584aa2cb0162ed4a\",   \"sub\": \"demo.example@actualreports.com\",   \"exp\": 1586112639 } ```  ### Payload for Partners Our partners can send their unique identifier (provided by us) in JWT's partner_id claim. If the `partner_id` value is specified in the JWT, the organization making the request is automatically connected to the partner account. * Partner ID (`partner_id`): Unique identifier provide by PDF Generator API team  ``` {   \"iss\": \"ad54aaff89ffdfeff178bb8a8f359b29fcb20edb56250b9f584aa2cb0162ed4a\",   \"sub\": \"demo.example@actualreports.com\",   \"partner_id\": \"my-partner-identifier\",   \"exp\": 1586112639 } ```  ### Signature To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. The signature is used to verify the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is. ``` HMACSHA256(     base64UrlEncode(header) + \".\" +     base64UrlEncode(payload),     API_SECRET) ```  ### Putting all together The output is three Base64-URL strings separated by dots. The following shows a JWT that has the previous header and payload encoded, and it is signed with a secret. ``` eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZDU0YWFmZjg5ZmZkZmVmZjE3OGJiOGE4ZjM1OWIyOWZjYjIwZWRiNTYyNTBiOWY1ODRhYTJjYjAxNjJlZDRhIiwic3ViIjoiZGVtby5leGFtcGxlQGFjdHVhbHJlcG9ydHMuY29tIn0.SxO-H7UYYYsclS8RGWO1qf0z1cB1m73wF9FLl9RCc1Q  // Base64 encoded header: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 // Base64 encoded payload: eyJpc3MiOiJhZDU0YWFmZjg5ZmZkZmVmZjE3OGJiOGE4ZjM1OWIyOWZjYjIwZWRiNTYyNTBiOWY1ODRhYTJjYjAxNjJlZDRhIiwic3ViIjoiZGVtby5leGFtcGxlQGFjdHVhbHJlcG9ydHMuY29tIn0 // Signature: SxO-H7UYYYsclS8RGWO1qf0z1cB1m73wF9FLl9RCc1Q ```  ## Temporary JWTs You can create a temporary token in [Account Settings](https://pdfgeneratorapi.com/account/organization) page after you login to PDF Generator API. The generated token uses your email address as the subject (`sub`) value and is valid for __15 minutes__. You can also use [jwt.io](https://jwt.io/) to generate test tokens for your API calls. These test tokens should never be used in production applications. *  *  *  *  *  # Error codes  | Code   | Description                    | |--------|--------------------------------| | 401    | Unauthorized                   | | 402    | Payment Required               | | 403    | Forbidden                      | | 404    | Not Found                      | | 422    | Unprocessable Entity           | | 429    | Too Many Requests              | | 500    | Internal Server Error          |  ## 401 Unauthorized | Description                                                             | |-------------------------------------------------------------------------| | Authentication failed: request expired                                  | | Authentication failed: workspace missing                                | | Authentication failed: key missing                                      | | Authentication failed: property 'iss' (issuer) missing in JWT           | | Authentication failed: property 'sub' (subject) missing in JWT          | | Authentication failed: property 'exp' (expiration time) missing in JWT  | | Authentication failed: incorrect signature                              |  ## 402 Payment Required | Description                                                             | |-------------------------------------------------------------------------| | Your account is suspended, please upgrade your account                  |  ## 403 Forbidden | Description                                                             | |-------------------------------------------------------------------------| | Your account has exceeded the monthly document generation limit.        | | Access not granted: You cannot delete master workspace via API          | | Access not granted: Template is not accessible by this organization     | | Your session has expired, please close and reopen the editor.           |  ## 404 Entity not found | Description                                                             | |-------------------------------------------------------------------------| | Entity not found                                                        | | Resource not found                                                      | | None of the templates is available for the workspace.                   |  ## 422 Unprocessable Entity | Description                                                             | |-------------------------------------------------------------------------| | Unable to parse JSON, please check formatting                           | | Required parameter missing                                              | | Required parameter missing: template definition not defined             | | Required parameter missing: template not defined                        |  ## 429 Too Many Requests | Description                                                             | |-------------------------------------------------------------------------| | You can make up to 2 requests per second and 60 requests per minute.   |  *  *  *  *  * 
+## Introduction [PDF Generator API](https://pdfgeneratorapi.com) allows you easily generate transactional PDF documents and reduce the development and support costs by enabling your users to create and manage their document templates using a browser-based drag-and-drop document editor.  The PDF Generator API features a web API architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.  ## Base URL The base URL for all the API endpoints is `https://us1.pdfgeneratorapi.com/api/v4`  For example * `https://us1.pdfgeneratorapi.com/api/v4/templates` * `https://us1.pdfgeneratorapi.com/api/v4/workspaces` * `https://us1.pdfgeneratorapi.com/api/v4/templates/123123`  ## Editor PDF Generator API comes with a powerful drag & drop editor that allows to create any kind of document templates, from barcode labels to invoices, quotes and reports. You can find tutorials and videos from our [Support Portal](https://support.pdfgeneratorapi.com). * [Component specification](https://support.pdfgeneratorapi.com/en/category/components-1ffseaj/) * [Expression Language documentation](https://support.pdfgeneratorapi.com/en/category/expression-language-q203pa/) * [Frequently asked questions and answers](https://support.pdfgeneratorapi.com/en/category/qanda-1ov519d/)  ## Definitions  ### Organization Organization is a group of workspaces owned by your account.  ### Workspace Workspace contains templates. Each workspace has access to their own templates and organization default templates.  ### Master Workspace Master Workspace is the main/default workspace of your Organization. The Master Workspace identifier is the email you signed up with.  ### Default Template Default template is a template that is available for all workspaces by default. You can set the template access type under Page Setup. If template has \"Organization\" access then your users can use them from the \"New\" menu in the Editor.  ### Data Field Data Field is a placeholder for the specific data in your JSON data set. In this example JSON you can access the buyer name using Data Field `{paymentDetails::buyerName}`. The separator between depth levels is :: (two colons). When designing the template you don’t have to know every Data Field, our editor automatically extracts all the available fields from your data set and provides an easy way to insert them into the template. ``` {     \"documentNumber\": 1,     \"paymentDetails\": {         \"method\": \"Credit Card\",         \"buyerName\": \"John Smith\"     },     \"items\": [         {             \"id\": 1,             \"name\": \"Item one\"         }     ] } ```  ## Rate limiting Our API endpoints use IP-based rate limiting and allow you to make up to 2 requests per second and 60 requests per minute. If you make more requests, you will receive a response with HTTP code 429.  Response headers contain additional values:  | Header   | Description                    | |--------|--------------------------------| | X-RateLimit-Limit    | Maximum requests per minute                   | | X-RateLimit-Remaining    | The requests remaining in the current minute               | | Retry-After     | How many seconds you need to wait until you are allowed to make requests |  *  *  *  *  *  # Libraries and SDKs ## Postman Collection We have created a [Postman Collection](https://www.postman.com/pdfgeneratorapi/workspace/pdf-generator-api-public-workspace/overview) so you can easily test all the API endpoints without developing and code.   ## Client Libraries All our Client Libraries are auto-generated using [OpenAPI Generator](https://openapi-generator.tech/) which uses the OpenAPI v3 specification to automatically generate a client library in specific programming language.  * [PHP Client](https://github.com/pdfgeneratorapi/php-client) * [Java Client](https://github.com/pdfgeneratorapi/java-client) * [Ruby Client](https://github.com/pdfgeneratorapi/ruby-client) * [Python Client](https://github.com/pdfgeneratorapi/python-client) * [Javascript Client](https://github.com/pdfgeneratorapi/javascript-client)  We have validated the generated libraries, but let us know if you find any anomalies in the client code.  ## Model Context Protocol (MCP) Server Integrate document generation directly into your AI agents and LLM applications using our official Model Context Protocol (MCP) Server.  The MCP server provides a standardized interface that allows AI assistants (like Claude Desktop and other MCP-compatible clients) to securely interact with the PDF Generator API. With it, your AI applications can automatically fetch workspaces, retrieve templates, merge data, and generate PDF documents on the fly.  [Get PDF Generator API MCP Server](https://github.com/pdfgeneratorapi/mcp-server) *  *  *  *  *   # Authentication The PDF Generator API uses __JSON Web Tokens (JWT)__ to authenticate all API requests. These tokens offer a method to establish secure server-to-server authentication by transferring a compact JSON object with a signed payload of your account’s API Key and Secret. When authenticating to the PDF Generator API, a JWT should be generated uniquely by a __server-side application__ and included as a __Bearer Token__ in the header of each request.   <SecurityDefinitions />  ## Accessing your API Key and Secret You can find your __API Key__ and __API Secret__ from the __Account Settings__ page after you login to PDF Generator API [here](https://pdfgeneratorapi.com/login).  ## Creating a JWT JSON Web Tokens are composed of three sections: a header, a payload (containing a claim set), and a signature. The header and payload are JSON objects, which are serialized to UTF-8 bytes, then encoded using base64url encoding.  The JWT's header, payload, and signature are concatenated with periods (.). As a result, a JWT typically takes the following form: ``` {Base64url encoded header}.{Base64url encoded payload}.{Base64url encoded signature} ```  We recommend and support libraries provided on [jwt.io](https://jwt.io/). While other libraries can create JWT, these recommended libraries are the most robust.  ### Header Property `alg` defines which signing algorithm is being used. PDF Generator API users HS256. Property `typ` defines the type of token and it is always JWT. ``` {   \"alg\": \"HS256\",   \"typ\": \"JWT\" } ```  ### Payload The second part of the token is the payload, which contains the claims  or the pieces of information being passed about the user and any metadata required. It is mandatory to specify the following claims: * issuer (`iss`): Your API key * subject (`sub`): Workspace identifier * expiration time (`exp`): Timestamp (unix epoch time) until the token is valid. It is highly recommended to set the exp timestamp for a short period, i.e. a matter of seconds. This way, if a token is intercepted or shared, the token will only be valid for a short period of time.  ``` {   \"iss\": \"ad54aaff89ffdfeff178bb8a8f359b29fcb20edb56250b9f584aa2cb0162ed4a\",   \"sub\": \"demo.example@actualreports.com\",   \"exp\": 1586112639 } ```  ### Payload for Partners Our partners can send their unique identifier (provided by us) in JWT's partner_id claim. If the `partner_id` value is specified in the JWT, the organization making the request is automatically connected to the partner account. * Partner ID (`partner_id`): Unique identifier provide by PDF Generator API team  ``` {   \"iss\": \"ad54aaff89ffdfeff178bb8a8f359b29fcb20edb56250b9f584aa2cb0162ed4a\",   \"sub\": \"demo.example@actualreports.com\",   \"partner_id\": \"my-partner-identifier\",   \"exp\": 1586112639 } ```  ### Signature To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. The signature is used to verify the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is. ``` HMACSHA256(     base64UrlEncode(header) + \".\" +     base64UrlEncode(payload),     API_SECRET) ```  ### Putting all together The output is three Base64-URL strings separated by dots. The following shows a JWT that has the previous header and payload encoded, and it is signed with a secret. ``` eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZDU0YWFmZjg5ZmZkZmVmZjE3OGJiOGE4ZjM1OWIyOWZjYjIwZWRiNTYyNTBiOWY1ODRhYTJjYjAxNjJlZDRhIiwic3ViIjoiZGVtby5leGFtcGxlQGFjdHVhbHJlcG9ydHMuY29tIn0.SxO-H7UYYYsclS8RGWO1qf0z1cB1m73wF9FLl9RCc1Q  // Base64 encoded header: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 // Base64 encoded payload: eyJpc3MiOiJhZDU0YWFmZjg5ZmZkZmVmZjE3OGJiOGE4ZjM1OWIyOWZjYjIwZWRiNTYyNTBiOWY1ODRhYTJjYjAxNjJlZDRhIiwic3ViIjoiZGVtby5leGFtcGxlQGFjdHVhbHJlcG9ydHMuY29tIn0 // Signature: SxO-H7UYYYsclS8RGWO1qf0z1cB1m73wF9FLl9RCc1Q ```  ## Temporary JWTs You can create a temporary token in [Account Settings](https://pdfgeneratorapi.com/account/organization) page after you login to PDF Generator API. The generated token uses your email address as the subject (`sub`) value and is valid for __15 minutes__. You can also use [jwt.io](https://jwt.io/) to generate test tokens for your API calls. These test tokens should never be used in production applications. *  *  *  *  *  # Error codes  | Code   | Description                    | |--------|--------------------------------| | 401    | Unauthorized                   | | 402    | Payment Required               | | 403    | Forbidden                      | | 404    | Not Found                      | | 422    | Unprocessable Entity           | | 429    | Too Many Requests              | | 500    | Internal Server Error          |  ## 401 Unauthorized | Description                                                             | |-------------------------------------------------------------------------| | Authentication failed: request expired                                  | | Authentication failed: workspace missing                                | | Authentication failed: key missing                                      | | Authentication failed: property 'iss' (issuer) missing in JWT           | | Authentication failed: property 'sub' (subject) missing in JWT          | | Authentication failed: property 'exp' (expiration time) missing in JWT  | | Authentication failed: incorrect signature                              |  ## 402 Payment Required | Description                                                             | |-------------------------------------------------------------------------| | Your account is suspended, please upgrade your account                  |  ## 403 Forbidden | Description                                                             | |-------------------------------------------------------------------------| | Your account has exceeded the monthly document generation limit.        | | Access not granted: You cannot delete master workspace via API          | | Access not granted: Template is not accessible by this organization     | | Your session has expired, please close and reopen the editor.           |  ## 404 Entity not found | Description                                                             | |-------------------------------------------------------------------------| | Entity not found                                                        | | Resource not found                                                      | | None of the templates is available for the workspace.                   |  ## 422 Unprocessable Entity | Description                                                             | |-------------------------------------------------------------------------| | Unable to parse JSON, please check formatting                           | | Required parameter missing                                              | | Required parameter missing: template definition not defined             | | Required parameter missing: template not defined                        |  ## 429 Too Many Requests | Description                                                             | |-------------------------------------------------------------------------| | You can make up to 2 requests per second and 60 requests per minute.   |  *  *  *  *  * 
 
-The version of the OpenAPI document: 4.0.12
+The version of the OpenAPI document: 4.0.25
 Contact: support@pdfgeneratorapi.com
 Generated by: https://openapi-generator.tech
-Generator version: 7.11.0
+Generator version: 7.14.0
 
 =end
 
@@ -23,9 +23,9 @@ module PDFGeneratorAPI
     # Creates a new form based on the configuration sent in the request body.
     # @param form_configuration_new [FormConfigurationNew] Form configuration
     # @param [Hash] opts the optional parameters
-    # @return [CreateFrom201Response]
-    def create_from(form_configuration_new, opts = {})
-      data, _status_code, _headers = create_from_with_http_info(form_configuration_new, opts)
+    # @return [InlineObject17]
+    def create_form(form_configuration_new, opts = {})
+      data, _status_code, _headers = create_form_with_http_info(form_configuration_new, opts)
       data
     end
 
@@ -33,14 +33,14 @@ module PDFGeneratorAPI
     # Creates a new form based on the configuration sent in the request body.
     # @param form_configuration_new [FormConfigurationNew] Form configuration
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CreateFrom201Response, Integer, Hash)>] CreateFrom201Response data, response status code and response headers
-    def create_from_with_http_info(form_configuration_new, opts = {})
+    # @return [Array<(InlineObject17, Integer, Hash)>] InlineObject17 data, response status code and response headers
+    def create_form_with_http_info(form_configuration_new, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FormsApi.create_from ...'
+        @api_client.config.logger.debug 'Calling API: FormsApi.create_form ...'
       end
       # verify the required parameter 'form_configuration_new' is set
       if @api_client.config.client_side_validation && form_configuration_new.nil?
-        fail ArgumentError, "Missing the required parameter 'form_configuration_new' when calling FormsApi.create_from"
+        fail ArgumentError, "Missing the required parameter 'form_configuration_new' when calling FormsApi.create_form"
       end
       # resource path
       local_var_path = '/forms'
@@ -65,13 +65,13 @@ module PDFGeneratorAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(form_configuration_new)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CreateFrom201Response'
+      return_type = opts[:debug_return_type] || 'InlineObject17'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['JSONWebTokenAuth']
 
       new_options = opts.merge(
-        :operation => :"FormsApi.create_from",
+        :operation => :"FormsApi.create_form",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -82,7 +82,7 @@ module PDFGeneratorAPI
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FormsApi#create_from\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FormsApi#create_form\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -154,7 +154,7 @@ module PDFGeneratorAPI
     # Returns form configuration
     # @param form_id [Integer] Form unique identifier
     # @param [Hash] opts the optional parameters
-    # @return [CreateFrom201Response]
+    # @return [InlineObject17]
     def get_form(form_id, opts = {})
       data, _status_code, _headers = get_form_with_http_info(form_id, opts)
       data
@@ -164,7 +164,7 @@ module PDFGeneratorAPI
     # Returns form configuration
     # @param form_id [Integer] Form unique identifier
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CreateFrom201Response, Integer, Hash)>] CreateFrom201Response data, response status code and response headers
+    # @return [Array<(InlineObject17, Integer, Hash)>] InlineObject17 data, response status code and response headers
     def get_form_with_http_info(form_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FormsApi.get_form ...'
@@ -191,7 +191,7 @@ module PDFGeneratorAPI
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CreateFrom201Response'
+      return_type = opts[:debug_return_type] || 'InlineObject17'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['JSONWebTokenAuth']
@@ -218,7 +218,7 @@ module PDFGeneratorAPI
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Pagination: page to return (default to 1)
     # @option opts [Integer] :per_page Pagination: How many records to return per page (default to 15)
-    # @return [GetForms200Response]
+    # @return [InlineObject6]
     def get_forms(opts = {})
       data, _status_code, _headers = get_forms_with_http_info(opts)
       data
@@ -229,7 +229,7 @@ module PDFGeneratorAPI
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Pagination: page to return (default to 1)
     # @option opts [Integer] :per_page Pagination: How many records to return per page (default to 15)
-    # @return [Array<(GetForms200Response, Integer, Hash)>] GetForms200Response data, response status code and response headers
+    # @return [Array<(InlineObject6, Integer, Hash)>] InlineObject6 data, response status code and response headers
     def get_forms_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FormsApi.get_forms ...'
@@ -254,7 +254,7 @@ module PDFGeneratorAPI
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GetForms200Response'
+      return_type = opts[:debug_return_type] || 'InlineObject6'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['JSONWebTokenAuth']
@@ -276,11 +276,199 @@ module PDFGeneratorAPI
       return data, status_code, headers
     end
 
+    # Import Form
+    # Creates a new form based on editable PDF
+    # @param import_form_request [ImportFormRequest] Import editable PDF via URL or base64 string as form
+    # @param [Hash] opts the optional parameters
+    # @return [InlineObject17]
+    def import_form(import_form_request, opts = {})
+      data, _status_code, _headers = import_form_with_http_info(import_form_request, opts)
+      data
+    end
+
+    # Import Form
+    # Creates a new form based on editable PDF
+    # @param import_form_request [ImportFormRequest] Import editable PDF via URL or base64 string as form
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InlineObject17, Integer, Hash)>] InlineObject17 data, response status code and response headers
+    def import_form_with_http_info(import_form_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FormsApi.import_form ...'
+      end
+      # verify the required parameter 'import_form_request' is set
+      if @api_client.config.client_side_validation && import_form_request.nil?
+        fail ArgumentError, "Missing the required parameter 'import_form_request' when calling FormsApi.import_form"
+      end
+      # resource path
+      local_var_path = '/forms/import'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(import_form_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InlineObject17'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['JSONWebTokenAuth']
+
+      new_options = opts.merge(
+        :operation => :"FormsApi.import_form",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FormsApi#import_form\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Open new form builder
+    # Creates a new Form Builder session and returns a URL that can be used to open the embeddable Form Builder for creating a new form.
+    # @param [Hash] opts the optional parameters
+    # @return [InlineObject19]
+    def open_form_builder(opts = {})
+      data, _status_code, _headers = open_form_builder_with_http_info(opts)
+      data
+    end
+
+    # Open new form builder
+    # Creates a new Form Builder session and returns a URL that can be used to open the embeddable Form Builder for creating a new form.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InlineObject19, Integer, Hash)>] InlineObject19 data, response status code and response headers
+    def open_form_builder_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FormsApi.open_form_builder ...'
+      end
+      # resource path
+      local_var_path = '/forms/open'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InlineObject19'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['JSONWebTokenAuth']
+
+      new_options = opts.merge(
+        :operation => :"FormsApi.open_form_builder",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FormsApi#open_form_builder\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Open existing form builder
+    # Creates a Form Builder session for editing an existing form and returns a URL that can be used to open the embeddable Form Builder.
+    # @param form_id [Integer] Form unique identifier
+    # @param [Hash] opts the optional parameters
+    # @return [InlineObject19]
+    def open_form_builder_for_existing_form(form_id, opts = {})
+      data, _status_code, _headers = open_form_builder_for_existing_form_with_http_info(form_id, opts)
+      data
+    end
+
+    # Open existing form builder
+    # Creates a Form Builder session for editing an existing form and returns a URL that can be used to open the embeddable Form Builder.
+    # @param form_id [Integer] Form unique identifier
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InlineObject19, Integer, Hash)>] InlineObject19 data, response status code and response headers
+    def open_form_builder_for_existing_form_with_http_info(form_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FormsApi.open_form_builder_for_existing_form ...'
+      end
+      # verify the required parameter 'form_id' is set
+      if @api_client.config.client_side_validation && form_id.nil?
+        fail ArgumentError, "Missing the required parameter 'form_id' when calling FormsApi.open_form_builder_for_existing_form"
+      end
+      # resource path
+      local_var_path = '/forms/{formId}/open'.sub('{' + 'formId' + '}', CGI.escape(form_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InlineObject19'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['JSONWebTokenAuth']
+
+      new_options = opts.merge(
+        :operation => :"FormsApi.open_form_builder_for_existing_form",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FormsApi#open_form_builder_for_existing_form\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Share form
     # Creates an unique sharing URL to collect form data
     # @param form_id [Integer] Form unique identifier
     # @param [Hash] opts the optional parameters
-    # @return [ShareForm201Response]
+    # @return [InlineObject18]
     def share_form(form_id, opts = {})
       data, _status_code, _headers = share_form_with_http_info(form_id, opts)
       data
@@ -290,7 +478,7 @@ module PDFGeneratorAPI
     # Creates an unique sharing URL to collect form data
     # @param form_id [Integer] Form unique identifier
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ShareForm201Response, Integer, Hash)>] ShareForm201Response data, response status code and response headers
+    # @return [Array<(InlineObject18, Integer, Hash)>] InlineObject18 data, response status code and response headers
     def share_form_with_http_info(form_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FormsApi.share_form ...'
@@ -317,7 +505,7 @@ module PDFGeneratorAPI
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ShareForm201Response'
+      return_type = opts[:debug_return_type] || 'InlineObject18'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['JSONWebTokenAuth']
@@ -344,7 +532,7 @@ module PDFGeneratorAPI
     # @param form_id [Integer] Form unique identifier
     # @param form_configuration_new [FormConfigurationNew] Form configuration
     # @param [Hash] opts the optional parameters
-    # @return [CreateFrom201Response]
+    # @return [InlineObject17]
     def update_form(form_id, form_configuration_new, opts = {})
       data, _status_code, _headers = update_form_with_http_info(form_id, form_configuration_new, opts)
       data
@@ -355,7 +543,7 @@ module PDFGeneratorAPI
     # @param form_id [Integer] Form unique identifier
     # @param form_configuration_new [FormConfigurationNew] Form configuration
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CreateFrom201Response, Integer, Hash)>] CreateFrom201Response data, response status code and response headers
+    # @return [Array<(InlineObject17, Integer, Hash)>] InlineObject17 data, response status code and response headers
     def update_form_with_http_info(form_id, form_configuration_new, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FormsApi.update_form ...'
@@ -391,7 +579,7 @@ module PDFGeneratorAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(form_configuration_new)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CreateFrom201Response'
+      return_type = opts[:debug_return_type] || 'InlineObject17'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['JSONWebTokenAuth']

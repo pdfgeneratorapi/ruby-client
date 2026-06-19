@@ -12,7 +12,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## create_workspace
 
-> <CreateWorkspace201Response> create_workspace(opts)
+> <InlineObject8> create_workspace(opts)
 
 Create workspace
 
@@ -47,7 +47,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateWorkspace201Response>, Integer, Hash)> create_workspace_with_http_info(opts)
+> <Array(<InlineObject8>, Integer, Hash)> create_workspace_with_http_info(opts)
 
 ```ruby
 begin
@@ -55,7 +55,7 @@ begin
   data, status_code, headers = api_instance.create_workspace_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CreateWorkspace201Response>
+  p data # => <InlineObject8>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->create_workspace_with_http_info: #{e}"
 end
@@ -69,7 +69,7 @@ end
 
 ### Return type
 
-[**CreateWorkspace201Response**](CreateWorkspace201Response.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ nil (empty response body)
 
 ## get_workspace
 
-> <CreateWorkspace201Response> get_workspace(workspace_identifier)
+> <InlineObject8> get_workspace(workspace_identifier)
 
 Get workspace
 
@@ -184,7 +184,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateWorkspace201Response>, Integer, Hash)> get_workspace_with_http_info(workspace_identifier)
+> <Array(<InlineObject8>, Integer, Hash)> get_workspace_with_http_info(workspace_identifier)
 
 ```ruby
 begin
@@ -192,7 +192,7 @@ begin
   data, status_code, headers = api_instance.get_workspace_with_http_info(workspace_identifier)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CreateWorkspace201Response>
+  p data # => <InlineObject8>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->get_workspace_with_http_info: #{e}"
 end
@@ -206,7 +206,7 @@ end
 
 ### Return type
 
-[**CreateWorkspace201Response**](CreateWorkspace201Response.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ end
 
 ## get_workspaces
 
-> <GetWorkspaces200Response> get_workspaces(opts)
+> <InlineObject5> get_workspaces(opts)
 
 Get workspaces
 
@@ -256,7 +256,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetWorkspaces200Response>, Integer, Hash)> get_workspaces_with_http_info(opts)
+> <Array(<InlineObject5>, Integer, Hash)> get_workspaces_with_http_info(opts)
 
 ```ruby
 begin
@@ -264,7 +264,7 @@ begin
   data, status_code, headers = api_instance.get_workspaces_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetWorkspaces200Response>
+  p data # => <InlineObject5>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->get_workspaces_with_http_info: #{e}"
 end
@@ -279,7 +279,7 @@ end
 
 ### Return type
 
-[**GetWorkspaces200Response**](GetWorkspaces200Response.md)
+[**InlineObject5**](InlineObject5.md)
 
 ### Authorization
 

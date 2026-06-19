@@ -8,6 +8,7 @@
 | **name** | **String** | Form name | [optional] |
 | **actions** | [**Array&lt;FormConfigurationNewActionsInner&gt;**](FormConfigurationNewActionsInner.md) | Array of action configurations | [optional] |
 | **fields** | [**Array&lt;FormFieldsInner&gt;**](FormFieldsInner.md) | A list of form field objects | [optional] |
+| **configuration** | [**FormConfiguration**](FormConfiguration.md) |  | [optional] |
 
 ## Example
 
@@ -18,7 +19,8 @@ instance = PDFGeneratorAPI::FormConfigurationNew.new(
   template_id: 123123,
   name: Certificate creator,
   actions: null,
-  fields: null
+  fields: null,
+  configuration: null
 )
 ```
 

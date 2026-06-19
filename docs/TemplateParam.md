@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | Template ID | [optional] |
+| **id** | [**TemplateParamId**](TemplateParamId.md) |  | [optional] |
+| **version_id** | **Integer** | Template version ID | [optional] |
 | **data** | [**TemplateParamData**](TemplateParamData.md) |  | [optional] |
 
 ## Example
@@ -14,6 +15,7 @@ require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::TemplateParam.new(
   id: null,
+  version_id: 12,
   data: null
 )
 ```

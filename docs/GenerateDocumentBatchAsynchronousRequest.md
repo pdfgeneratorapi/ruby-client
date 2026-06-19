@@ -10,6 +10,7 @@
 | **output** | [**AsyncOutputParam**](AsyncOutputParam.md) |  | [optional][default to &#39;base64&#39;] |
 | **name** | **String** | Generated document name (optional) | [optional][default to &#39;&#39;] |
 | **testing** | **Boolean** | When set to true the generation is not counted as merge (monthly usage), but a large PREVIEW stamp is added. | [optional][default to false] |
+| **metadata** | [**MetadataParam**](MetadataParam.md) |  | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = PDFGeneratorAPI::GenerateDocumentBatchAsynchronousRequest.new(
   format: null,
   output: null,
   name: Invoice 123,
-  testing: false
+  testing: false,
+  metadata: null
 )
 ```
 

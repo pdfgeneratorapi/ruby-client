@@ -9,8 +9,10 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 | [**generate_document_asynchronous**](DocumentsApi.md#generate_document_asynchronous) | **POST** /documents/generate/async | Generate document (async) |
 | [**generate_document_batch**](DocumentsApi.md#generate_document_batch) | **POST** /documents/generate/batch | Generate document (batch) |
 | [**generate_document_batch_asynchronous**](DocumentsApi.md#generate_document_batch_asynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
+| [**get_async_job_status**](DocumentsApi.md#get_async_job_status) | **GET** /documents/async/{jobId} | Get job status |
 | [**get_document**](DocumentsApi.md#get_document) | **GET** /documents/{publicId} | Get document |
 | [**get_documents**](DocumentsApi.md#get_documents) | **GET** /documents | Get documents |
+| [**store_document**](DocumentsApi.md#store_document) | **POST** /documents | Store document |
 
 
 ## delete_document
@@ -83,7 +85,7 @@ nil (empty response body)
 
 ## generate_document
 
-> <AddWatermark201Response> generate_document(generate_document_request)
+> <InlineObject9> generate_document(generate_document_request)
 
 Generate document
 
@@ -116,7 +118,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AddWatermark201Response>, Integer, Hash)> generate_document_with_http_info(generate_document_request)
+> <Array(<InlineObject9>, Integer, Hash)> generate_document_with_http_info(generate_document_request)
 
 ```ruby
 begin
@@ -124,7 +126,7 @@ begin
   data, status_code, headers = api_instance.generate_document_with_http_info(generate_document_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <AddWatermark201Response>
+  p data # => <InlineObject9>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->generate_document_with_http_info: #{e}"
 end
@@ -138,7 +140,7 @@ end
 
 ### Return type
 
-[**AddWatermark201Response**](AddWatermark201Response.md)
+[**InlineObject9**](InlineObject9.md)
 
 ### Authorization
 
@@ -152,11 +154,11 @@ end
 
 ## generate_document_asynchronous
 
-> <GenerateDocumentAsynchronous201Response> generate_document_asynchronous(generate_document_asynchronous_request)
+> <InlineObject20> generate_document_asynchronous(generate_document_asynchronous_request)
 
 Generate document (async)
 
-Merges template with data as asynchronous job and makes POST request to callback URL defined in the request. Request uses the same format as response of synchronous generation endpoint. The job id is also added to the callback request as header PDF-API-Job-Id  *Example payload for callback URL:* ``` {   \"response\": \"https://us1.pdfgeneratorapi.com/share/12821/VBERi0xLjcKJeLjz9MKNyAwIG9i\",   \"meta\": {     \"name\": \"a2bd25b8921f3dc7a440fd7f427f90a4.pdf\",     \"display_name\": \"a2bd25b8921f3dc7a440fd7f427f90a4\",     \"encoding\": \"binary\",     \"content-type\": \"application/pdf\"   } } ``` 
+Merges template with data as asynchronous job and makes POST request to callback URL defined in the request. Request uses the same format as response of synchronous generation endpoint. The job id is also added to the callback request as header PDF-API-Job-Id  *Example response from callback URL:* ``` {   \"response\": \"https://us1.pdfgeneratorapi.com/share/12821/VBERi0xLjcKJeLjz9MKNyAwIG9i\",   \"meta\": {     \"name\": \"a2bd25b8921f3dc7a440fd7f427f90a4.pdf\",     \"display_name\": \"a2bd25b8921f3dc7a440fd7f427f90a4\",     \"encoding\": \"binary\",     \"content-type\": \"application/pdf\"   } } ``` 
 
 ### Examples
 
@@ -185,7 +187,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateDocumentAsynchronous201Response>, Integer, Hash)> generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
+> <Array(<InlineObject20>, Integer, Hash)> generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
 
 ```ruby
 begin
@@ -193,7 +195,7 @@ begin
   data, status_code, headers = api_instance.generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateDocumentAsynchronous201Response>
+  p data # => <InlineObject20>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->generate_document_asynchronous_with_http_info: #{e}"
 end
@@ -207,7 +209,7 @@ end
 
 ### Return type
 
-[**GenerateDocumentAsynchronous201Response**](GenerateDocumentAsynchronous201Response.md)
+[**InlineObject20**](InlineObject20.md)
 
 ### Authorization
 
@@ -221,7 +223,7 @@ end
 
 ## generate_document_batch
 
-> <AddWatermark201Response> generate_document_batch(generate_document_batch_request)
+> <InlineObject9> generate_document_batch(generate_document_batch_request)
 
 Generate document (batch)
 
@@ -254,7 +256,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AddWatermark201Response>, Integer, Hash)> generate_document_batch_with_http_info(generate_document_batch_request)
+> <Array(<InlineObject9>, Integer, Hash)> generate_document_batch_with_http_info(generate_document_batch_request)
 
 ```ruby
 begin
@@ -262,7 +264,7 @@ begin
   data, status_code, headers = api_instance.generate_document_batch_with_http_info(generate_document_batch_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <AddWatermark201Response>
+  p data # => <InlineObject9>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->generate_document_batch_with_http_info: #{e}"
 end
@@ -276,7 +278,7 @@ end
 
 ### Return type
 
-[**AddWatermark201Response**](AddWatermark201Response.md)
+[**InlineObject9**](InlineObject9.md)
 
 ### Authorization
 
@@ -290,11 +292,11 @@ end
 
 ## generate_document_batch_asynchronous
 
-> <GenerateDocumentAsynchronous201Response> generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
+> <InlineObject20> generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
 
 Generate document (batch + async)
 
-Merges template with data as asynchronous job and makes POST request to callback URL defined in the request. Request uses the same format as response of synchronous generation endpoint. The job id is also added to the callback request as header PDF-API-Job-Id  *Example payload for callback URL:* ``` {   \"response\": \"https://us1.pdfgeneratorapi.com/share/12821/VBERi0xLjcKJeLjz9MKNyAwIG9i\",   \"meta\": {     \"name\": \"a2bd25b8921f3dc7a440fd7f427f90a4.pdf\",     \"display_name\": \"a2bd25b8921f3dc7a440fd7f427f90a4\",     \"encoding\": \"binary\",     \"content-type\": \"application/pdf\"   } } ``` 
+Merges template with data as asynchronous job and makes POST request to callback URL defined in the request. Request uses the same format as response of synchronous generation endpoint. The job id is also added to the callback request as header PDF-API-Job-Id  *Example response from callback URL:* ``` {   \"response\": \"https://us1.pdfgeneratorapi.com/share/12821/VBERi0xLjcKJeLjz9MKNyAwIG9i\",   \"meta\": {     \"name\": \"a2bd25b8921f3dc7a440fd7f427f90a4.pdf\",     \"display_name\": \"a2bd25b8921f3dc7a440fd7f427f90a4\",     \"encoding\": \"binary\",     \"content-type\": \"application/pdf\"   } } ``` 
 
 ### Examples
 
@@ -323,7 +325,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateDocumentAsynchronous201Response>, Integer, Hash)> generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
+> <Array(<InlineObject20>, Integer, Hash)> generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
 
 ```ruby
 begin
@@ -331,7 +333,7 @@ begin
   data, status_code, headers = api_instance.generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateDocumentAsynchronous201Response>
+  p data # => <InlineObject20>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->generate_document_batch_asynchronous_with_http_info: #{e}"
 end
@@ -345,7 +347,7 @@ end
 
 ### Return type
 
-[**GenerateDocumentAsynchronous201Response**](GenerateDocumentAsynchronous201Response.md)
+[**InlineObject20**](InlineObject20.md)
 
 ### Authorization
 
@@ -357,9 +359,78 @@ end
 - **Accept**: application/json
 
 
+## get_async_job_status
+
+> <InlineObject13> get_async_job_status(job_id)
+
+Get job status
+
+Returns status of an async job
+
+### Examples
+
+```ruby
+require 'time'
+require 'pdf_generator_api_client'
+# setup authorization
+PDFGeneratorAPI.configure do |config|
+  # Configure Bearer authorization (JWT): JSONWebTokenAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PDFGeneratorAPI::DocumentsApi.new
+job_id = '968b8a3a-e8ac-49cc-a670-25db545813ed' # String | Job id
+
+begin
+  # Get job status
+  result = api_instance.get_async_job_status(job_id)
+  p result
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->get_async_job_status: #{e}"
+end
+```
+
+#### Using the get_async_job_status_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<InlineObject13>, Integer, Hash)> get_async_job_status_with_http_info(job_id)
+
+```ruby
+begin
+  # Get job status
+  data, status_code, headers = api_instance.get_async_job_status_with_http_info(job_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <InlineObject13>
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->get_async_job_status_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **job_id** | **String** | Job id |  |
+
+### Return type
+
+[**InlineObject13**](InlineObject13.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_document
 
-> <GetDocument200Response> get_document(public_id)
+> <InlineObject11> get_document(public_id)
 
 Get document
 
@@ -392,7 +463,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetDocument200Response>, Integer, Hash)> get_document_with_http_info(public_id)
+> <Array(<InlineObject11>, Integer, Hash)> get_document_with_http_info(public_id)
 
 ```ruby
 begin
@@ -400,7 +471,7 @@ begin
   data, status_code, headers = api_instance.get_document_with_http_info(public_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetDocument200Response>
+  p data # => <InlineObject11>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->get_document_with_http_info: #{e}"
 end
@@ -414,7 +485,7 @@ end
 
 ### Return type
 
-[**GetDocument200Response**](GetDocument200Response.md)
+[**InlineObject11**](InlineObject11.md)
 
 ### Authorization
 
@@ -428,7 +499,7 @@ end
 
 ## get_documents
 
-> <GetDocuments200Response> get_documents(opts)
+> <InlineObject15> get_documents(opts)
 
 Get documents
 
@@ -467,7 +538,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetDocuments200Response>, Integer, Hash)> get_documents_with_http_info(opts)
+> <Array(<InlineObject15>, Integer, Hash)> get_documents_with_http_info(opts)
 
 ```ruby
 begin
@@ -475,7 +546,7 @@ begin
   data, status_code, headers = api_instance.get_documents_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetDocuments200Response>
+  p data # => <InlineObject15>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->get_documents_with_http_info: #{e}"
 end
@@ -493,7 +564,7 @@ end
 
 ### Return type
 
-[**GetDocuments200Response**](GetDocuments200Response.md)
+[**InlineObject15**](InlineObject15.md)
 
 ### Authorization
 
@@ -502,5 +573,74 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## store_document
+
+> <InlineObject11> store_document(store_document_request)
+
+Store document
+
+Uploads a PDF as a URL or a base64 encoded string.
+
+### Examples
+
+```ruby
+require 'time'
+require 'pdf_generator_api_client'
+# setup authorization
+PDFGeneratorAPI.configure do |config|
+  # Configure Bearer authorization (JWT): JSONWebTokenAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PDFGeneratorAPI::DocumentsApi.new
+store_document_request = PDFGeneratorAPI::StoreDocumentRequest.new # StoreDocumentRequest | Document source and optional metadata. Exactly one of `file_base64` or `file_url` is required.
+
+begin
+  # Store document
+  result = api_instance.store_document(store_document_request)
+  p result
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->store_document: #{e}"
+end
+```
+
+#### Using the store_document_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<InlineObject11>, Integer, Hash)> store_document_with_http_info(store_document_request)
+
+```ruby
+begin
+  # Store document
+  data, status_code, headers = api_instance.store_document_with_http_info(store_document_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <InlineObject11>
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->store_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **store_document_request** | [**StoreDocumentRequest**](StoreDocumentRequest.md) | Document source and optional metadata. Exactly one of &#x60;file_base64&#x60; or &#x60;file_url&#x60; is required. |  |
+
+### Return type
+
+[**InlineObject11**](InlineObject11.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
