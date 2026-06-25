@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **message** | **String** | Error description | [optional] |
+| **response** | **String** | URL to open the embeddable Form Builder | [optional] |
 
 ## Example
 
@@ -12,7 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject21.new(
-  message: Authentication failed
+  response: https://app.pdfgeneratorapi.com/forms/builder/097475c4-dcd5-42ca-814f-b9fa3da66b5a
 )
 ```
 

@@ -12,7 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject24.new(
-  message: Entity not found
+  message: Account Suspended
 )
 ```
 

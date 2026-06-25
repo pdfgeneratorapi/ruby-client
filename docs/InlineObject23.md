@@ -12,7 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject23.new(
-  message: Access not granted
+  message: Authentication failed
 )
 ```
 

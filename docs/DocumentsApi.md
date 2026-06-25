@@ -4,13 +4,15 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /documents/{publicId} | Delete document |
+| [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /documents/{publicId}/actions | Delete document |
 | [**generate_document**](DocumentsApi.md#generate_document) | **POST** /documents/generate | Generate document |
 | [**generate_document_asynchronous**](DocumentsApi.md#generate_document_asynchronous) | **POST** /documents/generate/async | Generate document (async) |
 | [**generate_document_batch**](DocumentsApi.md#generate_document_batch) | **POST** /documents/generate/batch | Generate document (batch) |
 | [**generate_document_batch_asynchronous**](DocumentsApi.md#generate_document_batch_asynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
 | [**get_async_job_status**](DocumentsApi.md#get_async_job_status) | **GET** /documents/async/{jobId} | Get job status |
 | [**get_document**](DocumentsApi.md#get_document) | **GET** /documents/{publicId} | Get document |
+| [**get_document_actions**](DocumentsApi.md#get_document_actions) | **GET** /documents/{publicId}/actions | Get document actions |
+| [**get_document_versions**](DocumentsApi.md#get_document_versions) | **GET** /documents/{publicId}/versions | Get document versions |
 | [**get_documents**](DocumentsApi.md#get_documents) | **GET** /documents | Get documents |
 | [**store_document**](DocumentsApi.md#store_document) | **POST** /documents | Store document |
 
@@ -154,7 +156,7 @@ end
 
 ## generate_document_asynchronous
 
-> <InlineObject20> generate_document_asynchronous(generate_document_asynchronous_request)
+> <InlineObject22> generate_document_asynchronous(generate_document_asynchronous_request)
 
 Generate document (async)
 
@@ -187,7 +189,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject20>, Integer, Hash)> generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
+> <Array(<InlineObject22>, Integer, Hash)> generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
 
 ```ruby
 begin
@@ -195,7 +197,7 @@ begin
   data, status_code, headers = api_instance.generate_document_asynchronous_with_http_info(generate_document_asynchronous_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject20>
+  p data # => <InlineObject22>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->generate_document_asynchronous_with_http_info: #{e}"
 end
@@ -209,7 +211,7 @@ end
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject22**](InlineObject22.md)
 
 ### Authorization
 
@@ -292,7 +294,7 @@ end
 
 ## generate_document_batch_asynchronous
 
-> <InlineObject20> generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
+> <InlineObject22> generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
 
 Generate document (batch + async)
 
@@ -325,7 +327,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject20>, Integer, Hash)> generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
+> <Array(<InlineObject22>, Integer, Hash)> generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
 
 ```ruby
 begin
@@ -333,7 +335,7 @@ begin
   data, status_code, headers = api_instance.generate_document_batch_asynchronous_with_http_info(generate_document_batch_asynchronous_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject20>
+  p data # => <InlineObject22>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling DocumentsApi->generate_document_batch_asynchronous_with_http_info: #{e}"
 end
@@ -347,7 +349,7 @@ end
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject22**](InlineObject22.md)
 
 ### Authorization
 
@@ -486,6 +488,144 @@ end
 ### Return type
 
 [**InlineObject11**](InlineObject11.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_document_actions
+
+> <InlineObject17> get_document_actions(public_id)
+
+Get document actions
+
+Returns a list of actions performed on a stored document
+
+### Examples
+
+```ruby
+require 'time'
+require 'pdf_generator_api_client'
+# setup authorization
+PDFGeneratorAPI.configure do |config|
+  # Configure Bearer authorization (JWT): JSONWebTokenAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PDFGeneratorAPI::DocumentsApi.new
+public_id = 'bac8381bce1982e5f6957a0f52371336' # String | Resource public id
+
+begin
+  # Get document actions
+  result = api_instance.get_document_actions(public_id)
+  p result
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->get_document_actions: #{e}"
+end
+```
+
+#### Using the get_document_actions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<InlineObject17>, Integer, Hash)> get_document_actions_with_http_info(public_id)
+
+```ruby
+begin
+  # Get document actions
+  data, status_code, headers = api_instance.get_document_actions_with_http_info(public_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <InlineObject17>
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->get_document_actions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | Resource public id |  |
+
+### Return type
+
+[**InlineObject17**](InlineObject17.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_document_versions
+
+> <InlineObject16> get_document_versions(public_id)
+
+Get document versions
+
+Returns a list of versions for a stored document
+
+### Examples
+
+```ruby
+require 'time'
+require 'pdf_generator_api_client'
+# setup authorization
+PDFGeneratorAPI.configure do |config|
+  # Configure Bearer authorization (JWT): JSONWebTokenAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PDFGeneratorAPI::DocumentsApi.new
+public_id = 'bac8381bce1982e5f6957a0f52371336' # String | Resource public id
+
+begin
+  # Get document versions
+  result = api_instance.get_document_versions(public_id)
+  p result
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->get_document_versions: #{e}"
+end
+```
+
+#### Using the get_document_versions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<InlineObject16>, Integer, Hash)> get_document_versions_with_http_info(public_id)
+
+```ruby
+begin
+  # Get document versions
+  data, status_code, headers = api_instance.get_document_versions_with_http_info(public_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <InlineObject16>
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->get_document_versions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | Resource public id |  |
+
+### Return type
+
+[**InlineObject16**](InlineObject16.md)
 
 ### Authorization
 

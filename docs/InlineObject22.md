@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **message** | **String** | Error description | [optional] |
+| **response** | [**InlineObject22Response**](InlineObject22Response.md) |  | [optional] |
 
 ## Example
 
@@ -12,7 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject22.new(
-  message: Account Suspended
+  response: null
 )
 ```
 

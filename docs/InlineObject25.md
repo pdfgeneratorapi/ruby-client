@@ -5,7 +5,6 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **message** | **String** | Error description | [optional] |
-| **errors** | **Object** | Details about validation errors | [optional] |
 
 ## Example
 
@@ -13,8 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject25.new(
-  message: Incorrect parameter value,
-  errors: null
+  message: Access not granted
 )
 ```
 

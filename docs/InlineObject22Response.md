@@ -1,4 +1,4 @@
-# PDFGeneratorAPI::InlineObject20Response
+# PDFGeneratorAPI::InlineObject22Response
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'pdf_generator_api_client'
 
-instance = PDFGeneratorAPI::InlineObject20Response.new(
+instance = PDFGeneratorAPI::InlineObject22Response.new(
   job_id: JeLjz9MKNyAwIG9iago8PCA
 )
 ```

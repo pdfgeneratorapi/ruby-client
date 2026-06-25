@@ -82,7 +82,7 @@ nil (empty response body)
 
 ## get_template_version
 
-> <InlineObject16> get_template_version(template_id, template_version)
+> <InlineObject18> get_template_version(template_id, template_version)
 
 Get template version
 
@@ -116,7 +116,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject16>, Integer, Hash)> get_template_version_with_http_info(template_id, template_version)
+> <Array(<InlineObject18>, Integer, Hash)> get_template_version_with_http_info(template_id, template_version)
 
 ```ruby
 begin
@@ -124,7 +124,7 @@ begin
   data, status_code, headers = api_instance.get_template_version_with_http_info(template_id, template_version)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject16>
+  p data # => <InlineObject18>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplateVersionsApi->get_template_version_with_http_info: #{e}"
 end
@@ -139,7 +139,7 @@ end
 
 ### Return type
 
-[**InlineObject16**](InlineObject16.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 

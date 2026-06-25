@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **response** | [**FormConfiguration**](FormConfiguration.md) |  | [optional] |
+| **response** | [**Array&lt;DocumentAction&gt;**](DocumentAction.md) |  | [optional] |
 
 ## Example
 
