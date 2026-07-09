@@ -4,11 +4,12 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /documents/{publicId}/actions | Delete document |
+| [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /documents/{publicId} | Delete document |
 | [**generate_document**](DocumentsApi.md#generate_document) | **POST** /documents/generate | Generate document |
 | [**generate_document_asynchronous**](DocumentsApi.md#generate_document_asynchronous) | **POST** /documents/generate/async | Generate document (async) |
 | [**generate_document_batch**](DocumentsApi.md#generate_document_batch) | **POST** /documents/generate/batch | Generate document (batch) |
 | [**generate_document_batch_asynchronous**](DocumentsApi.md#generate_document_batch_asynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
+| [**generate_viewer_url**](DocumentsApi.md#generate_viewer_url) | **POST** /documents/{publicId} | Get document with prefill |
 | [**get_async_job_status**](DocumentsApi.md#get_async_job_status) | **GET** /documents/async/{jobId} | Get job status |
 | [**get_document**](DocumentsApi.md#get_document) | **GET** /documents/{publicId} | Get document |
 | [**get_document_actions**](DocumentsApi.md#get_document_actions) | **GET** /documents/{publicId}/actions | Get document actions |
@@ -350,6 +351,79 @@ end
 ### Return type
 
 [**InlineObject22**](InlineObject22.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## generate_viewer_url
+
+> <GenerateViewerUrl200Response> generate_viewer_url(public_id, opts)
+
+Get document with prefill
+
+Returns a URL for a stored document, optionally with viewer prefill data. The prefill is encrypted server-side and embedded in the viewer URL, so the caller does not have to handle encryption. Prefill is only applied when `output` is `viewer`. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'pdf_generator_api_client'
+# setup authorization
+PDFGeneratorAPI.configure do |config|
+  # Configure Bearer authorization (JWT): JSONWebTokenAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PDFGeneratorAPI::DocumentsApi.new
+public_id = 'bac8381bce1982e5f6957a0f52371336' # String | Resource public id
+opts = {
+  generate_viewer_url_request: PDFGeneratorAPI::GenerateViewerUrlRequest.new # GenerateViewerUrlRequest | Optional response format and viewer prefill data.
+}
+
+begin
+  # Get document with prefill
+  result = api_instance.generate_viewer_url(public_id, opts)
+  p result
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->generate_viewer_url: #{e}"
+end
+```
+
+#### Using the generate_viewer_url_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GenerateViewerUrl200Response>, Integer, Hash)> generate_viewer_url_with_http_info(public_id, opts)
+
+```ruby
+begin
+  # Get document with prefill
+  data, status_code, headers = api_instance.generate_viewer_url_with_http_info(public_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GenerateViewerUrl200Response>
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling DocumentsApi->generate_viewer_url_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | Resource public id |  |
+| **generate_viewer_url_request** | [**GenerateViewerUrlRequest**](GenerateViewerUrlRequest.md) | Optional response format and viewer prefill data. | [optional] |
+
+### Return type
+
+[**GenerateViewerUrl200Response**](GenerateViewerUrl200Response.md)
 
 ### Authorization
 

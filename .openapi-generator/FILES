@@ -56,6 +56,9 @@ docs/GenerateDocumentRequest.md
 docs/GenerateQRCode201Response.md
 docs/GenerateQRCode201ResponseMeta.md
 docs/GenerateQRCodeRequest.md
+docs/GenerateViewerUrl200Response.md
+docs/GenerateViewerUrl200ResponseMeta.md
+docs/GenerateViewerUrlRequest.md
 docs/GetStatus200Response.md
 docs/GetTemplateLibrary200Response.md
 docs/GetTemplateVersion422Response.md
@@ -122,6 +125,7 @@ docs/OptimizeDocumentRequest.md
 docs/OptimizeUrl.md
 docs/OutputParam.md
 docs/PaginationMeta.md
+docs/PrefillParam.md
 docs/PromoteTemplateVersion200Response.md
 docs/PublicTemplateLibraryItem.md
 docs/ServicesApi.md
@@ -218,6 +222,9 @@ lib/pdf_generator_api_client/models/generate_document_request.rb
 lib/pdf_generator_api_client/models/generate_qr_code201_response.rb
 lib/pdf_generator_api_client/models/generate_qr_code201_response_meta.rb
 lib/pdf_generator_api_client/models/generate_qr_code_request.rb
+lib/pdf_generator_api_client/models/generate_viewer_url200_response.rb
+lib/pdf_generator_api_client/models/generate_viewer_url200_response_meta.rb
+lib/pdf_generator_api_client/models/generate_viewer_url_request.rb
 lib/pdf_generator_api_client/models/get_status200_response.rb
 lib/pdf_generator_api_client/models/get_template_library200_response.rb
 lib/pdf_generator_api_client/models/get_template_version422_response.rb
@@ -283,6 +290,7 @@ lib/pdf_generator_api_client/models/optimize_document_request.rb
 lib/pdf_generator_api_client/models/optimize_url.rb
 lib/pdf_generator_api_client/models/output_param.rb
 lib/pdf_generator_api_client/models/pagination_meta.rb
+lib/pdf_generator_api_client/models/prefill_param.rb
 lib/pdf_generator_api_client/models/promote_template_version200_response.rb
 lib/pdf_generator_api_client/models/public_template_library_item.rb
 lib/pdf_generator_api_client/models/status_param.rb
@@ -371,6 +379,9 @@ spec/models/generate_document_request_spec.rb
 spec/models/generate_qr_code201_response_meta_spec.rb
 spec/models/generate_qr_code201_response_spec.rb
 spec/models/generate_qr_code_request_spec.rb
+spec/models/generate_viewer_url200_response_meta_spec.rb
+spec/models/generate_viewer_url200_response_spec.rb
+spec/models/generate_viewer_url_request_spec.rb
 spec/models/get_status200_response_spec.rb
 spec/models/get_template_library200_response_spec.rb
 spec/models/get_template_version422_response_spec.rb
@@ -436,6 +447,7 @@ spec/models/optimize_document_request_spec.rb
 spec/models/optimize_url_spec.rb
 spec/models/output_param_spec.rb
 spec/models/pagination_meta_spec.rb
+spec/models/prefill_param_spec.rb
 spec/models/promote_template_version200_response_spec.rb
 spec/models/public_template_library_item_spec.rb
 spec/models/status_param_spec.rb
