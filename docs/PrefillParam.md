@@ -8,6 +8,7 @@
 | **first_name** | **String** |  | [optional] |
 | **last_name** | **String** |  | [optional] |
 | **email** | **String** |  | [optional] |
+| **signature_id** | **String** |  | [optional] |
 | **editable** | **Boolean** |  | [optional][default to true] |
 
 ## Example
@@ -20,6 +21,7 @@ instance = PDFGeneratorAPI::PrefillParam.new(
   first_name: null,
   last_name: null,
   email: null,
+  signature_id: null,
   editable: null
 )
 ```
