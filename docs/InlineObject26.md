@@ -12,7 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject26.new(
-  message: Entity not found
+  message: Access not granted
 )
 ```
 

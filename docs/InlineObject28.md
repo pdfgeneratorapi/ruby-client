@@ -12,7 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject28.new(
-  message: You can make up to 2 requests per second and 60 requests per minute.
+  message: The document is no longer available
 )
 ```
 

@@ -76,7 +76,7 @@ No authorization required
 
 ## get_template_library_item
 
-> <InlineObject18> get_template_library_item(public_id)
+> <InlineObject19> get_template_library_item(public_id)
 
 Open template from the library
 
@@ -104,7 +104,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject18>, Integer, Hash)> get_template_library_item_with_http_info(public_id)
+> <Array(<InlineObject19>, Integer, Hash)> get_template_library_item_with_http_info(public_id)
 
 ```ruby
 begin
@@ -112,7 +112,7 @@ begin
   data, status_code, headers = api_instance.get_template_library_item_with_http_info(public_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject18>
+  p data # => <InlineObject19>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplateLibraryApi->get_template_library_item_with_http_info: #{e}"
 end
@@ -126,7 +126,7 @@ end
 
 ### Return type
 
-[**InlineObject18**](InlineObject18.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 

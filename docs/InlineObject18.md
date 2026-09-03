@@ -4,8 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **response** | [**TemplateDefinition**](TemplateDefinition.md) |  | [optional] |
-| **meta** | **Object** |  | [optional] |
+| **response** | [**Array&lt;DocumentAction&gt;**](DocumentAction.md) |  | [optional] |
 
 ## Example
 
@@ -13,8 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject18.new(
-  response: null,
-  meta: null
+  response: null
 )
 ```
 

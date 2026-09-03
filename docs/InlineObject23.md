@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **message** | **String** | Error description | [optional] |
+| **response** | [**InlineObject23Response**](InlineObject23Response.md) |  | [optional] |
 
 ## Example
 
@@ -12,7 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject23.new(
-  message: Authentication failed
+  response: null
 )
 ```
 

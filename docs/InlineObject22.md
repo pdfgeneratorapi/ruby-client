@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **response** | [**InlineObject22Response**](InlineObject22Response.md) |  | [optional] |
+| **response** | **String** | URL to open the embeddable Form Builder | [optional] |
 
 ## Example
 
@@ -12,7 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject22.new(
-  response: null
+  response: https://app.pdfgeneratorapi.com/forms/builder/097475c4-dcd5-42ca-814f-b9fa3da66b5a
 )
 ```
 

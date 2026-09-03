@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **response** | [**Array&lt;DocumentAction&gt;**](DocumentAction.md) |  | [optional] |
+| **response** | [**DocumentSignatures**](DocumentSignatures.md) |  | [optional] |
 
 ## Example
 
