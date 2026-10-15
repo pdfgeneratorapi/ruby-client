@@ -7,6 +7,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 | [**create_form**](FormsApi.md#create_form) | **POST** /forms | Create form |
 | [**delete_form**](FormsApi.md#delete_form) | **DELETE** /forms/{formId} | Delete form |
 | [**get_form**](FormsApi.md#get_form) | **GET** /forms/{formId} | Get form |
+| [**get_form_schema**](FormsApi.md#get_form_schema) | **GET** /forms/schema | Get schema |
 | [**get_forms**](FormsApi.md#get_forms) | **GET** /forms | Get forms |
 | [**import_form**](FormsApi.md#import_form) | **POST** /forms/import | Import Form |
 | [**open_form_builder**](FormsApi.md#open_form_builder) | **POST** /forms/open | Open new form builder |
@@ -35,7 +36,7 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::FormsApi.new
-form_configuration_new = PDFGeneratorAPI::FormConfigurationNew.new # FormConfigurationNew | Form configuration
+form_configuration_new = PDFGeneratorAPI::FormConfigurationNew.new({name: 'Certificate creator', actions: [PDFGeneratorAPI::FormConfigurationNewActionsInner.new], fields: [PDFGeneratorAPI::FormField.new({label: 'Full name', name: 'name', type: 'text', required: false})]}) # FormConfigurationNew | Form configuration
 
 begin
   # Create form
@@ -221,6 +222,67 @@ end
 - **Accept**: application/json
 
 
+## get_form_schema
+
+> Object get_form_schema
+
+Get schema
+
+Returns Form JSON Schema which defines the structure of the Form Definition.
+
+### Examples
+
+```ruby
+require 'time'
+require 'pdf_generator_api_client'
+
+api_instance = PDFGeneratorAPI::FormsApi.new
+
+begin
+  # Get schema
+  result = api_instance.get_form_schema
+  p result
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling FormsApi->get_form_schema: #{e}"
+end
+```
+
+#### Using the get_form_schema_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> get_form_schema_with_http_info
+
+```ruby
+begin
+  # Get schema
+  data, status_code, headers = api_instance.get_form_schema_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue PDFGeneratorAPI::ApiError => e
+  puts "Error when calling FormsApi->get_form_schema_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_forms
 
 > <InlineObject6> get_forms(opts)
@@ -243,7 +305,10 @@ end
 api_instance = PDFGeneratorAPI::FormsApi.new
 opts = {
   page: 1, # Integer | Pagination: page to return
-  per_page: 20 # Integer | Pagination: How many records to return per page
+  per_page: 20, # Integer | Pagination: How many records to return per page
+  order_by: 'id', # String | Field to sort the forms by
+  order_direction: 'asc', # String | Sort direction
+  search: 'Certificate' # String | Returns forms whose name or ID contains the search value
 }
 
 begin
@@ -279,6 +344,9 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page** | **Integer** | Pagination: page to return | [optional][default to 1] |
 | **per_page** | **Integer** | Pagination: How many records to return per page | [optional][default to 15] |
+| **order_by** | **String** | Field to sort the forms by | [optional][default to &#39;id&#39;] |
+| **order_direction** | **String** | Sort direction | [optional][default to &#39;desc&#39;] |
+| **search** | **String** | Returns forms whose name or ID contains the search value | [optional] |
 
 ### Return type
 
@@ -300,7 +368,7 @@ end
 
 Import Form
 
-Creates a new form based on editable PDF
+Creates a new form based on editable PDF. Form fields are created from the editable fields of the PDF. The optional `form` object sets the form name, template, actions and configuration.
 
 ### Examples
 
@@ -588,7 +656,7 @@ end
 
 api_instance = PDFGeneratorAPI::FormsApi.new
 form_id = 1 # Integer | Form unique identifier
-form_configuration_new = PDFGeneratorAPI::FormConfigurationNew.new # FormConfigurationNew | Form configuration
+form_configuration_new = PDFGeneratorAPI::FormConfigurationNew.new({name: 'Certificate creator', actions: [PDFGeneratorAPI::FormConfigurationNewActionsInner.new], fields: [PDFGeneratorAPI::FormField.new({label: 'Full name', name: 'name', type: 'text', required: false})]}) # FormConfigurationNew | Form configuration
 
 begin
   # Update form

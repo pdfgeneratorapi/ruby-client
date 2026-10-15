@@ -1,0 +1,30 @@
+# PDFGeneratorAPI::FormField
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **label** | **String** | Field label displayed in the form |  |
+| **name** | **String** | Data field name. For example \&quot;name\&quot; can be used as \&quot;{name}\&quot; in the document as placeholder. |  |
+| **type** | **String** | Field type * &#x60;text&#x60; - Free text input * &#x60;integer&#x60; - Whole number input * &#x60;number&#x60; - Decimal number input * &#x60;date&#x60; - Date picker * &#x60;signature&#x60; - Hand-drawn signature, stored as an image * &#x60;select&#x60; - Dropdown with a single choice. Requires &#x60;subRows&#x60; with options and a &#x60;default&#x60; value * &#x60;multi-select&#x60; - Dropdown with multiple choices. Requires &#x60;subRows&#x60; with options * &#x60;table&#x60; - Repeating rows of values. Its columns are defined in &#x60;subRows&#x60; * &#x60;image&#x60; - Image upload * &#x60;pdf&#x60; - PDF file upload  |  |
+| **required** | **Boolean** | Specifies if the field is required or not |  |
+| **default** | **String** | Value pre-filled in the field. Required for &#x60;select&#x60; fields and must be one of the options. Not used by &#x60;table&#x60; fields. | [optional] |
+| **description** | **String** | Help text shown with the field | [optional] |
+| **sub_rows** | [**Array&lt;FormFieldSubRowsInner&gt;**](FormFieldSubRowsInner.md) | Options for &#x60;select&#x60; and &#x60;multi-select&#x60; fields (a single object), columns for &#x60;table&#x60; fields. Not used by other field types. | [optional] |
+
+## Example
+
+```ruby
+require 'pdf_generator_api_client'
+
+instance = PDFGeneratorAPI::FormField.new(
+  label: Full name,
+  name: name,
+  type: text,
+  required: false,
+  default: Medium,
+  description: Enter your name as shown in your passport,
+  sub_rows: null
+)
+```
+
