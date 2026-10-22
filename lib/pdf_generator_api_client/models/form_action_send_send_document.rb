@@ -15,7 +15,7 @@ require 'time'
 
 module PDFGeneratorAPI
   class FormActionSendSendDocument
-    # URL where the generated document will be delivered. Must use HTTPS.
+    # URL that receives the submitted answers as JSON, and the generated document when the form also stores it. Must use HTTPS.
     attr_accessor :url
 
     # Optional HTTP headers to include with the delivery request.

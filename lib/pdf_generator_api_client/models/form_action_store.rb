@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module PDFGeneratorAPI
-  # Key-value pair of action configuration.
+  # Saves the generated document to Document Storage.
   class FormActionStore
     attr_accessor :store_document
 

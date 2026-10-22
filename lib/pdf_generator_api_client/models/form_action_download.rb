@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module PDFGeneratorAPI
-  # Key-value pair of action configuration.
+  # Lets the person who fills in the form download the generated document.
   class FormActionDownload
     attr_accessor :download_document
 
