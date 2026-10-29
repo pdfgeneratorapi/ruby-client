@@ -30,7 +30,7 @@ describe PDFGeneratorAPI::Component do
   describe 'test attribute "cls"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["labelComponent", "textComponent", "dateComponent", "numberComponent", "htmlblockComponent", "tableComponent", "compositeComponent", "chartComponent", "barcodeComponent", "qrcodeComponent", "imageComponent", "headerComponent", "footerComponent", "rectangleComponent", "vlineComponent", "hlineComponent", "pagenumberComponent", "symbolComponent", "checkboxComponent", "radioComponent", "signatureComponent"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["labelComponent", "textComponent", "dateComponent", "numberComponent", "htmlblockComponent", "tableComponent", "compositeComponent", "chartComponent", "barcodeComponent", "qrcodeComponent", "imageComponent", "headerComponent", "footerComponent", "rectangleComponent", "ellipseComponent", "vlineComponent", "hlineComponent", "pagenumberComponent", "symbolComponent", "checkboxComponent", "radioComponent", "signatureComponent"])
       # validator.allowable_values.each do |value|
       #   expect { instance.cls = value }.not_to raise_error
       # end

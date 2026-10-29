@@ -176,7 +176,7 @@ module PDFGeneratorAPI
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      cls_validator = EnumAttributeValidator.new('String', ["labelComponent", "textComponent", "dateComponent", "numberComponent", "htmlblockComponent", "tableComponent", "compositeComponent", "chartComponent", "barcodeComponent", "qrcodeComponent", "imageComponent", "headerComponent", "footerComponent", "rectangleComponent", "vlineComponent", "hlineComponent", "pagenumberComponent", "symbolComponent", "checkboxComponent", "radioComponent", "signatureComponent"])
+      cls_validator = EnumAttributeValidator.new('String', ["labelComponent", "textComponent", "dateComponent", "numberComponent", "htmlblockComponent", "tableComponent", "compositeComponent", "chartComponent", "barcodeComponent", "qrcodeComponent", "imageComponent", "headerComponent", "footerComponent", "rectangleComponent", "ellipseComponent", "vlineComponent", "hlineComponent", "pagenumberComponent", "symbolComponent", "checkboxComponent", "radioComponent", "signatureComponent"])
       return false unless cls_validator.valid?(@cls)
       true
     end
@@ -184,7 +184,7 @@ module PDFGeneratorAPI
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] cls Object to be assigned
     def cls=(cls)
-      validator = EnumAttributeValidator.new('String', ["labelComponent", "textComponent", "dateComponent", "numberComponent", "htmlblockComponent", "tableComponent", "compositeComponent", "chartComponent", "barcodeComponent", "qrcodeComponent", "imageComponent", "headerComponent", "footerComponent", "rectangleComponent", "vlineComponent", "hlineComponent", "pagenumberComponent", "symbolComponent", "checkboxComponent", "radioComponent", "signatureComponent"])
+      validator = EnumAttributeValidator.new('String', ["labelComponent", "textComponent", "dateComponent", "numberComponent", "htmlblockComponent", "tableComponent", "compositeComponent", "chartComponent", "barcodeComponent", "qrcodeComponent", "imageComponent", "headerComponent", "footerComponent", "rectangleComponent", "ellipseComponent", "vlineComponent", "hlineComponent", "pagenumberComponent", "symbolComponent", "checkboxComponent", "radioComponent", "signatureComponent"])
       unless validator.valid?(cls)
         fail ArgumentError, "invalid value for \"cls\", must be one of #{validator.allowable_values}."
       end
