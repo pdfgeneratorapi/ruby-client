@@ -16,7 +16,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::MakeAccessibleUrl.new(
-  file_url: null,
+  file_url: https://example.com/document.pdf,
   options: null,
   name: null,
   output: null,

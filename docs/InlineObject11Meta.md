@@ -8,7 +8,8 @@
 | **display_name** | **String** | Document name without the file extension. | [optional] |
 | **encoding** | **String** | Document encoding | [optional] |
 | **content_type** | **String** | Document content type. | [optional] |
-| **public_id** | **String** | Document public id | [optional] |
+| **stats** | [**InlineObject11MetaStats**](InlineObject11MetaStats.md) |  | [optional] |
+| **public_id** | **String** | Document public id, if output&#x3D;url was used for document storage | [optional] |
 
 ## Example
 
@@ -18,9 +19,10 @@ require 'pdf_generator_api_client'
 instance = PDFGeneratorAPI::InlineObject11Meta.new(
   name: a2bd25b8921f3dc7a440fd7f427f90a4.pdf,
   display_name: a2bd25b8921f3dc7a440fd7f427f90a4,
-  encoding: binary,
+  encoding: base64,
   content_type: application/pdf,
-  public_id: bac8381bce1982e5f6957a0f52371336
+  stats: null,
+  public_id: a2bd25b8921f3dc7a440fd7f427f90a4
 )
 ```
 

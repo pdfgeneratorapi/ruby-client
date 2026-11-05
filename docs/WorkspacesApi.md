@@ -12,7 +12,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## create_workspace
 
-> <InlineObject8> create_workspace(opts)
+> <InlineObject7> create_workspace(create_workspace_request)
 
 Create workspace
 
@@ -30,13 +30,11 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::WorkspacesApi.new
-opts = {
-  create_workspace_request: PDFGeneratorAPI::CreateWorkspaceRequest.new # CreateWorkspaceRequest | 
-}
+create_workspace_request = PDFGeneratorAPI::CreateWorkspaceRequest.new({identifier: 'demo.example@actualreports.com'}) # CreateWorkspaceRequest | 
 
 begin
   # Create workspace
-  result = api_instance.create_workspace(opts)
+  result = api_instance.create_workspace(create_workspace_request)
   p result
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->create_workspace: #{e}"
@@ -47,15 +45,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject8>, Integer, Hash)> create_workspace_with_http_info(opts)
+> <Array(<InlineObject7>, Integer, Hash)> create_workspace_with_http_info(create_workspace_request)
 
 ```ruby
 begin
   # Create workspace
-  data, status_code, headers = api_instance.create_workspace_with_http_info(opts)
+  data, status_code, headers = api_instance.create_workspace_with_http_info(create_workspace_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject8>
+  p data # => <InlineObject7>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->create_workspace_with_http_info: #{e}"
 end
@@ -65,11 +63,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_workspace_request** | [**CreateWorkspaceRequest**](CreateWorkspaceRequest.md) |  | [optional] |
+| **create_workspace_request** | [**CreateWorkspaceRequest**](CreateWorkspaceRequest.md) |  |  |
 
 ### Return type
 
-[**InlineObject8**](InlineObject8.md)
+[**InlineObject7**](InlineObject7.md)
 
 ### Authorization
 
@@ -151,7 +149,7 @@ nil (empty response body)
 
 ## get_workspace
 
-> <InlineObject8> get_workspace(workspace_identifier)
+> <InlineObject7> get_workspace(workspace_identifier)
 
 Get workspace
 
@@ -184,7 +182,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject8>, Integer, Hash)> get_workspace_with_http_info(workspace_identifier)
+> <Array(<InlineObject7>, Integer, Hash)> get_workspace_with_http_info(workspace_identifier)
 
 ```ruby
 begin
@@ -192,7 +190,7 @@ begin
   data, status_code, headers = api_instance.get_workspace_with_http_info(workspace_identifier)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject8>
+  p data # => <InlineObject7>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling WorkspacesApi->get_workspace_with_http_info: #{e}"
 end
@@ -206,7 +204,7 @@ end
 
 ### Return type
 
-[**InlineObject8**](InlineObject8.md)
+[**InlineObject7**](InlineObject7.md)
 
 ### Authorization
 
@@ -240,7 +238,11 @@ end
 api_instance = PDFGeneratorAPI::WorkspacesApi.new
 opts = {
   page: 1, # Integer | Pagination: page to return
-  per_page: 20 # Integer | Pagination: How many records to return per page
+  per_page: 20, # Integer | Pagination: How many records to return per page
+  order_by: 'id', # String | Field to sort the workspaces by
+  order_direction: 'asc', # String | Sort direction
+  activated: 0, # Integer | Returns only active (`1`) or deactivated (`0`) workspaces
+  search: 'demo.example' # String | Returns workspaces whose ID, name or identifier contains the search value
 }
 
 begin
@@ -276,6 +278,10 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page** | **Integer** | Pagination: page to return | [optional][default to 1] |
 | **per_page** | **Integer** | Pagination: How many records to return per page | [optional][default to 15] |
+| **order_by** | **String** | Field to sort the workspaces by | [optional][default to &#39;id&#39;] |
+| **order_direction** | **String** | Sort direction | [optional][default to &#39;desc&#39;] |
+| **activated** | **Integer** | Returns only active (&#x60;1&#x60;) or deactivated (&#x60;0&#x60;) workspaces | [optional] |
+| **search** | **String** | Returns workspaces whose ID, name or identifier contains the search value | [optional] |
 
 ### Return type
 

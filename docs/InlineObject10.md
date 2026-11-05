@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **response** | **Array&lt;String&gt;** | Array of base64 encoded images, one per converted page. | [optional] |
+| **response** | **String** | Public URL to the document. | [optional] |
 | **meta** | [**InlineObject10Meta**](InlineObject10Meta.md) |  | [optional] |
 
 ## Example
@@ -13,7 +13,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject10.new(
-  response: [&quot;iVBORw0KGgoAAAANSUhEUgAA...&quot;],
+  response: https://us1.pdfgeneratorapi.com/api/v4/documents/66/bac8381bce1982e5f6957a0f52371336/share,
   meta: null
 )
 ```

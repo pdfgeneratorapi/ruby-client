@@ -16,7 +16,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::EncryptAndDecryptUrl.new(
-  file_url: null,
+  file_url: https://example.com/document.pdf,
   owner_password: null,
   user_password: null,
   name: null,

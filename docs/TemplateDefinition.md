@@ -4,14 +4,18 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | Unique identifier | [optional] |
 | **name** | **String** | Template name | [optional] |
 | **tags** | **Array&lt;String&gt;** | A list of tags assigned to a template | [optional] |
 | **is_draft** | **Boolean** | Indicates if the template is a draft or published. | [optional] |
 | **layout** | [**TemplateDefinitionNewLayout**](TemplateDefinitionNewLayout.md) |  | [optional] |
-| **pages** | [**Array&lt;TemplateDefinitionPagesInner&gt;**](TemplateDefinitionPagesInner.md) | Defines page or label size, margins and components on page or label | [optional] |
-| **data_settings** | [**TemplateDefinitionDataSettings**](TemplateDefinitionDataSettings.md) |  | [optional] |
-| **editor** | [**TemplateDefinitionEditor**](TemplateDefinitionEditor.md) |  | [optional] |
+| **pages** | [**Array&lt;TemplateDefinitionNewPagesInner&gt;**](TemplateDefinitionNewPagesInner.md) | Defines page or label size, margins and components on page or label | [optional] |
+| **data_settings** | [**TemplateDefinitionNewDataSettings**](TemplateDefinitionNewDataSettings.md) |  | [optional] |
+| **editor** | [**TemplateDefinitionNewEditor**](TemplateDefinitionNewEditor.md) |  | [optional] |
+| **font_subsetting** | **Boolean** | If font-subsetting is applied to document when generated | [optional][default to false] |
+| **barcode_as_image** | **Boolean** | Defines if barcodes are rendered as raster images instead of vector graphics. | [optional][default to false] |
+| **id** | **Integer** | Unique identifier. &#x60;null&#x60; for a template library preview, which is not a template of the workspace. | [optional] |
+| **improved_html_spacing** | **Boolean** | Measures HTML text the way it is drawn. New templates have it on; one saved before it existed keeps it off, and the layout it was designed with. | [optional] |
+| **background_pdf** | **String** | A base64 PDF the pages are drawn on. Set when the template is imported from a PDF. | [optional] |
 
 ## Example
 
@@ -19,14 +23,18 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::TemplateDefinition.new(
-  id: 19375,
   name: Invoice template,
   tags: [&quot;invoice&quot;,&quot;orders&quot;],
   is_draft: true,
   layout: null,
   pages: null,
   data_settings: null,
-  editor: null
+  editor: null,
+  font_subsetting: false,
+  barcode_as_image: false,
+  id: 19375,
+  improved_html_spacing: true,
+  background_pdf: 
 )
 ```
 

@@ -9,7 +9,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## generate_qr_code
 
-> <GenerateQRCode201Response> generate_qr_code(generate_qr_code_request)
+> File generate_qr_code(generate_qr_code_request)
 
 Generate QR Code
 
@@ -42,7 +42,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateQRCode201Response>, Integer, Hash)> generate_qr_code_with_http_info(generate_qr_code_request)
+> <Array(File, Integer, Hash)> generate_qr_code_with_http_info(generate_qr_code_request)
 
 ```ruby
 begin
@@ -50,7 +50,7 @@ begin
   data, status_code, headers = api_instance.generate_qr_code_with_http_info(generate_qr_code_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateQRCode201Response>
+  p data # => File
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling AssetsApi->generate_qr_code_with_http_info: #{e}"
 end
@@ -64,7 +64,7 @@ end
 
 ### Return type
 
-[**GenerateQRCode201Response**](GenerateQRCode201Response.md)
+**File**
 
 ### Authorization
 
@@ -73,5 +73,5 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: image/png, application/json
 

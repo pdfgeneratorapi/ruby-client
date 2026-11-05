@@ -19,7 +19,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## copy_template
 
-> <InlineObject19> copy_template(template_id, opts)
+> <InlineObject18> copy_template(template_id, opts)
 
 Copy template
 
@@ -55,7 +55,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject19>, Integer, Hash)> copy_template_with_http_info(template_id, opts)
+> <Array(<InlineObject18>, Integer, Hash)> copy_template_with_http_info(template_id, opts)
 
 ```ruby
 begin
@@ -63,7 +63,7 @@ begin
   data, status_code, headers = api_instance.copy_template_with_http_info(template_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject19>
+  p data # => <InlineObject18>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->copy_template_with_http_info: #{e}"
 end
@@ -78,7 +78,7 @@ end
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ end
 
 ## create_template
 
-> <InlineObject19> create_template(template_definition_new)
+> <InlineObject18> create_template(template_definition_new)
 
 Create template
 
@@ -125,7 +125,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject19>, Integer, Hash)> create_template_with_http_info(template_definition_new)
+> <Array(<InlineObject18>, Integer, Hash)> create_template_with_http_info(template_definition_new)
 
 ```ruby
 begin
@@ -133,7 +133,7 @@ begin
   data, status_code, headers = api_instance.create_template_with_http_info(template_definition_new)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject19>
+  p data # => <InlineObject18>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->create_template_with_http_info: #{e}"
 end
@@ -147,7 +147,7 @@ end
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -229,7 +229,7 @@ nil (empty response body)
 
 ## get_template
 
-> <InlineObject19> get_template(template_id)
+> <InlineObject18> get_template(template_id)
 
 Get template
 
@@ -262,7 +262,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject19>, Integer, Hash)> get_template_with_http_info(template_id)
+> <Array(<InlineObject18>, Integer, Hash)> get_template_with_http_info(template_id)
 
 ```ruby
 begin
@@ -270,7 +270,7 @@ begin
   data, status_code, headers = api_instance.get_template_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject19>
+  p data # => <InlineObject18>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->get_template_with_http_info: #{e}"
 end
@@ -284,7 +284,7 @@ end
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -367,7 +367,7 @@ end
 
 ## get_template_schema
 
-> Object get_template_schema
+> <GetTemplateSchema200Response> get_template_schema
 
 Get schema
 
@@ -378,11 +378,6 @@ Returns Template JSON Schema which defines the structure of the Template Definit
 ```ruby
 require 'time'
 require 'pdf_generator_api_client'
-# setup authorization
-PDFGeneratorAPI.configure do |config|
-  # Configure Bearer authorization (JWT): JSONWebTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
 
 api_instance = PDFGeneratorAPI::TemplatesApi.new
 
@@ -399,7 +394,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> get_template_schema_with_http_info
+> <Array(<GetTemplateSchema200Response>, Integer, Hash)> get_template_schema_with_http_info
 
 ```ruby
 begin
@@ -407,7 +402,7 @@ begin
   data, status_code, headers = api_instance.get_template_schema_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <GetTemplateSchema200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->get_template_schema_with_http_info: #{e}"
 end
@@ -419,11 +414,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**GetTemplateSchema200Response**](GetTemplateSchema200Response.md)
 
 ### Authorization
 
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -456,7 +451,10 @@ opts = {
   tags: 'tags_example', # String | Filter template by tags
   access: 'private', # String | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates.
   page: 1, # Integer | Pagination: page to return
-  per_page: 20 # Integer | Pagination: How many records to return per page
+  per_page: 20, # Integer | Pagination: How many records to return per page
+  order_by: 'id', # String | Field to sort the templates by. Ignored when `name` or `tags` is set.
+  order_direction: 'asc', # String | Sort direction. Ignored when `name` or `tags` is set.
+  search: 'Invoice' # String | Returns templates whose ID, name, tags, creation date or modification date contains the search value. Ignored when `name` or `tags` is set.
 }
 
 begin
@@ -495,6 +493,9 @@ end
 | **access** | **String** | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates. | [optional][default to &#39;&#39;] |
 | **page** | **Integer** | Pagination: page to return | [optional][default to 1] |
 | **per_page** | **Integer** | Pagination: How many records to return per page | [optional][default to 15] |
+| **order_by** | **String** | Field to sort the templates by. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [optional][default to &#39;updated_at&#39;] |
+| **order_direction** | **String** | Sort direction. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [optional][default to &#39;desc&#39;] |
+| **search** | **String** | Returns templates whose ID, name, tags, creation date or modification date contains the search value. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [optional] |
 
 ### Return type
 
@@ -512,7 +513,7 @@ end
 
 ## import_template
 
-> <InlineObject19> import_template(import_template_request)
+> <InlineObject18> import_template(import_template_request)
 
 Import template
 
@@ -545,7 +546,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject19>, Integer, Hash)> import_template_with_http_info(import_template_request)
+> <Array(<InlineObject18>, Integer, Hash)> import_template_with_http_info(import_template_request)
 
 ```ruby
 begin
@@ -553,7 +554,7 @@ begin
   data, status_code, headers = api_instance.import_template_with_http_info(import_template_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject19>
+  p data # => <InlineObject18>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->import_template_with_http_info: #{e}"
 end
@@ -567,7 +568,7 @@ end
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -652,11 +653,11 @@ end
 
 ## update_template
 
-> <InlineObject19> update_template(template_id, template_definition_new)
+> <InlineObject18> update_template(template_id, template_definition_update)
 
 Update template
 
-Updates template configuration. Each top-level field sent (name, layout, pages and the rest) replaces the stored one, so pages must be complete, with every component.
+Updates template configuration. Each top-level field sent (name, layout, pages and the rest) replaces the stored one, so pages must be complete, with every component. A field left out keeps its stored value, the name included.
 
 ### Examples
 
@@ -671,11 +672,11 @@ end
 
 api_instance = PDFGeneratorAPI::TemplatesApi.new
 template_id = 19375 # Integer | Template unique identifier
-template_definition_new = PDFGeneratorAPI::TemplateDefinitionNew.new({name: 'Invoice template'}) # TemplateDefinitionNew | Template configuration
+template_definition_update = PDFGeneratorAPI::TemplateDefinitionUpdate.new # TemplateDefinitionUpdate | The template configuration to change
 
 begin
   # Update template
-  result = api_instance.update_template(template_id, template_definition_new)
+  result = api_instance.update_template(template_id, template_definition_update)
   p result
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->update_template: #{e}"
@@ -686,15 +687,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject19>, Integer, Hash)> update_template_with_http_info(template_id, template_definition_new)
+> <Array(<InlineObject18>, Integer, Hash)> update_template_with_http_info(template_id, template_definition_update)
 
 ```ruby
 begin
   # Update template
-  data, status_code, headers = api_instance.update_template_with_http_info(template_id, template_definition_new)
+  data, status_code, headers = api_instance.update_template_with_http_info(template_id, template_definition_update)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject19>
+  p data # => <InlineObject18>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling TemplatesApi->update_template_with_http_info: #{e}"
 end
@@ -705,11 +706,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **template_id** | **Integer** | Template unique identifier |  |
-| **template_definition_new** | [**TemplateDefinitionNew**](TemplateDefinitionNew.md) | Template configuration |  |
+| **template_definition_update** | [**TemplateDefinitionUpdate**](TemplateDefinitionUpdate.md) | The template configuration to change |  |
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -734,11 +735,6 @@ Validates if the provided template configuration matches the template JSON schem
 ```ruby
 require 'time'
 require 'pdf_generator_api_client'
-# setup authorization
-PDFGeneratorAPI.configure do |config|
-  # Configure Bearer authorization (JWT): JSONWebTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
 
 api_instance = PDFGeneratorAPI::TemplatesApi.new
 template_definition_new = PDFGeneratorAPI::TemplateDefinitionNew.new({name: 'Invoice template'}) # TemplateDefinitionNew | Template configuration
@@ -782,7 +778,7 @@ end
 
 ### Authorization
 
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 

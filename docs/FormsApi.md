@@ -18,7 +18,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## create_form
 
-> <InlineObject20> create_form(form_configuration_new)
+> <InlineObject19> create_form(form_configuration_new)
 
 Create form
 
@@ -51,7 +51,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject20>, Integer, Hash)> create_form_with_http_info(form_configuration_new)
+> <Array(<InlineObject19>, Integer, Hash)> create_form_with_http_info(form_configuration_new)
 
 ```ruby
 begin
@@ -59,7 +59,7 @@ begin
   data, status_code, headers = api_instance.create_form_with_http_info(form_configuration_new)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject20>
+  p data # => <InlineObject19>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling FormsApi->create_form_with_http_info: #{e}"
 end
@@ -73,7 +73,7 @@ end
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ nil (empty response body)
 
 ## get_form
 
-> <InlineObject20> get_form(form_id)
+> <InlineObject19> get_form(form_id)
 
 Get form
 
@@ -188,7 +188,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject20>, Integer, Hash)> get_form_with_http_info(form_id)
+> <Array(<InlineObject19>, Integer, Hash)> get_form_with_http_info(form_id)
 
 ```ruby
 begin
@@ -196,7 +196,7 @@ begin
   data, status_code, headers = api_instance.get_form_with_http_info(form_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject20>
+  p data # => <InlineObject19>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling FormsApi->get_form_with_http_info: #{e}"
 end
@@ -210,7 +210,7 @@ end
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ end
 
 ## get_form_schema
 
-> Object get_form_schema
+> <GetFormSchema200Response> get_form_schema
 
 Get schema
 
@@ -251,7 +251,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> get_form_schema_with_http_info
+> <Array(<GetFormSchema200Response>, Integer, Hash)> get_form_schema_with_http_info
 
 ```ruby
 begin
@@ -259,7 +259,7 @@ begin
   data, status_code, headers = api_instance.get_form_schema_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <GetFormSchema200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling FormsApi->get_form_schema_with_http_info: #{e}"
 end
@@ -271,7 +271,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**GetFormSchema200Response**](GetFormSchema200Response.md)
 
 ### Authorization
 
@@ -364,7 +364,7 @@ end
 
 ## import_form
 
-> <InlineObject20> import_form(import_form_request)
+> <InlineObject19> import_form(import_form_request)
 
 Import Form
 
@@ -397,7 +397,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject20>, Integer, Hash)> import_form_with_http_info(import_form_request)
+> <Array(<InlineObject19>, Integer, Hash)> import_form_with_http_info(import_form_request)
 
 ```ruby
 begin
@@ -405,7 +405,7 @@ begin
   data, status_code, headers = api_instance.import_form_with_http_info(import_form_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject20>
+  p data # => <InlineObject19>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling FormsApi->import_form_with_http_info: #{e}"
 end
@@ -419,7 +419,7 @@ end
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -433,7 +433,7 @@ end
 
 ## open_form_builder
 
-> <InlineObject22> open_form_builder
+> <InlineObject21> open_form_builder
 
 Open new form builder
 
@@ -465,7 +465,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject22>, Integer, Hash)> open_form_builder_with_http_info
+> <Array(<InlineObject21>, Integer, Hash)> open_form_builder_with_http_info
 
 ```ruby
 begin
@@ -473,7 +473,7 @@ begin
   data, status_code, headers = api_instance.open_form_builder_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject22>
+  p data # => <InlineObject21>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling FormsApi->open_form_builder_with_http_info: #{e}"
 end
@@ -485,7 +485,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineObject22**](InlineObject22.md)
+[**InlineObject21**](InlineObject21.md)
 
 ### Authorization
 
@@ -499,7 +499,7 @@ This endpoint does not need any parameter.
 
 ## open_form_builder_for_existing_form
 
-> <InlineObject22> open_form_builder_for_existing_form(form_id)
+> <InlineObject21> open_form_builder_for_existing_form(form_id)
 
 Open existing form builder
 
@@ -532,7 +532,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject22>, Integer, Hash)> open_form_builder_for_existing_form_with_http_info(form_id)
+> <Array(<InlineObject21>, Integer, Hash)> open_form_builder_for_existing_form_with_http_info(form_id)
 
 ```ruby
 begin
@@ -540,7 +540,7 @@ begin
   data, status_code, headers = api_instance.open_form_builder_for_existing_form_with_http_info(form_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject22>
+  p data # => <InlineObject21>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling FormsApi->open_form_builder_for_existing_form_with_http_info: #{e}"
 end
@@ -554,7 +554,7 @@ end
 
 ### Return type
 
-[**InlineObject22**](InlineObject22.md)
+[**InlineObject21**](InlineObject21.md)
 
 ### Authorization
 
@@ -568,7 +568,7 @@ end
 
 ## share_form
 
-> <InlineObject21> share_form(form_id)
+> <InlineObject20> share_form(form_id)
 
 Share form
 
@@ -601,7 +601,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject21>, Integer, Hash)> share_form_with_http_info(form_id)
+> <Array(<InlineObject20>, Integer, Hash)> share_form_with_http_info(form_id)
 
 ```ruby
 begin
@@ -609,7 +609,7 @@ begin
   data, status_code, headers = api_instance.share_form_with_http_info(form_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject21>
+  p data # => <InlineObject20>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling FormsApi->share_form_with_http_info: #{e}"
 end
@@ -623,7 +623,7 @@ end
 
 ### Return type
 
-[**InlineObject21**](InlineObject21.md)
+[**InlineObject20**](InlineObject20.md)
 
 ### Authorization
 
@@ -637,7 +637,7 @@ end
 
 ## update_form
 
-> <InlineObject20> update_form(form_id, form_configuration_new)
+> <InlineObject19> update_form(form_id, form_configuration_new)
 
 Update form
 
@@ -671,7 +671,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject20>, Integer, Hash)> update_form_with_http_info(form_id, form_configuration_new)
+> <Array(<InlineObject19>, Integer, Hash)> update_form_with_http_info(form_id, form_configuration_new)
 
 ```ruby
 begin
@@ -679,7 +679,7 @@ begin
   data, status_code, headers = api_instance.update_form_with_http_info(form_id, form_configuration_new)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject20>
+  p data # => <InlineObject19>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling FormsApi->update_form_with_http_info: #{e}"
 end
@@ -694,7 +694,7 @@ end
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 

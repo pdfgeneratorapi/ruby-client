@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **response** | **String** | Public URL to the document. | [optional] |
+| **response** | **String** | Base64 encoded document if the output&#x3D;base64 is used or URL to the document when the output&#x3D;url is used. | [optional] |
 | **meta** | [**InlineObject11Meta**](InlineObject11Meta.md) |  | [optional] |
 
 ## Example
@@ -13,7 +13,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject11.new(
-  response: https://us1.pdfgeneratorapi.com/api/v4/documents/66/bac8381bce1982e5f6957a0f52371336/share,
+  response: JVBERi0xLjcKJeLjz9MKNyAwIG9iago8PCAvVHlwZSA...,
   meta: null
 )
 ```

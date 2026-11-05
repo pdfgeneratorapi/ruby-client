@@ -9,6 +9,7 @@
 | **conversion_api** | [**StatusParam**](StatusParam.md) |  | [optional][default to &#39;ok&#39;] |
 | **generator_api_sync** | [**StatusParam**](StatusParam.md) |  | [optional][default to &#39;ok&#39;] |
 | **generator_api_async** | [**StatusParam**](StatusParam.md) |  | [optional][default to &#39;ok&#39;] |
+| **pdf_services** | [**StatusParam**](StatusParam.md) |  | [optional][default to &#39;ok&#39;] |
 | **e_invoice** | [**StatusParam**](StatusParam.md) |  | [optional][default to &#39;ok&#39;] |
 
 ## Example
@@ -22,6 +23,7 @@ instance = PDFGeneratorAPI::GetStatus200Response.new(
   conversion_api: null,
   generator_api_sync: null,
   generator_api_async: null,
+  pdf_services: null,
   e_invoice: null
 )
 ```

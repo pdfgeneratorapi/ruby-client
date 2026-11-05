@@ -14,8 +14,9 @@ require 'pdf_generator_api_client'
 PDFGeneratorAPI::TemplateParamData.openapi_one_of
 # =>
 # [
-#   :'Array<Object>',
-#   :'Object'
+#   :'Array<Hash>',
+#   :'Hash<String, Object>',
+#   :'String'
 # ]
 ```
 
@@ -29,7 +30,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'pdf_generator_api_client'
 
 PDFGeneratorAPI::TemplateParamData.build(data)
-# => #<Array<Object>:0x00007fdd4aab02a0>
+# => #<Array<Hash>:0x00007fdd4aab02a0>
 
 PDFGeneratorAPI::TemplateParamData.build(data_that_doesnt_match)
 # => nil
@@ -43,7 +44,8 @@ PDFGeneratorAPI::TemplateParamData.build(data_that_doesnt_match)
 
 #### Return type
 
-- `Array<Object>`
-- `Object`
+- `Array<Hash>`
+- `Hash<String, Object>`
+- `String`
 - `nil` (if no type matches)
 

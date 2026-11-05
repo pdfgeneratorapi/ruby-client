@@ -10,6 +10,7 @@
 | **created_at** | **String** | Timestamp when the template was created | [optional] |
 | **updated_at** | **String** | Timestamp when the template was updated | [optional] |
 | **tags** | **Array&lt;String&gt;** | A list of tags assigned to a template | [optional] |
+| **is_draft** | **Boolean** | True if the template is a draft | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = PDFGeneratorAPI::Template.new(
   owner: true,
   created_at: 2022-01-21 11:49:28,
   updated_at: 2022-08-01 23:49:28,
-  tags: [&quot;invoice&quot;,&quot;orders&quot;]
+  tags: [&quot;invoice&quot;,&quot;orders&quot;],
+  is_draft: false
 )
 ```
 

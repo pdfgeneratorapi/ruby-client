@@ -20,11 +20,6 @@ Returns service status / health
 ```ruby
 require 'time'
 require 'pdf_generator_api_client'
-# setup authorization
-PDFGeneratorAPI.configure do |config|
-  # Configure Bearer authorization (JWT): JSONWebTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
 
 api_instance = PDFGeneratorAPI::MiscApi.new
 
@@ -65,7 +60,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 

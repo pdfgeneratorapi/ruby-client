@@ -4,8 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **job_id** | **String** | UUID of the async job. | [optional] |
-| **status** | **String** | Status of the async job. | [optional] |
+| **response** | [**Hash&lt;String, InlineObject13ResponseValue&gt;**](InlineObject13ResponseValue.md) | Form fields extracted from the PDF document | [optional] |
 
 ## Example
 
@@ -13,8 +12,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::InlineObject13.new(
-  job_id: 968b8a3a-e8ac-49cc-a670-25db545813ed,
-  status: published
+  response: {&quot;firstName&quot;:{&quot;id&quot;:&quot;30&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;name&quot;:&quot;firstName&quot;,&quot;value&quot;:&quot;John&quot;,&quot;locked&quot;:false,&quot;pages&quot;:[1],&quot;multiline&quot;:false},&quot;dateOfBirth&quot;:{&quot;id&quot;:&quot;33&quot;,&quot;type&quot;:&quot;datefield&quot;,&quot;name&quot;:&quot;dateOfBirth&quot;,&quot;value&quot;:&quot;01.01.2000&quot;,&quot;format&quot;:&quot;dd.mm.yyyy&quot;,&quot;locked&quot;:false,&quot;pages&quot;:[1]}}
 )
 ```
 

@@ -11,7 +11,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## convert_html2_pdf
 
-> <InlineObject9> convert_html2_pdf(convert_html2_pdf_request)
+> <InlineObject8> convert_html2_pdf(convert_html2_pdf_request)
 
 HTML to PDF
 
@@ -29,7 +29,7 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::ConversionApi.new
-convert_html2_pdf_request = PDFGeneratorAPI::ConvertHTML2PDFRequest.new # ConvertHTML2PDFRequest | 
+convert_html2_pdf_request = PDFGeneratorAPI::ConvertHTML2PDFRequest.new({content: '<html><title>Test</title><body><h1>Hello world</h1></body></html>'}) # ConvertHTML2PDFRequest | 
 
 begin
   # HTML to PDF
@@ -44,7 +44,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject9>, Integer, Hash)> convert_html2_pdf_with_http_info(convert_html2_pdf_request)
+> <Array(<InlineObject8>, Integer, Hash)> convert_html2_pdf_with_http_info(convert_html2_pdf_request)
 
 ```ruby
 begin
@@ -52,7 +52,7 @@ begin
   data, status_code, headers = api_instance.convert_html2_pdf_with_http_info(convert_html2_pdf_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject9>
+  p data # => <InlineObject8>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ConversionApi->convert_html2_pdf_with_http_info: #{e}"
 end
@@ -66,7 +66,7 @@ end
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ end
 
 ## convert_pdf2_image
 
-> <InlineObject10> convert_pdf2_image(convert_pdf2_image_request)
+> File convert_pdf2_image(convert_pdf2_image_request)
 
 PDF to Image
 
@@ -113,7 +113,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject10>, Integer, Hash)> convert_pdf2_image_with_http_info(convert_pdf2_image_request)
+> <Array(File, Integer, Hash)> convert_pdf2_image_with_http_info(convert_pdf2_image_request)
 
 ```ruby
 begin
@@ -121,7 +121,7 @@ begin
   data, status_code, headers = api_instance.convert_pdf2_image_with_http_info(convert_pdf2_image_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject10>
+  p data # => File
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ConversionApi->convert_pdf2_image_with_http_info: #{e}"
 end
@@ -135,7 +135,7 @@ end
 
 ### Return type
 
-[**InlineObject10**](InlineObject10.md)
+**File**
 
 ### Authorization
 
@@ -144,12 +144,12 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/zip, application/json
 
 
 ## convert_url2_pdf
 
-> <InlineObject9> convert_url2_pdf(convert_url2_pdf_request)
+> <InlineObject8> convert_url2_pdf(convert_url2_pdf_request)
 
 URL to PDF
 
@@ -167,7 +167,7 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::ConversionApi.new
-convert_url2_pdf_request = PDFGeneratorAPI::ConvertURL2PDFRequest.new # ConvertURL2PDFRequest | 
+convert_url2_pdf_request = PDFGeneratorAPI::ConvertURL2PDFRequest.new({url: 'https://example.org'}) # ConvertURL2PDFRequest | 
 
 begin
   # URL to PDF
@@ -182,7 +182,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject9>, Integer, Hash)> convert_url2_pdf_with_http_info(convert_url2_pdf_request)
+> <Array(<InlineObject8>, Integer, Hash)> convert_url2_pdf_with_http_info(convert_url2_pdf_request)
 
 ```ruby
 begin
@@ -190,7 +190,7 @@ begin
   data, status_code, headers = api_instance.convert_url2_pdf_with_http_info(convert_url2_pdf_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject9>
+  p data # => <InlineObject8>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ConversionApi->convert_url2_pdf_with_http_info: #{e}"
 end
@@ -204,7 +204,7 @@ end
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 

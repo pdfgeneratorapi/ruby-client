@@ -15,7 +15,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::FormFillUrl.new(
-  file_url: null,
+  file_url: https://example.com/document.pdf,
   data: {&quot;firstName&quot;:&quot;John&quot;,&quot;lastName&quot;:&quot;Doe&quot;,&quot;email&quot;:&quot;john.doe@example.com&quot;},
   output: null,
   name: null

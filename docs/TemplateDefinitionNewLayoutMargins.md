@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **top** | **Float** |  | [optional] |
-| **right** | **Float** |  | [optional] |
-| **bottom** | **Float** |  | [optional] |
-| **left** | **Float** |  | [optional] |
+| **top** | **Float** | Top margin in units |  |
+| **right** | **Float** | Right margin in units |  |
+| **bottom** | **Float** | Bottom margin in units |  |
+| **left** | **Float** | Left margin in units |  |
 
 ## Example
 

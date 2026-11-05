@@ -14,7 +14,7 @@
 require 'pdf_generator_api_client'
 
 instance = PDFGeneratorAPI::OptimizeUrl.new(
-  file_url: null,
+  file_url: https://example.com/document.pdf,
   name: null,
   output: null
 )

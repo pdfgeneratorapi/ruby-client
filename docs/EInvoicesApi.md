@@ -81,11 +81,11 @@ end
 
 ## create_factur_xe_invoice
 
-> <InlineObject9> create_factur_xe_invoice(create_factur_xe_invoice_request)
+> <InlineObject8> create_factur_xe_invoice(create_factur_xe_invoice_request)
 
 Create Factur-X eInvoice
 
-This endpoint transforms a JSON payload a Factur-X e-invoice that is fully compliant with the European EN 16931 standard. The generated output is always a PDF document, embedding a structured CII (Cross-Industry Invoice) XML according to the Factur-X format into a human-readable invoice, ensuring interoperability across B2B and B2G platforms. The JSON payload follows Peppol BIS Billing 3.0 UBL Invoice described here: https://docs.peppol.eu/poacc/billing/3.0/
+This endpoint transforms a JSON payload a Factur-X e-invoice that is fully compliant with the European EN 16931 standard. The generated output is always a PDF document, embedding a structured CII (Cross-Industry Invoice) XML according to the Factur-X format into a human-readable invoice, ensuring interoperability across B2B and B2G platforms. The JSON payload follows Peppol BIS Billing 3.0 UBL Invoice described here: https://docs.peppol.eu/poacc/billing/3.0/ Preview mode (`testing: true`) is not available for Factur-X.
 
 ### Examples
 
@@ -99,7 +99,7 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::EInvoicesApi.new
-create_factur_xe_invoice_request = PDFGeneratorAPI::CreateFacturXEInvoiceRequest.new({template: PDFGeneratorAPI::CreateFacturXEInvoiceRequestTemplate.new}) # CreateFacturXEInvoiceRequest | eInvoice conversion
+create_factur_xe_invoice_request = PDFGeneratorAPI::CreateFacturXEInvoiceRequest.new({template: PDFGeneratorAPI::CreateFacturXEInvoiceRequestTemplate.new({id: nil, data: 3.56})}) # CreateFacturXEInvoiceRequest | eInvoice conversion
 
 begin
   # Create Factur-X eInvoice
@@ -114,7 +114,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject9>, Integer, Hash)> create_factur_xe_invoice_with_http_info(create_factur_xe_invoice_request)
+> <Array(<InlineObject8>, Integer, Hash)> create_factur_xe_invoice_with_http_info(create_factur_xe_invoice_request)
 
 ```ruby
 begin
@@ -122,7 +122,7 @@ begin
   data, status_code, headers = api_instance.create_factur_xe_invoice_with_http_info(create_factur_xe_invoice_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject9>
+  p data # => <InlineObject8>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling EInvoicesApi->create_factur_xe_invoice_with_http_info: #{e}"
 end
@@ -136,7 +136,7 @@ end
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ end
 
 ## create_x_rechnung_e_invoice
 
-> <InlineObject> create_x_rechnung_e_invoice(create_e_invoice_request)
+> <InlineObject> create_x_rechnung_e_invoice(create_x_rechnung_e_invoice_request)
 
 Create XRechnung eInvoice
 
@@ -168,11 +168,11 @@ PDFGeneratorAPI.configure do |config|
 end
 
 api_instance = PDFGeneratorAPI::EInvoicesApi.new
-create_e_invoice_request = PDFGeneratorAPI::CreateEInvoiceRequest.new({data: 3.56}) # CreateEInvoiceRequest | eInvoice conversion
+create_x_rechnung_e_invoice_request = PDFGeneratorAPI::CreateXRechnungEInvoiceRequest.new({data: 3.56}) # CreateXRechnungEInvoiceRequest | eInvoice conversion
 
 begin
   # Create XRechnung eInvoice
-  result = api_instance.create_x_rechnung_e_invoice(create_e_invoice_request)
+  result = api_instance.create_x_rechnung_e_invoice(create_x_rechnung_e_invoice_request)
   p result
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling EInvoicesApi->create_x_rechnung_e_invoice: #{e}"
@@ -183,12 +183,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject>, Integer, Hash)> create_x_rechnung_e_invoice_with_http_info(create_e_invoice_request)
+> <Array(<InlineObject>, Integer, Hash)> create_x_rechnung_e_invoice_with_http_info(create_x_rechnung_e_invoice_request)
 
 ```ruby
 begin
   # Create XRechnung eInvoice
-  data, status_code, headers = api_instance.create_x_rechnung_e_invoice_with_http_info(create_e_invoice_request)
+  data, status_code, headers = api_instance.create_x_rechnung_e_invoice_with_http_info(create_x_rechnung_e_invoice_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <InlineObject>
@@ -201,7 +201,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_e_invoice_request** | [**CreateEInvoiceRequest**](CreateEInvoiceRequest.md) | eInvoice conversion |  |
+| **create_x_rechnung_e_invoice_request** | [**CreateXRechnungEInvoiceRequest**](CreateXRechnungEInvoiceRequest.md) | eInvoice conversion |  |
 
 ### Return type
 
@@ -219,7 +219,7 @@ end
 
 ## get_e_invoice_schema
 
-> Object get_e_invoice_schema
+> <GetEInvoiceSchema200Response> get_e_invoice_schema
 
 Get schema
 
@@ -230,11 +230,6 @@ Returns e-invoice JSON schema which defines the structure of the e-invoice.
 ```ruby
 require 'time'
 require 'pdf_generator_api_client'
-# setup authorization
-PDFGeneratorAPI.configure do |config|
-  # Configure Bearer authorization (JWT): JSONWebTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
 
 api_instance = PDFGeneratorAPI::EInvoicesApi.new
 
@@ -251,7 +246,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> get_e_invoice_schema_with_http_info
+> <Array(<GetEInvoiceSchema200Response>, Integer, Hash)> get_e_invoice_schema_with_http_info
 
 ```ruby
 begin
@@ -259,7 +254,7 @@ begin
   data, status_code, headers = api_instance.get_e_invoice_schema_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <GetEInvoiceSchema200Response>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling EInvoicesApi->get_e_invoice_schema_with_http_info: #{e}"
 end
@@ -271,11 +266,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**GetEInvoiceSchema200Response**](GetEInvoiceSchema200Response.md)
 
 ### Authorization
 
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 
