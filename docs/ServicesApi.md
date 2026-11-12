@@ -15,7 +15,7 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 ## add_watermark
 
-> <InlineObject9> add_watermark(add_watermark_request)
+> <InlineObject8> add_watermark(add_watermark_request)
 
 Add watermark
 
@@ -48,7 +48,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject9>, Integer, Hash)> add_watermark_with_http_info(add_watermark_request)
+> <Array(<InlineObject8>, Integer, Hash)> add_watermark_with_http_info(add_watermark_request)
 
 ```ruby
 begin
@@ -56,7 +56,7 @@ begin
   data, status_code, headers = api_instance.add_watermark_with_http_info(add_watermark_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject9>
+  p data # => <InlineObject8>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ServicesApi->add_watermark_with_http_info: #{e}"
 end
@@ -70,7 +70,7 @@ end
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ end
 
 ## decrypt_document
 
-> <InlineObject9> decrypt_document(encrypt_document_request)
+> <InlineObject8> decrypt_document(encrypt_document_request)
 
 Decrypt document
 
@@ -117,7 +117,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject9>, Integer, Hash)> decrypt_document_with_http_info(encrypt_document_request)
+> <Array(<InlineObject8>, Integer, Hash)> decrypt_document_with_http_info(encrypt_document_request)
 
 ```ruby
 begin
@@ -125,7 +125,7 @@ begin
   data, status_code, headers = api_instance.decrypt_document_with_http_info(encrypt_document_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject9>
+  p data # => <InlineObject8>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ServicesApi->decrypt_document_with_http_info: #{e}"
 end
@@ -139,7 +139,7 @@ end
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ end
 
 ## encrypt_document
 
-> <InlineObject9> encrypt_document(encrypt_document_request)
+> <InlineObject8> encrypt_document(encrypt_document_request)
 
 Encrypt document
 
@@ -186,7 +186,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject9>, Integer, Hash)> encrypt_document_with_http_info(encrypt_document_request)
+> <Array(<InlineObject8>, Integer, Hash)> encrypt_document_with_http_info(encrypt_document_request)
 
 ```ruby
 begin
@@ -194,7 +194,7 @@ begin
   data, status_code, headers = api_instance.encrypt_document_with_http_info(encrypt_document_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject9>
+  p data # => <InlineObject8>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ServicesApi->encrypt_document_with_http_info: #{e}"
 end
@@ -208,7 +208,7 @@ end
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ end
 
 ## extract_form_fields
 
-> <InlineObject14> extract_form_fields(extract_form_fields_request)
+> <InlineObject13> extract_form_fields(extract_form_fields_request)
 
 Extract form fields
 
@@ -255,7 +255,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject14>, Integer, Hash)> extract_form_fields_with_http_info(extract_form_fields_request)
+> <Array(<InlineObject13>, Integer, Hash)> extract_form_fields_with_http_info(extract_form_fields_request)
 
 ```ruby
 begin
@@ -263,7 +263,7 @@ begin
   data, status_code, headers = api_instance.extract_form_fields_with_http_info(extract_form_fields_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject14>
+  p data # => <InlineObject13>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ServicesApi->extract_form_fields_with_http_info: #{e}"
 end
@@ -277,7 +277,7 @@ end
 
 ### Return type
 
-[**InlineObject14**](InlineObject14.md)
+[**InlineObject13**](InlineObject13.md)
 
 ### Authorization
 
@@ -291,7 +291,7 @@ end
 
 ## fill_form_fields
 
-> <InlineObject9> fill_form_fields(fill_form_fields_request)
+> <InlineObject8> fill_form_fields(fill_form_fields_request)
 
 Fill form fields
 
@@ -324,7 +324,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject9>, Integer, Hash)> fill_form_fields_with_http_info(fill_form_fields_request)
+> <Array(<InlineObject8>, Integer, Hash)> fill_form_fields_with_http_info(fill_form_fields_request)
 
 ```ruby
 begin
@@ -332,7 +332,7 @@ begin
   data, status_code, headers = api_instance.fill_form_fields_with_http_info(fill_form_fields_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject9>
+  p data # => <InlineObject8>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ServicesApi->fill_form_fields_with_http_info: #{e}"
 end
@@ -346,7 +346,7 @@ end
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -360,7 +360,7 @@ end
 
 ## make_accessible
 
-> <InlineObject9> make_accessible(make_accessible_request)
+> <InlineObject8> make_accessible(make_accessible_request)
 
 Make accessible
 
@@ -393,7 +393,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject9>, Integer, Hash)> make_accessible_with_http_info(make_accessible_request)
+> <Array(<InlineObject8>, Integer, Hash)> make_accessible_with_http_info(make_accessible_request)
 
 ```ruby
 begin
@@ -401,7 +401,7 @@ begin
   data, status_code, headers = api_instance.make_accessible_with_http_info(make_accessible_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject9>
+  p data # => <InlineObject8>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ServicesApi->make_accessible_with_http_info: #{e}"
 end
@@ -415,7 +415,7 @@ end
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -429,7 +429,7 @@ end
 
 ## optimize_document
 
-> <InlineObject12> optimize_document(optimize_document_request)
+> <InlineObject11> optimize_document(optimize_document_request)
 
 Optimize document
 
@@ -462,7 +462,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineObject12>, Integer, Hash)> optimize_document_with_http_info(optimize_document_request)
+> <Array(<InlineObject11>, Integer, Hash)> optimize_document_with_http_info(optimize_document_request)
 
 ```ruby
 begin
@@ -470,7 +470,7 @@ begin
   data, status_code, headers = api_instance.optimize_document_with_http_info(optimize_document_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineObject12>
+  p data # => <InlineObject11>
 rescue PDFGeneratorAPI::ApiError => e
   puts "Error when calling ServicesApi->optimize_document_with_http_info: #{e}"
 end
@@ -484,7 +484,7 @@ end
 
 ### Return type
 
-[**InlineObject12**](InlineObject12.md)
+[**InlineObject11**](InlineObject11.md)
 
 ### Authorization
 
