@@ -411,6 +411,7 @@ Class | Method | HTTP request | Description
  - [PDFGeneratorAPI::CreateFacturXEInvoiceRequestTemplateId](docs/CreateFacturXEInvoiceRequestTemplateId.md)
  - [PDFGeneratorAPI::CreateWorkspaceRequest](docs/CreateWorkspaceRequest.md)
  - [PDFGeneratorAPI::CreateXRechnungEInvoiceRequest](docs/CreateXRechnungEInvoiceRequest.md)
+ - [PDFGeneratorAPI::DisplayModeParam](docs/DisplayModeParam.md)
  - [PDFGeneratorAPI::Document](docs/Document.md)
  - [PDFGeneratorAPI::DocumentAction](docs/DocumentAction.md)
  - [PDFGeneratorAPI::DocumentSignature](docs/DocumentSignature.md)

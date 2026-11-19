@@ -14,6 +14,7 @@
 | **empty_labels** | **Integer** | Number of label positions to leave empty at the start of the first sheet. Only applies to label templates. | [optional][default to 0] |
 | **attachments** | [**Array&lt;AttachmentsParamInner&gt;**](AttachmentsParamInner.md) | Files embedded into the generated PDF as attachments. Only PDF and XML files are accepted. | [optional] |
 | **metadata** | [**MetadataParam**](MetadataParam.md) |  | [optional] |
+| **display_mode** | [**DisplayModeParam**](DisplayModeParam.md) |  | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = PDFGeneratorAPI::GenerateDocumentBatchAsynchronousRequest.new(
   print: false,
   empty_labels: 0,
   attachments: null,
-  metadata: null
+  metadata: null,
+  display_mode: null
 )
 ```
 

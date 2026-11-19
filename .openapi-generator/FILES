@@ -24,6 +24,7 @@ docs/CreateFacturXEInvoiceRequestTemplate.md
 docs/CreateFacturXEInvoiceRequestTemplateId.md
 docs/CreateWorkspaceRequest.md
 docs/CreateXRechnungEInvoiceRequest.md
+docs/DisplayModeParam.md
 docs/Document.md
 docs/DocumentAction.md
 docs/DocumentSignature.md
@@ -202,6 +203,7 @@ lib/pdf_generator_api_client/models/create_factur_xe_invoice_request_template.rb
 lib/pdf_generator_api_client/models/create_factur_xe_invoice_request_template_id.rb
 lib/pdf_generator_api_client/models/create_workspace_request.rb
 lib/pdf_generator_api_client/models/create_x_rechnung_e_invoice_request.rb
+lib/pdf_generator_api_client/models/display_mode_param.rb
 lib/pdf_generator_api_client/models/document.rb
 lib/pdf_generator_api_client/models/document_action.rb
 lib/pdf_generator_api_client/models/document_signature.rb
@@ -367,6 +369,7 @@ spec/models/create_factur_xe_invoice_request_template_id_spec.rb
 spec/models/create_factur_xe_invoice_request_template_spec.rb
 spec/models/create_workspace_request_spec.rb
 spec/models/create_x_rechnung_e_invoice_request_spec.rb
+spec/models/display_mode_param_spec.rb
 spec/models/document_action_spec.rb
 spec/models/document_signature_spec.rb
 spec/models/document_signatures_spec.rb

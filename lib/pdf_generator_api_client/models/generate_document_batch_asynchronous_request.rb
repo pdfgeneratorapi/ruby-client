@@ -40,6 +40,8 @@ module PDFGeneratorAPI
 
     attr_accessor :metadata
 
+    attr_accessor :display_mode
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -74,7 +76,8 @@ module PDFGeneratorAPI
         :'print' => :'print',
         :'empty_labels' => :'empty_labels',
         :'attachments' => :'attachments',
-        :'metadata' => :'metadata'
+        :'metadata' => :'metadata',
+        :'display_mode' => :'display_mode'
       }
     end
 
@@ -100,7 +103,8 @@ module PDFGeneratorAPI
         :'print' => :'Boolean',
         :'empty_labels' => :'Integer',
         :'attachments' => :'Array<AttachmentsParamInner>',
-        :'metadata' => :'MetadataParam'
+        :'metadata' => :'MetadataParam',
+        :'display_mode' => :'DisplayModeParam'
       }
     end
 
@@ -184,6 +188,10 @@ module PDFGeneratorAPI
 
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'display_mode')
+        self.display_mode = attributes[:'display_mode']
       end
     end
 
@@ -284,7 +292,8 @@ module PDFGeneratorAPI
           print == o.print &&
           empty_labels == o.empty_labels &&
           attachments == o.attachments &&
-          metadata == o.metadata
+          metadata == o.metadata &&
+          display_mode == o.display_mode
     end
 
     # @see the `==` method
@@ -296,7 +305,7 @@ module PDFGeneratorAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template, callback, format, output, name, testing, print, empty_labels, attachments, metadata].hash
+      [template, callback, format, output, name, testing, print, empty_labels, attachments, metadata, display_mode].hash
     end
 
     # Builds the object from hash

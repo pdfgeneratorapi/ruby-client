@@ -32,6 +32,7 @@ require 'pdf_generator_api_client/models/create_factur_xe_invoice_request_templa
 require 'pdf_generator_api_client/models/create_factur_xe_invoice_request_template_id'
 require 'pdf_generator_api_client/models/create_workspace_request'
 require 'pdf_generator_api_client/models/create_x_rechnung_e_invoice_request'
+require 'pdf_generator_api_client/models/display_mode_param'
 require 'pdf_generator_api_client/models/document'
 require 'pdf_generator_api_client/models/document_action'
 require 'pdf_generator_api_client/models/document_signature'
